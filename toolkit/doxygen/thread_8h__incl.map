@@ -1,0 +1,11 @@
+<map id="roc_core/target_libuv/roc_core/thread.h" name="roc_core/target_libuv/roc_core/thread.h">
+<area shape="rect" id="node1" title="Thread." alt="" coords="355,5,513,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="35,169,84,196"/>
+<area shape="rect" id="node3" href="$atomic_8h.html" title="Atomic integer." alt="" coords="559,95,698,121"/>
+<area shape="rect" id="node4" href="$noncopyable_8h.html" title="Non&#45;copyable object." alt="" coords="409,244,585,271"/>
+<area shape="rect" id="node5" href="$mutex_8h.html" title="Mutex." alt="" coords="280,95,415,121"/>
+<area shape="rect" id="node6" href="$panic_8h.html" title="Panic function." alt="" coords="109,169,237,196"/>
+<area shape="rect" id="node9" href="$scoped__lock_8h.html" title="RAII mutex lock." alt="" coords="261,169,434,196"/>
+<area shape="rect" id="node7" href="$attributes_8h.html" title="GCC attributes." alt="" coords="5,244,161,271"/>
+<area shape="rect" id="node8" href="$helpers_8h.html" title="Compile time helpers." alt="" coords="186,244,327,271"/>
+</map>

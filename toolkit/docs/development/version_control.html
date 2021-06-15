@@ -1,0 +1,144 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Version control &#8212; Roc Toolkit 0.1.5</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roc.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="/analytics.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Continuous integration" href="continuous_integration.html" />
+    <link rel="prev" title="Coding guidelines" href="coding_guidelines.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="continuous_integration.html" title="Continuous integration"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="coding_guidelines.html" title="Coding guidelines"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../development.html" accesskey="U">Development</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="version-control">
+<h1>Version control<a class="headerlink" href="#version-control" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="branches">
+<h2>Branches<a class="headerlink" href="#branches" title="Permalink to this headline">¶</a></h2>
+<p>The following branches are used:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">master</span></code> -- Stable and ready-to-use branch for users. Should be tested on all supported platforms. Public releases are tagged from this branch.</li>
+<li><code class="docutils literal notranslate"><span class="pre">develop</span></code> -- Unstable branch for developers. May not be fully tested. From time to time it is considered ready and merged into the master branch.</li>
+<li><code class="docutils literal notranslate"><span class="pre">feature/xxx</span></code> -- Unstable feature branches for developers. Created for large work-in-progress features to allow the usual continuous integration and code review process without breaking the develop branch. Merged into develop when becomes ready.</li>
+</ul>
+</div>
+<div class="section" id="releases">
+<h2>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference external" href="https://github.com/roc-streaming/roc-toolkit/releases">Releases</a> and <a class="reference internal" href="changelog.html"><span class="doc">Changelog</span></a> pages for the list of releases and their detailed description.</p>
+<p>Releases are tagged from the master branch and named according to the <a class="reference external" href="https://semver.org/">semantic versioning</a> rules:</p>
+<ul class="simple">
+<li>patch version Z (x.y.Z) is incremented when introducing backwards-compatible bug fixes;</li>
+<li>minor version Y (x.Y.z) is incremented when introducing backwards-compatible features;</li>
+<li>major version X (X.y.z) is incremented when introducing backwards-incompatible changes.</li>
+</ul>
+<p>Prior to 1.0.0 release, which hasn't happened yet, there is no compatibility promise for the public API. Small breaking changes are possible in any release.</p>
+</div>
+<div class="section" id="history">
+<h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
+<p>History is always kept linear in the master and develop branches.</p>
+<p>The develop branch should be rebased on the master branch, and the feature branches and pull requests should be rebased on the develop branch. Not fast-forward merges into master and develop are not allowed.</p>
+</div>
+<div class="section" id="pull-requests">
+<h2>Pull requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">¶</a></h2>
+<p>All pull-requests should be targeted on the develop branch. To be merged, a pull request should be rebased on the latest commit from that branch.</p>
+<p>It's recommended to group independent changes, like formatting, refactoring, bug fixes, and new features into separate commits. Bonus points if build and tests pass on every commit. This helps a lot when bisecting a regression.</p>
+<p>A pull request should pass the  <a class="reference internal" href="continuous_integration.html"><span class="doc">continuous integration</span></a> checks and code review to be merged.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo80.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running.html">Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manuals.html">Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../portability.html">Portability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals.html">Internals</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../development.html">Development</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribution_guidelines.html">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_guidelines.html">Coding guidelines</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Version control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="continuous_integration.html">Continuous integration</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="continuous_integration.html" title="Continuous integration"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="coding_guidelines.html" title="Coding guidelines"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../development.html" >Development</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Roc authors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>

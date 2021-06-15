@@ -1,0 +1,7 @@
+<map id="roc::audio::Mixer" name="roc::audio::Mixer">
+<area shape="rect" id="node1" title="Mixer. Mixes multiple input streams into one output stream." alt="" coords="123,244,253,271"/>
+<area shape="rect" id="node2" href="$classroc_1_1audio_1_1IReader.html" title="Audio reader interface." alt="" coords="20,169,164,196"/>
+<area shape="rect" id="node3" href="$classroc_1_1core_1_1ListNode.html" title="Base class for list element." alt="" coords="21,95,163,121"/>
+<area shape="rect" id="node4" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="5,5,179,47"/>
+<area shape="rect" id="node5" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="188,169,383,196"/>
+</map>

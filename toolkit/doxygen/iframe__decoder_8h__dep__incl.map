@@ -1,0 +1,18 @@
+<map id="roc_audio/iframe_decoder.h" name="roc_audio/iframe_decoder.h">
+<area shape="rect" id="node1" title="Audio frame decoder interface." alt="" coords="174,5,377,32"/>
+<area shape="rect" id="node2" href="$depacketizer_8h.html" title="Depacketizer." alt="" coords="95,80,277,107"/>
+<area shape="rect" id="node8" href="$receiver__session_8h.html" title="Receiver session pipeline." alt="" coords="5,311,164,353"/>
+<area shape="rect" id="node13" href="$pcm__decoder_8h.html" title="PCM decoder." alt="" coords="453,80,639,107"/>
+<area shape="rect" id="node14" href="$format_8h.html" title="RTP payload format." alt="" coords="301,80,428,107"/>
+<area shape="rect" id="node3" href="$latency__monitor_8h.html" title="Latency monitor." alt="" coords="115,155,321,181"/>
+<area shape="rect" id="node4" href="$roc__pipeline_2config_8h.html" title="Pipeline config." alt="" coords="433,229,589,256"/>
+<area shape="rect" id="node5" href="$converter_8h.html" title="Converter pipeline." alt="" coords="422,319,601,345"/>
+<area shape="rect" id="node6" href="$receiver_8h.html" title="Receiver pipeline." alt="" coords="241,408,411,435"/>
+<area shape="rect" id="node7" href="$receiver__port_8h.html" title="Receiver port pipeline." alt="" coords="188,311,347,353"/>
+<area shape="rect" id="node9" href="$sender_8h.html" title="Sender pipeline." alt="" coords="1118,408,1278,435"/>
+<area shape="rect" id="node10" href="$sender__port_8h.html" title="Sender port pipeline." alt="" coords="1011,311,1161,353"/>
+<area shape="rect" id="node11" href="$parse__port_8h.html" title="Parse port from string." alt="" coords="625,304,769,360"/>
+<area shape="rect" id="node12" href="$port__to__str_8h.html" title="Port to string." alt="" coords="793,304,937,360"/>
+<area shape="rect" id="node15" href="$format__map_8h.html" title="RTP payload format map." alt="" coords="346,155,509,181"/>
+<area shape="rect" id="node16" href="$roc__rtp_2parser_8h.html" title="RTP packet parser." alt="" coords="215,229,338,256"/>
+</map>

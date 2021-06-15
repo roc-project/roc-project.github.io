@@ -1,0 +1,13 @@
+<map id="roc::audio::IWriter" name="roc::audio::IWriter">
+<area shape="rect" id="node1" title="Audio writer interface." alt="" coords="5,132,144,159"/>
+<area shape="rect" id="node2" href="$classroc_1_1audio_1_1NullWriter.html" title="Null writer." alt="" coords="214,5,374,32"/>
+<area shape="rect" id="node3" href="$classroc_1_1audio_1_1Packetizer.html" title="Packetizer." alt="" coords="214,56,374,83"/>
+<area shape="rect" id="node4" href="$classroc_1_1audio_1_1PoisonWriter.html" title="Poisons audio frames after writing them." alt="" coords="205,107,383,133"/>
+<area shape="rect" id="node5" href="$classroc_1_1audio_1_1ProfilingWriter.html" title="Profiling writer." alt="" coords="201,157,387,184"/>
+<area shape="rect" id="node6" href="$classroc_1_1audio_1_1ResamplerWriter.html" title="Resamples audio stream with non&#45;integer dynamically changing factor." alt="" coords="192,208,396,235"/>
+<area shape="rect" id="node7" href="$classroc_1_1sndio_1_1ISink.html" title="Sink interface." alt="" coords="231,259,357,285"/>
+<area shape="rect" id="node8" href="$classroc_1_1pipeline_1_1Converter.html" title="Converter pipeline." alt="" coords="453,183,627,209"/>
+<area shape="rect" id="node9" href="$classroc_1_1pipeline_1_1Sender.html" title="Sender pipeline." alt="" coords="463,233,617,260"/>
+<area shape="rect" id="node10" href="$classroc_1_1sndio_1_1PulseaudioSink.html" title="PulseAudio sink,." alt="" coords="444,284,636,311"/>
+<area shape="rect" id="node11" href="$classroc_1_1sndio_1_1SoxSink.html" title="SoX sink." alt="" coords="467,335,613,361"/>
+</map>

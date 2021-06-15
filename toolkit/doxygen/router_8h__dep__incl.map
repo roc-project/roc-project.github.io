@@ -1,0 +1,6 @@
+<map id="roc_packet/router.h" name="roc_packet/router.h">
+<area shape="rect" id="node1" title="Route packets to writers." alt="" coords="109,5,255,32"/>
+<area shape="rect" id="node2" href="$receiver__session_8h.html" title="Receiver session pipeline." alt="" coords="11,80,169,121"/>
+<area shape="rect" id="node4" href="$sender_8h.html" title="Sender pipeline." alt="" coords="194,87,354,114"/>
+<area shape="rect" id="node3" href="$receiver_8h.html" title="Receiver pipeline." alt="" coords="5,169,175,196"/>
+</map>

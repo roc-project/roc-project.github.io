@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['acquire_1074',['acquire',['../structroc_1_1core_1_1RefCntOwnership.html#ae499c8922ad6372e646c05863fdeda62',1,'roc::core::RefCntOwnership::acquire()'],['../structroc_1_1core_1_1NoOwnership.html#a30076fd3ef7221cb850fbe1b0dfe8c66',1,'roc::core::NoOwnership::acquire()']]],
+  ['add_1075',['add',['../classroc_1_1audio_1_1Mixer.html#a38e65a14d5369c59ef7b72982b99dc74',1,'roc::audio::Mixer']]],
+  ['add_5fdriver_5funiq_1076',['add_driver_uniq',['../namespaceroc_1_1sndio.html#af4bd928b9b0b9adea13e543ab1d41ddb',1,'roc::sndio']]],
+  ['add_5fflags_1077',['add_flags',['../classroc_1_1packet_1_1Packet.html#af1ab2b8ca54d588749ed6cc63b5a9705',1,'roc::packet::Packet']]],
+  ['add_5fport_1078',['add_port',['../classroc_1_1pipeline_1_1Receiver.html#a2885a00536d32614f4b5dcf4e6dfa3fa',1,'roc::pipeline::Receiver']]],
+  ['add_5froute_1079',['add_route',['../classroc_1_1packet_1_1Router.html#a2546506284ae4749b2bb9ed5c55673a3',1,'roc::packet::Router']]],
+  ['add_5fudp_5freceiver_1080',['add_udp_receiver',['../classroc_1_1netio_1_1Transceiver.html#a67e5f39cceff96a6933e43c8df28a025',1,'roc::netio::Transceiver']]],
+  ['add_5fudp_5fsender_1081',['add_udp_sender',['../classroc_1_1netio_1_1Transceiver.html#a40c2f1f9baf8eb2e761e28b2a89d2875',1,'roc::netio::Transceiver']]],
+  ['address_1082',['Address',['../classroc_1_1packet_1_1Address.html#a4a585069f7c660c6673a7cd9718e333a',1,'roc::packet::Address::Address()'],['../classroc_1_1netio_1_1BasicPort.html#ac56f88f8b155d7e800cd49b83922e81a',1,'roc::netio::BasicPort::address()'],['../classroc_1_1netio_1_1UDPReceiverPort.html#ab18c8a8a4c64277f23e4aa9bd6b0a137',1,'roc::netio::UDPReceiverPort::address()'],['../classroc_1_1netio_1_1UDPSenderPort.html#a2ac2c3d64b97be4ca2b50f3d224ba6ed',1,'roc::netio::UDPSenderPort::address()']]],
+  ['address_5fto_5fstr_1083',['address_to_str',['../classroc_1_1packet_1_1address__to__str.html#a16a2b57943063314744f6998b184e91e',1,'roc::packet::address_to_str']]],
+  ['align_1084',['align',['../classroc_1_1fec_1_1Composer.html#afc0047239ed32ccc0982497085d92d4d',1,'roc::fec::Composer::align()'],['../classroc_1_1packet_1_1IComposer.html#a3ab7c495da445fac370ee6edeaa814b4',1,'roc::packet::IComposer::align()'],['../classroc_1_1rtp_1_1Composer.html#a6f1e0aba763f529fc4c688364bd04831',1,'roc::rtp::Composer::align()']]],
+  ['alignment_1085',['alignment',['../classroc_1_1fec_1_1IBlockEncoder.html#a0a5ff395afa75b9fc9399f84f0045a92',1,'roc::fec::IBlockEncoder::alignment()'],['../classroc_1_1fec_1_1OFEncoder.html#a93a6918430552ef826d138c718595838',1,'roc::fec::OFEncoder::alignment()']]],
+  ['alive_1086',['alive',['../classroc_1_1fec_1_1Reader.html#aa805da60f893f34fc40e88645c581b96',1,'roc::fec::Reader::alive()'],['../classroc_1_1fec_1_1Writer.html#a109d7947dea0175bbdd41d204e5291f1',1,'roc::fec::Writer::alive()']]],
+  ['allocate_1087',['allocate',['../classroc_1_1core_1_1HeapAllocator.html#a36e6979839457b56146cb24130aa1645',1,'roc::core::HeapAllocator::allocate()'],['../classroc_1_1core_1_1IAllocator.html#a66583d77daefdfd7e31fa2977af2df2b',1,'roc::core::IAllocator::allocate()'],['../classroc_1_1core_1_1Pool.html#aa745f8e98d66de1e989217744eb93588',1,'roc::core::Pool::allocate()']]],
+  ['allow_1088',['allow',['../classroc_1_1core_1_1RateLimiter.html#ac8171e692ccb212056c071c0db4dfa5c',1,'roc::core::RateLimiter']]],
+  ['array_1089',['Array',['../classroc_1_1core_1_1Array.html#a90bc0ef36976d365264a93b08d47b13d',1,'roc::core::Array']]],
+  ['async_5fclose_1090',['async_close',['../classroc_1_1netio_1_1BasicPort.html#a6c4073f8b0c72febe8ea377ff9e85949',1,'roc::netio::BasicPort::async_close()'],['../classroc_1_1netio_1_1UDPReceiverPort.html#a31f7414a7a255c6bcfcd69d48483f0de',1,'roc::netio::UDPReceiverPort::async_close()'],['../classroc_1_1netio_1_1UDPSenderPort.html#a13442e5c2fde6d9de450b2f445893080',1,'roc::netio::UDPSenderPort::async_close()']]],
+  ['atomic_1091',['Atomic',['../classroc_1_1core_1_1Atomic.html#af883e94fcc2f8d872aa089b02503e1db',1,'roc::core::Atomic']]],
+  ['available_1092',['available',['../classroc_1_1audio_1_1IFrameDecoder.html#a74408b1382798d0e7c9172fafd481bf5',1,'roc::audio::IFrameDecoder::available()'],['../classroc_1_1audio_1_1PCMDecoder.html#a4481f5c8c7043033349c5264f041f2ac',1,'roc::audio::PCMDecoder::available()']]]
+];

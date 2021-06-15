@@ -1,0 +1,210 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Data flow &#8212; Roc Toolkit 0.1.5</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roc.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="/analytics.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Forward Erasure Correction codes" href="fec.html" />
+    <link rel="prev" title="Code structure" href="code_structure.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="fec.html" title="Forward Erasure Correction codes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="code_structure.html" title="Code structure"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../internals.html" accesskey="U">Internals</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="data-flow">
+<h1>Data flow<a class="headerlink" href="#data-flow" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of contents:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#execution-threads" id="id2">Execution threads</a></li>
+<li><a class="reference internal" href="#pipeline-structure" id="id3">Pipeline structure</a></li>
+<li><a class="reference internal" href="#pipeline-timing" id="id4">Pipeline timing</a></li>
+<li><a class="reference internal" href="#sender-pipeline" id="id5">Sender pipeline</a></li>
+<li><a class="reference internal" href="#receiver-pipeline" id="id6">Receiver pipeline</a></li>
+<li><a class="reference internal" href="#routing-in-receiver" id="id7">Routing in receiver</a></li>
+</ul>
+</div>
+<div class="section" id="execution-threads">
+<h2><a class="toc-backref" href="#id2">Execution threads</a><a class="headerlink" href="#execution-threads" title="Permalink to this headline">¶</a></h2>
+<p>Both Roc sender and receiver use threads of up to three types:</p>
+<ul class="simple">
+<li>network I/O thread running event loop, capable of sending and receiving packets via multiple sockets;</li>
+<li>processing pipeline thread running sender or receiver pipeline, converting packet stream to audio stream or vice versa;</li>
+<li>sound I/O thread running audio device reader or writer.</li>
+</ul>
+<p>Roc command-line tools create these three threads. The network I/O and the processing pipeline threads are managed by Roc itself (though the I/O part is done by libuv), and the sound I/O thread is managed by SoX library. The presence of the sound I/O thread is optional and depends on the selected SoX backend.</p>
+<p>Roc library, in contrast, creates only the network I/O thread. The processing pipeline is running in the caller context when the user reads or writes audio stream. The sound I/O is not performed at all and users should implement it by themselves using other available libraries dedicated for that purpose.</p>
+<p>It is also worth to mention that Roc library allows both creating individual network I/O threads for every sender or receiver, and sharing a single network I/O thread between multiple senders or receivers.</p>
+<p>Threads typically don't share much state and mostly communicate via queues. The network I/O and the processing pipeline threads communicate via packet queues for incoming and outgoing packets. The sound I/O and the processing pipeline threads communicate via a stream buffer which implementation is specific for the selected SoX backend.</p>
+<p>The following diagram gives a conceptual view of both sender and receiver structure:</p>
+<img alt="Threads" class="align-center" src="../_images/threads.png" />
+<p>The difference is that on the receiver data is transferring from the network to the sound card and on the sender it is transferring from the sound card to the network.</p>
+</div>
+<div class="section" id="pipeline-structure">
+<h2><a class="toc-backref" href="#id3">Pipeline structure</a><a class="headerlink" href="#pipeline-structure" title="Permalink to this headline">¶</a></h2>
+<p>Pipelines used in sender and receiver are chains of consecutively connected elements. Each element has a reference to the inner element (or sometimes multiple elements) and adds some pre- or post-processing on top of it.</p>
+<p>The element interface depends on the pipeline type, which may be packet or frame, and pipeline direction, which may be read or write. Therefore, there are four element interfaces: packet reader, packet writer, frame reader, frame writer.</p>
+<p>Some elements may implement one interface but refer to an inner element of another interface, or implement multiple interfaces. Such elements act as adapters between sub-pipelines of different types or directions.</p>
+</div>
+<div class="section" id="pipeline-timing">
+<h2><a class="toc-backref" href="#id4">Pipeline timing</a><a class="headerlink" href="#pipeline-timing" title="Permalink to this headline">¶</a></h2>
+<p>The key feature of pipelines is that they are passive and are clocked by their users.</p>
+<p>When the user reads or writes packet or frame from the top-level pipeline element, the call is recursively propagated to inner elements. Every element tries to perform the amount of work required to advance the stream exactly by one packet or frame, or to be as close as possible to it.</p>
+<p>This allows doing things in time and in the right clock domain. This is important for two reasons.</p>
+<p>First, every device, including the CPU and the sound card, has its own clock domain and has a bit different frequency than all other devices, even if nominally the frequencies are configured to be the same. Therefore, the real-time stream on the sender or receiver can't have its own CPU timer but instead should be driven in the sound card clock domain. Otherwise, the pipeline stream will eventually lag behind or ahead of the sound card stream.</p>
+<p>Second, the receiver should advance the stream exactly when it's time to pass the corresponding samples to the sound card. Advancing the stream too late will cause glitches. Advancing the stream too early can cause glitches as well because chances are that some packets are not yet received by this time and so they will be considered lost, even though they can be received a bit later but still within the acceptable latency.</p>
+<p>Note that, however, if the sender or receiver works with a sound file instead of a sound card, the pipeline is clocked by a CPU timer because the sound file obviously does not have its own real-time clock.</p>
+<p>Another important point is that the sender and receiver have different clock domains as well. To deal with it, there is a resampler in the receiver pipeline, which dynamically converts the sender clock domain to the receiver clock domain by adjusting the sample rate. See <a class="reference internal" href="fe_resampler.html"><span class="doc">Frequency estimator and resampler</span></a>.</p>
+</div>
+<div class="section" id="sender-pipeline">
+<h2><a class="toc-backref" href="#id5">Sender pipeline</a><a class="headerlink" href="#sender-pipeline" title="Permalink to this headline">¶</a></h2>
+<p>The diagram below shows an example of the sender pipeline.</p>
+<p>Some of the elements shown can be removed from the pipeline or replaced with other elements depending on the sender configuration. For instance, resampling and FEC can be disabled completely, the specific RTP and FEC encoders can be changed, and the number and contents of the port pipelines depend on the network ports and protocols being used.</p>
+<p>The sender pipeline is a writer pipeline. The sound card thread writes frames to the pipeline, and the pipeline writes packets to the network thread queue.</p>
+<p>In general terms, the flow is the following:</p>
+<ul class="simple">
+<li>the sound card thread writes a frame to the pipeline;</li>
+<li>the frame passes through several frame writers;</li>
+<li>the frame is split into packets;</li>
+<li>the packets pass through several packet writers;</li>
+<li>each packet is routed to a sender port pipeline, according to the packet stream identifier;</li>
+<li>in the port pipeline, packet headers and payload are composed, depending on the port protocol;</li>
+<li>the packets are written to the network thread queue.</li>
+</ul>
+<p>The specific functions of the individual pipeline elements are documented in <a class="reference external" href="https://roc-streaming.org/toolkit/doxygen/">Doxygen</a>.</p>
+<a class="reference internal image-reference" href="../_images/sender_pipeline.png"><img alt="Sender pipeline" class="align-center" src="../_images/sender_pipeline.png" style="width: 520px;" /></a>
+</div>
+<div class="section" id="receiver-pipeline">
+<h2><a class="toc-backref" href="#id6">Receiver pipeline</a><a class="headerlink" href="#receiver-pipeline" title="Permalink to this headline">¶</a></h2>
+<p>The diagram below shows an example of the receiver pipeline.</p>
+<p>Some of the elements shown can be removed from the pipeline or replaced with other elements depending on the receiver configuration. For instance, resampling and FEC can be disabled completely, the specific RTP and FEC decoders can be changed, and the number and contents of the port pipelines depend on the network ports and protocols being used.</p>
+<p>The receiver pipeline is a combination of writer and reader pipelines. The network thread writes packets to the pipeline, and the sound card thread reads frames from the pipeline.</p>
+<p>The flow of the write part is the following:</p>
+<ul class="simple">
+<li>each packet received from the network is routed to a receiver port pipeline, according to the packet destination address;</li>
+<li>in the port pipeline, packet headers and payload are parsed, according to the port protocol;</li>
+<li>each packet is routed to a receiver session pipeline, according to the packet source address;</li>
+<li>in the session pipeline, each packet is routed to a specific queue, according to the packet stream identifier;</li>
+<li>the packet is stored in that queue.</li>
+</ul>
+<p>The flow of the read part is the following:</p>
+<ul class="simple">
+<li>the sound card thread requests a frame from the receiver pipeline;</li>
+<li>the receiver pipeline requests a frame from every receiver session pipeline;</li>
+<li>the frame is requested through several frame readers;</li>
+<li>the frame is being built from packets, for which the packets are requested from packet readers;</li>
+<li>the packets are requested through several packet readers;</li>
+<li>the packets are fetched from the queues where they were stored by the write part.</li>
+</ul>
+<p>The specific functions of the individual pipeline elements are documented in <a class="reference external" href="https://roc-streaming.org/toolkit/doxygen/">Doxygen</a>.</p>
+<a class="reference internal image-reference" href="../_images/receiver_pipeline.png"><img alt="Receiver pipeline" class="align-center" src="../_images/receiver_pipeline.png" style="width: 620px;" /></a>
+</div>
+<div class="section" id="routing-in-receiver">
+<h2><a class="toc-backref" href="#id7">Routing in receiver</a><a class="headerlink" href="#routing-in-receiver" title="Permalink to this headline">¶</a></h2>
+<p>The receiver can be bound to multiple network ports and serve multiple streams from multiple senders.</p>
+<p>For every network port bound, the receiver creates a receiver port pipeline. For every connected sender, the receiver creates a receiver session pipeline. For every stream inside the session, the receiver creates a separate packet queue.</p>
+<p>The mapping between ports and sessions is many-to-many, i.e. packets can be routed from one port to many sessions, as well as they can be routed to one session from many ports.</p>
+<p>A typical receiver session employs FEC and hence consists of two streams, one for source and another for repair packets. Respectively, such a session gets packets from two receiver ports, one for source and another for repair packets.</p>
+<p>When a packet is received from the network, it is routed to an appropriate port pipeline according to the packet destination address. After passing the port pipeline, the packet is routed to an appropriate session pipeline, according to the packet source address. If there is no session for that address, a new one is automatically created. Inside the session pipeline, the packet is routed to an appropriate queue, according to the packet stream identifier.</p>
+<p>When a frame is requested by the sound card, the receiver requests a frame from every existing session pipeline and then mixes all frames into one and returns the result.</p>
+<p>The diagram below illustrates this routing.</p>
+<a class="reference internal image-reference" href="../_images/receiver_routing.png"><img alt="Receiver pipeline" class="align-center" src="../_images/receiver_routing.png" style="width: 835px;" /></a>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo80.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running.html">Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manuals.html">Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../portability.html">Portability</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../internals.html">Internals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code_structure.html">Code structure</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fec.html">Forward Erasure Correction codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fe_resampler.html">Frequency estimator and resampler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_protocols.html">Network protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="fec.html" title="Forward Erasure Correction codes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="code_structure.html" title="Code structure"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../internals.html" >Internals</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Roc authors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>

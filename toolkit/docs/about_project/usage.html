@@ -1,0 +1,153 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Usage &#8212; Roc Toolkit 0.1.5</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roc.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="/analytics.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Publications" href="publications.html" />
+    <link rel="prev" title="Features" href="features.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="publications.html" title="Publications"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="features.html" title="Features"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../about_project.html" accesskey="U">About project</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="using-roc-as-a-library">
+<h2>Using Roc as a library<a class="headerlink" href="#using-roc-as-a-library" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="../api.html"><span class="doc">API</span></a></p>
+</div>
+<p>Roc comes with a general-purpose C API which provides a real-time transport for applications.</p>
+<p>Consider using Roc library when:</p>
+<ul class="simple">
+<li>You're writing an audio application and need a real-time network transport that &quot;just works&quot;. Roc will provide you with a simple API that hides all the complexity of real-time delivery.</li>
+<li>You need fixed latency and good service quality over an unreliable network at the same time. Bare RTP will give you the former, but not the latter; TCP or HTTP will give you the latter, but not the former; Roc will give you both.</li>
+<li>You want to stream high-quality lossless audio with loss recovery. Opus, for example, has loss recovery, but it's a lossy codec; Roc can employ encoding-independent loss recovery and lossless encodings.</li>
+<li>Your source and destination both have their own clocks, in particular when you want to connect two audio devices. Roc will automatically perform the conversion between the clock domains for you.</li>
+</ul>
+</div>
+<div class="section" id="using-roc-for-home-audio">
+<h2>Using Roc for home audio<a class="headerlink" href="#using-roc-for-home-audio" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="publications.html"><span class="doc">Publications</span></a></p>
+</div>
+<p>One possible application of Roc is building your own wireless home audio system.</p>
+<p>In addition to the C API, Roc provides command-line tools and PulseAudio modules which can be used for this use case.</p>
+<p>Consider using them when:</p>
+<ul class="simple">
+<li>You want to connect audio applications and devices over an unreliable network like Wi-Fi and want live streaming with a fixed latency and yet good service quality. Most software will not give you both.</li>
+<li>You want to interconnect audio applications and devices across different platforms and audio systems, for example, ALSA, PulseAudio, and macOS CoreAudio.</li>
+<li>You want to improve PulseAudio service quality over an unreliable network like Wi-Fi.</li>
+<li>You want a network transport that transparently integrates into the PulseAudio workflow and can be controlled via the usual PulseAudio GUIs.</li>
+</ul>
+<p>Here are some examples of what you can do with Roc:</p>
+<ul class="simple">
+<li>you can connect speakers to a single-board computer and stream sound from your other devices to it;</li>
+<li>you can stream sound to your Android device;</li>
+<li>you can set up some music server with remote control (like MPD) and then stream sound from it to other devices;</li>
+<li>you can set up several devices and switch between them on the fly via standard PulseAudio GUI or CLI; you can also route different apps to different devices;</li>
+<li>all of these can work over Wi-Fi with acceptable service quality.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo80.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../about_project.html">About project</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publications.html">Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="licensing.html">Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contacts.html">Contacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../building.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running.html">Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manuals.html">Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../portability.html">Portability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals.html">Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="publications.html" title="Publications"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="features.html" title="Features"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../about_project.html" >About project</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Roc authors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>

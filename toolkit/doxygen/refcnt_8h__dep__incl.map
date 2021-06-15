@@ -1,0 +1,65 @@
+<map id="roc_core/refcnt.h" name="roc_core/refcnt.h">
+<area shape="rect" id="node1" title="Base class for reference countable objects." alt="" coords="4615,5,4745,32"/>
+<area shape="rect" id="node2" href="$packet_8h.html" title="Packet." alt="" coords="2450,333,2601,360"/>
+<area shape="rect" id="node9" href="$receiver__port_8h.html" title="Receiver port pipeline." alt="" coords="3454,802,3613,843"/>
+<area shape="rect" id="node10" href="$receiver__session_8h.html" title="Receiver session pipeline." alt="" coords="2999,802,3158,843"/>
+<area shape="rect" id="node32" href="$udp__receiver__port_8h.html" title="UDP receiver." alt="" coords="4718,512,4893,568"/>
+<area shape="rect" id="node33" href="$udp__sender__port_8h.html" title="UDP sender." alt="" coords="4968,512,5133,568"/>
+<area shape="rect" id="node42" href="$buffer_8h.html" title="Buffer." alt="" coords="1887,80,2017,107"/>
+<area shape="rect" id="node62" href="$basic__port_8h.html" title="Basic network port." alt="" coords="4846,326,5015,367"/>
+<area shape="rect" id="node3" href="$iframe__decoder_8h.html" title="Audio frame decoder interface." alt="" coords="3925,430,4128,457"/>
+<area shape="rect" id="node19" href="$roc__packet_2ireader_8h.html" title="Packet reader interface." alt="" coords="3571,430,3725,457"/>
+<area shape="rect" id="node20" href="$sorted__queue_8h.html" title="Sorted packet queue." alt="" coords="2955,527,3151,553"/>
+<area shape="rect" id="node21" href="$reader_8h.html" title="FEC reader." alt="" coords="2702,623,2829,650"/>
+<area shape="rect" id="node23" href="$concurrent__queue_8h.html" title="Concurrent blocking packet queue." alt="" coords="3328,519,3493,561"/>
+<area shape="rect" id="node24" href="$queue_8h.html" title="Packet queue." alt="" coords="3518,527,3666,553"/>
+<area shape="rect" id="node26" href="$iframe__encoder_8h.html" title="Audio frame encoder interface." alt="" coords="2019,430,2221,457"/>
+<area shape="rect" id="node29" href="$roc__packet_2iwriter_8h.html" title="Packet writer interface." alt="" coords="2979,430,3128,457"/>
+<area shape="rect" id="node30" href="$writer_8h.html" title="FEC writer." alt="" coords="1419,527,1541,553"/>
+<area shape="rect" id="node34" href="$interleaver_8h.html" title="Interleaves packets before transmit." alt="" coords="2347,527,2525,553"/>
+<area shape="rect" id="node35" href="$router_8h.html" title="Route packets to writers." alt="" coords="2480,623,2627,650"/>
+<area shape="rect" id="node36" href="$icomposer_8h.html" title="Packet composer interface." alt="" coords="1250,430,1425,457"/>
+<area shape="rect" id="node39" href="$packet__pool_8h.html" title="Packet pool." alt="" coords="2520,430,2707,457"/>
+<area shape="rect" id="node40" href="$iparser_8h.html" title="Packet parser interface." alt="" coords="1616,527,1768,553"/>
+<area shape="rect" id="node4" href="$depacketizer_8h.html" title="Depacketizer." alt="" coords="3843,527,4026,553"/>
+<area shape="rect" id="node15" href="$pcm__decoder_8h.html" title="PCM decoder." alt="" coords="4304,527,4491,553"/>
+<area shape="rect" id="node16" href="$format_8h.html" title="RTP payload format." alt="" coords="4102,527,4229,553"/>
+<area shape="rect" id="node5" href="$latency__monitor_8h.html" title="Latency monitor." alt="" coords="2905,623,3111,650"/>
+<area shape="rect" id="node6" href="$roc__pipeline_2config_8h.html" title="Pipeline config." alt="" coords="1891,713,2047,739"/>
+<area shape="rect" id="node7" href="$converter_8h.html" title="Converter pipeline." alt="" coords="172,809,351,836"/>
+<area shape="rect" id="node8" href="$receiver_8h.html" title="Receiver pipeline." alt="" coords="3449,899,3618,925"/>
+<area shape="rect" id="node11" href="$sender_8h.html" title="Sender pipeline." alt="" coords="1692,899,1852,925"/>
+<area shape="rect" id="node12" href="$sender__port_8h.html" title="Sender port pipeline." alt="" coords="1616,802,1765,843"/>
+<area shape="rect" id="node13" href="$parse__port_8h.html" title="Parse port from string." alt="" coords="1941,795,2085,851"/>
+<area shape="rect" id="node14" href="$port__to__str_8h.html" title="Port to string." alt="" coords="2109,795,2253,851"/>
+<area shape="rect" id="node17" href="$format__map_8h.html" title="RTP payload format map." alt="" coords="3761,623,3924,650"/>
+<area shape="rect" id="node18" href="$roc__rtp_2parser_8h.html" title="RTP packet parser." alt="" coords="3541,713,3664,739"/>
+<area shape="rect" id="node22" href="$delayed__reader_8h.html" title="Delayed reader." alt="" coords="3187,616,3335,657"/>
+<area shape="rect" id="node25" href="$validator_8h.html" title="RTP validator." alt="" coords="3411,623,3551,650"/>
+<area shape="rect" id="node27" href="$packetizer_8h.html" title="Packetizer." alt="" coords="2054,527,2221,553"/>
+<area shape="rect" id="node28" href="$pcm__encoder_8h.html" title="PCM encoder." alt="" coords="1843,527,2029,553"/>
+<area shape="rect" id="node31" href="$transceiver_8h.html" title="Network sender/receiver." alt="" coords="4781,616,4955,657"/>
+<area shape="rect" id="node37" href="$roc__fec_2composer_8h.html" title="FECFRAME packet composer." alt="" coords="697,527,845,553"/>
+<area shape="rect" id="node38" href="$roc__rtp_2composer_8h.html" title="RTP packet composer." alt="" coords="1045,713,1192,739"/>
+<area shape="rect" id="node41" href="$roc__fec_2parser_8h.html" title="FECFRAME packet parser." alt="" coords="1616,623,1741,650"/>
+<area shape="rect" id="node43" href="$slice_8h.html" title="Slice." alt="" coords="1507,155,1629,181"/>
+<area shape="rect" id="node44" href="$fec_8h.html" title="FEC packet." alt="" coords="1301,237,1429,263"/>
+<area shape="rect" id="node47" href="$of__decoder_8h.html" title="Decoder implementation using OpenFEC library." alt="" coords="920,519,1091,561"/>
+<area shape="rect" id="node48" href="$of__encoder_8h.html" title="Encoder implementation using OpenFEC library." alt="" coords="501,519,672,561"/>
+<area shape="rect" id="node52" href="$rtp_8h.html" title="RTP packet." alt="" coords="2563,237,2690,263"/>
+<area shape="rect" id="node53" href="$resampler_8h.html" title="Resampler." alt="" coords="101,430,267,457"/>
+<area shape="rect" id="node54" href="$resampler__reader_8h.html" title="Resampler." alt="" coords="221,519,376,561"/>
+<area shape="rect" id="node56" href="$resampler__writer_8h.html" title="Resampler." alt="" coords="5,705,160,747"/>
+<area shape="rect" id="node57" href="$mixer_8h.html" title="Mixer." alt="" coords="4718,713,4855,739"/>
+<area shape="rect" id="node58" href="$iblock__decoder_8h.html" title="FEC block decoder interface." alt="" coords="1449,430,1631,457"/>
+<area shape="rect" id="node59" href="$iblock__encoder_8h.html" title="FEC block encoder interface." alt="" coords="1043,430,1226,457"/>
+<area shape="rect" id="node60" href="$udp_8h.html" title="UDP packet." alt="" coords="2105,229,2279,271"/>
+<area shape="rect" id="node61" href="$pump_8h.html" title="Pump." alt="" coords="947,237,1085,263"/>
+<area shape="rect" id="node45" href="$codec__config_8h.html" title="FEC codec parameters." alt="" coords="798,430,967,457"/>
+<area shape="rect" id="node49" href="$roc__fec_2headers_8h.html" title="FECFRAME headers." alt="" coords="637,430,774,457"/>
+<area shape="rect" id="node50" href="$fec__scheme__to__str_8h.html" title="FEC scheme to string." alt="" coords="997,319,1176,375"/>
+<area shape="rect" id="node51" href="$port__utils_8h.html" title="Validate port protocols consistency." alt="" coords="1200,333,1379,360"/>
+<area shape="rect" id="node46" href="$codec__map_8h.html" title="FEC codec map." alt="" coords="1318,713,1477,739"/>
+<area shape="rect" id="node55" href="$resampler__profile_8h.html" title="Resampler profile." alt="" coords="184,705,339,747"/>
+<area shape="rect" id="node63" href="$iclose__handler_8h.html" title="Close handler." alt="" coords="4833,423,5028,464"/>
+</map>

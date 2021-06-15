@@ -1,0 +1,11 @@
+<map id="roc::pipeline::ReceiverConfig" name="roc::pipeline::ReceiverConfig">
+<area shape="rect" id="node1" title="Receiver parameters." alt="" coords="751,175,959,201"/>
+<area shape="rect" id="node2" href="$structroc_1_1pipeline_1_1ReceiverSessionConfig.html" title="Receiver session parameters." alt="" coords="374,125,591,166"/>
+<area shape="rect" id="node3" href="$structroc_1_1audio_1_1ResamplerConfig.html" title="Resampler parameters." alt="" coords="5,5,211,32"/>
+<area shape="rect" id="node4" href="$structroc_1_1audio_1_1WatchdogConfig.html" title="Watchdog parameters." alt="" coords="9,56,207,83"/>
+<area shape="rect" id="node5" href="$structroc_1_1rtp_1_1ValidatorConfig.html" title="Validator parameters." alt="" coords="21,107,195,133"/>
+<area shape="rect" id="node6" href="$structroc_1_1fec_1_1CodecConfig.html" title="FEC codec parameters." alt="" coords="29,157,187,184"/>
+<area shape="rect" id="node7" href="$structroc_1_1fec_1_1ReaderConfig.html" title="FEC reader parameters." alt="" coords="25,208,191,235"/>
+<area shape="rect" id="node8" href="$structroc_1_1audio_1_1LatencyMonitorConfig.html" title="Parameters for latency monitor." alt="" coords="11,259,205,301"/>
+<area shape="rect" id="node9" href="$structroc_1_1pipeline_1_1ReceiverCommonConfig.html" title="Receiver common parameters." alt="" coords="369,190,596,231"/>
+</map>

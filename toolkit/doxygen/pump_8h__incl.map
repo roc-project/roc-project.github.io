@@ -1,0 +1,43 @@
+<map id="roc_sndio/pump.h" name="roc_sndio/pump.h">
+<area shape="rect" id="node1" title="Pump." alt="" coords="1805,5,1942,32"/>
+<area shape="rect" id="node2" href="$atomic_8h.html" title="Atomic integer." alt="" coords="2116,528,2255,555"/>
+<area shape="rect" id="node3" href="$noncopyable_8h.html" title="Non&#45;copyable object." alt="" coords="1753,603,1929,629"/>
+<area shape="rect" id="node4" href="$buffer__pool_8h.html" title="Buffer pool." alt="" coords="1687,229,1854,256"/>
+<area shape="rect" id="node7" href="$stddefs_8h.html" title="Commonly used types and functions." alt="" coords="445,603,587,629"/>
+<area shape="rect" id="node32" href="$slice_8h.html" title="Slice." alt="" coords="1184,80,1307,107"/>
+<area shape="rect" id="node37" href="$isink_8h.html" title="Sink interface." alt="" coords="1808,80,1939,107"/>
+<area shape="rect" id="node41" href="$isource_8h.html" title="Source interface." alt="" coords="1963,80,2109,107"/>
+<area shape="rect" id="node5" href="$pool_8h.html" title="Pool." alt="" coords="1349,304,1470,331"/>
+<area shape="rect" id="node6" href="$alignment_8h.html" title="Alignment." alt="" coords="757,528,915,555"/>
+<area shape="rect" id="node19" href="$iallocator_8h.html" title="Memory allocator interface." alt="" coords="605,453,758,480"/>
+<area shape="rect" id="node21" href="$panic_8h.html" title="Panic function." alt="" coords="1193,528,1321,555"/>
+<area shape="rect" id="node23" href="$list_8h.html" title="Intrusive doubly&#45;linked list." alt="" coords="1194,379,1307,405"/>
+<area shape="rect" id="node26" href="$log_8h.html" title="Logging." alt="" coords="1447,379,1561,405"/>
+<area shape="rect" id="node27" href="$mutex_8h.html" title="Mutex." alt="" coords="1713,453,1847,480"/>
+<area shape="rect" id="node8" title=" " alt="" coords="5,677,91,704"/>
+<area shape="rect" id="node9" title=" " alt="" coords="115,677,178,704"/>
+<area shape="rect" id="node10" title=" " alt="" coords="202,677,251,704"/>
+<area shape="rect" id="node11" title=" " alt="" coords="275,677,346,704"/>
+<area shape="rect" id="node12" title=" " alt="" coords="370,677,457,704"/>
+<area shape="rect" id="node13" title=" " alt="" coords="481,677,551,704"/>
+<area shape="rect" id="node14" title=" " alt="" coords="576,677,651,704"/>
+<area shape="rect" id="node15" title=" " alt="" coords="675,677,746,704"/>
+<area shape="rect" id="node16" title=" " alt="" coords="770,677,841,704"/>
+<area shape="rect" id="node17" title=" " alt="" coords="865,677,935,704"/>
+<area shape="rect" id="node18" title=" " alt="" coords="960,677,1056,704"/>
+<area shape="rect" id="node20" href="$attributes_8h.html" title="GCC attributes." alt="" coords="926,603,1082,629"/>
+<area shape="rect" id="node22" href="$helpers_8h.html" title="Compile time helpers." alt="" coords="1147,603,1288,629"/>
+<area shape="rect" id="node24" href="$list__node_8h.html" title="Linked list node." alt="" coords="1119,453,1271,480"/>
+<area shape="rect" id="node25" href="$ownership_8h.html" title="Ownership policies." alt="" coords="833,453,993,480"/>
+<area shape="rect" id="node30" href="$singleton_8h.html" title="Singleton." alt="" coords="1447,453,1601,480"/>
+<area shape="rect" id="node28" title=" " alt="" coords="1642,528,1691,555"/>
+<area shape="rect" id="node29" href="$scoped__lock_8h.html" title="RAII mutex lock." alt="" coords="1817,528,1991,555"/>
+<area shape="rect" id="node31" href="$errno__to__str_8h.html" title="Convert errno to string." alt="" coords="1396,528,1567,555"/>
+<area shape="rect" id="node33" href="$buffer_8h.html" title="Buffer." alt="" coords="1477,155,1608,181"/>
+<area shape="rect" id="node35" href="$print__buffer_8h.html" title="Print buffer to stdout." alt="" coords="230,229,397,256"/>
+<area shape="rect" id="node36" href="$shared__ptr_8h.html" title="Shared ownership intrusive pointer." alt="" coords="803,379,965,405"/>
+<area shape="rect" id="node34" href="$refcnt_8h.html" title="Base class for reference countable objects." alt="" coords="1892,453,2023,480"/>
+<area shape="rect" id="node38" href="$roc__audio_2iwriter_8h.html" title="Audio writer interface." alt="" coords="1821,155,1963,181"/>
+<area shape="rect" id="node39" href="$frame_8h.html" title="Audio frame." alt="" coords="1922,229,2062,256"/>
+<area shape="rect" id="node40" href="$roc__audio_2units_8h.html" title="Various units used in audio processing." alt="" coords="727,304,860,331"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="roc::audio::IReader" name="roc::audio::IReader">
+<area shape="rect" id="node1" title="Audio reader interface." alt="" coords="417,107,561,133"/>
+<area shape="rect" id="node4" href="$classroc_1_1audio_1_1Depacketizer.html" title="Depacketizer." alt="" coords="625,5,804,32"/>
+<area shape="rect" id="node5" href="$classroc_1_1audio_1_1Mixer.html" title="Mixer. Mixes multiple input streams into one output stream." alt="" coords="649,56,780,83"/>
+<area shape="rect" id="node6" href="$classroc_1_1audio_1_1PoisonReader.html" title="Poisons audio frames before reading them." alt="" coords="623,107,806,133"/>
+<area shape="rect" id="node7" href="$classroc_1_1audio_1_1ResamplerReader.html" title="Resamples audio stream with non&#45;integer dynamically changing factor." alt="" coords="609,157,820,184"/>
+<area shape="rect" id="node8" href="$classroc_1_1audio_1_1Watchdog.html" title="Watchdog." alt="" coords="635,208,794,235"/>
+<area shape="rect" id="node2" href="$classroc_1_1core_1_1ListNode.html" title="Base class for list element." alt="" coords="227,107,369,133"/>
+<area shape="rect" id="node3" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="5,99,179,141"/>
+</map>

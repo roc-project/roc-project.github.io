@@ -1,0 +1,7 @@
+<map id="roc_netio/target_libuv/roc_netio/basic_port.h" name="roc_netio/target_libuv/roc_netio/basic_port.h">
+<area shape="rect" id="node1" title="Basic network port." alt="" coords="205,5,375,47"/>
+<area shape="rect" id="node2" href="$iclose__handler_8h.html" title="Close handler." alt="" coords="126,95,321,136"/>
+<area shape="rect" id="node3" href="$transceiver_8h.html" title="Network sender/receiver." alt="" coords="191,288,365,329"/>
+<area shape="rect" id="node4" href="$udp__receiver__port_8h.html" title="UDP receiver." alt="" coords="5,184,180,240"/>
+<area shape="rect" id="node5" href="$udp__sender__port_8h.html" title="UDP sender." alt="" coords="255,184,421,240"/>
+</map>

@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['fec_5fldpc_5fstaircase_1502',['FEC_LDPC_Staircase',['../namespaceroc_1_1packet.html#a39ead265d07a72d8a025c1267f08f06ea37b689fd859d2a81f7a932607821d21d',1,'roc::packet']]],
+  ['fec_5fnone_1503',['FEC_None',['../namespaceroc_1_1packet.html#a39ead265d07a72d8a025c1267f08f06ea9f2ba6eae022bc67676e6b8d88c64951',1,'roc::packet']]],
+  ['fec_5freedsolomon_5fm8_1504',['FEC_ReedSolomon_M8',['../namespaceroc_1_1packet.html#a39ead265d07a72d8a025c1267f08f06ea204b07b431290088db6e62703712f8b1',1,'roc::packet']]],
+  ['filterdevice_1505',['FilterDevice',['../classroc_1_1sndio_1_1IBackend.html#a76cf3ab022e60c4a6ffea1554a44dddea4f63833d1a7cececa532a5930ead302c',1,'roc::sndio::IBackend']]],
+  ['filterfile_1506',['FilterFile',['../classroc_1_1sndio_1_1IBackend.html#a76cf3ab022e60c4a6ffea1554a44dddea14c1d351e6039d48ac266a032e6d3e67',1,'roc::sndio::IBackend']]],
+  ['filtersink_1507',['FilterSink',['../classroc_1_1sndio_1_1IBackend.html#a76cf3ab022e60c4a6ffea1554a44dddea29e780ee08a2cbbd03e6202c47d6746c',1,'roc::sndio::IBackend']]],
+  ['filtersource_1508',['FilterSource',['../classroc_1_1sndio_1_1IBackend.html#a76cf3ab022e60c4a6ffea1554a44dddea5ed78513b27859b39b236f3d1fce1a6d',1,'roc::sndio::IBackend']]],
+  ['flagaudio_1509',['FlagAudio',['../classroc_1_1packet_1_1Packet.html#a021f00fc997884cb1682293aa91d2154a88f3f90c784871820dda22927195ef6c',1,'roc::packet::Packet']]],
+  ['flagblank_1510',['FlagBlank',['../classroc_1_1audio_1_1Frame.html#a490b77d7eda0ae8e649f0293da7abf95a26f7182ed331c6fad5ece11d1157a716',1,'roc::audio::Frame']]],
+  ['flagcomposed_1511',['FlagComposed',['../classroc_1_1packet_1_1Packet.html#a021f00fc997884cb1682293aa91d2154a9a39ed1a1e4da1ae262c6404d89325d9',1,'roc::packet::Packet']]],
+  ['flagdrops_1512',['FlagDrops',['../classroc_1_1audio_1_1Frame.html#a490b77d7eda0ae8e649f0293da7abf95a805b343148ce539f9a7f0c754c8d049e',1,'roc::audio::Frame']]],
+  ['flagfec_1513',['FlagFEC',['../classroc_1_1packet_1_1Packet.html#a021f00fc997884cb1682293aa91d2154ac8c9b1a28ceca815007031551ea648c2',1,'roc::packet::Packet']]],
+  ['flagincomplete_1514',['FlagIncomplete',['../classroc_1_1audio_1_1Frame.html#a490b77d7eda0ae8e649f0293da7abf95a94898ea56684ecb37141e07e14e9146a',1,'roc::audio::Frame']]],
+  ['flagrepair_1515',['FlagRepair',['../classroc_1_1packet_1_1Packet.html#a021f00fc997884cb1682293aa91d2154a6c76f0b730b24b65dbae4af10e486856',1,'roc::packet::Packet']]],
+  ['flagrestored_1516',['FlagRestored',['../classroc_1_1packet_1_1Packet.html#a021f00fc997884cb1682293aa91d2154a1ba315fc75f5bb052ed6e5c08a90c87a',1,'roc::packet::Packet']]],
+  ['flagrtp_1517',['FlagRTP',['../classroc_1_1packet_1_1Packet.html#a021f00fc997884cb1682293aa91d2154a76c327da5cf5076e54d666f5fbdc15db',1,'roc::packet::Packet']]],
+  ['flagudp_1518',['FlagUDP',['../classroc_1_1packet_1_1Packet.html#a021f00fc997884cb1682293aa91d2154aa3542942976a08977cb5bf4a33764eeb',1,'roc::packet::Packet']]],
+  ['footer_1519',['Footer',['../namespaceroc_1_1fec.html#a4699934ab3654f0a9e0026adce285afbacdc6d75357ce245bb94f721952991406',1,'roc::fec']]]
+];

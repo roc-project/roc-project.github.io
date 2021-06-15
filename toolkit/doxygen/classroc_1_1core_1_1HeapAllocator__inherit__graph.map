@@ -1,0 +1,5 @@
+<map id="roc::core::HeapAllocator" name="roc::core::HeapAllocator">
+<area shape="rect" id="node1" title="Heap allocator implementation." alt="" coords="87,80,266,107"/>
+<area shape="rect" id="node2" href="$classroc_1_1core_1_1IAllocator.html" title="Memory allocator interface." alt="" coords="5,5,153,32"/>
+<area shape="rect" id="node3" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="178,5,373,32"/>
+</map>

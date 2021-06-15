@@ -1,0 +1,14 @@
+<map id="roc_packet" name="roc_packet">
+<area shape="rect" id="node2" href="dir_039882c40173f91204f1dd97712db1b4.html" title="target_libuv" alt="" coords="26,123,126,171"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000002_000019.html" title="1" alt="" coords="103,105,113,119"/>
+<area shape="rect" id="node4" href="dir_d9f236a261421090ab6c941fb4c0ff3d.html" title="target_stdio" alt="" coords="150,123,250,171"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000002_000023.html" title="1" alt="" coords="177,95,186,110"/>
+<area shape="rect" id="node3" href="dir_fe8f09ab324856960b2808f2778c3150.html" title="target_posix" alt="" coords="27,219,130,267"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000019_000021.html" title="1" alt="" coords="81,193,91,208"/>
+<area shape="rect" id="node5" href="dir_81514f0298c591d52dbd7703a8f5dc05.html" title="roc_core" alt="" coords="129,315,207,363"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000019_000003.html" title="2" alt="" coords="169,288,178,303"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000021_000003.html" title="1" alt="" coords="135,288,144,303"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000023_000021.html" title="1" alt="" coords="123,207,133,222"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000023_000003.html" title="1" alt="" coords="185,292,195,307"/>
+<area shape="rect" id="clust1" href="dir_b37d48860184c0982dafa43dbf3bf002.html" alt="" coords="16,16,260,277"/>
+</map>

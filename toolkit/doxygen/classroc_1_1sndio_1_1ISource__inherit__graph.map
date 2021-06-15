@@ -1,0 +1,5 @@
+<map id="roc::sndio::ISource" name="roc::sndio::ISource">
+<area shape="rect" id="node1" title="Source interface." alt="" coords="111,5,253,32"/>
+<area shape="rect" id="node2" href="$classroc_1_1pipeline_1_1Receiver.html" title="Receiver pipeline." alt="" coords="5,80,172,107"/>
+<area shape="rect" id="node3" href="$classroc_1_1sndio_1_1SoxSource.html" title="SoX source." alt="" coords="196,80,357,107"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="roc_audio/freq_estimator.h" name="roc_audio/freq_estimator.h">
+<area shape="rect" id="node1" title="Frequency estimator." alt="" coords="205,5,401,32"/>
+<area shape="rect" id="node2" href="$latency__monitor_8h.html" title="Latency monitor." alt="" coords="200,80,407,107"/>
+<area shape="rect" id="node3" href="$roc__pipeline_2config_8h.html" title="Pipeline config." alt="" coords="444,155,600,181"/>
+<area shape="rect" id="node7" href="$receiver__session_8h.html" title="Receiver session pipeline." alt="" coords="5,237,164,278"/>
+<area shape="rect" id="node4" href="$converter_8h.html" title="Converter pipeline." alt="" coords="189,244,367,271"/>
+<area shape="rect" id="node5" href="$receiver_8h.html" title="Receiver pipeline." alt="" coords="320,333,489,360"/>
+<area shape="rect" id="node6" href="$receiver__port_8h.html" title="Receiver port pipeline." alt="" coords="443,237,601,278"/>
+<area shape="rect" id="node8" href="$sender_8h.html" title="Sender pipeline." alt="" coords="615,333,775,360"/>
+<area shape="rect" id="node9" href="$sender__port_8h.html" title="Sender port pipeline." alt="" coords="677,237,826,278"/>
+<area shape="rect" id="node10" href="$parse__port_8h.html" title="Parse port from string." alt="" coords="850,229,994,285"/>
+<area shape="rect" id="node11" href="$port__to__str_8h.html" title="Port to string." alt="" coords="1018,229,1162,285"/>
+</map>

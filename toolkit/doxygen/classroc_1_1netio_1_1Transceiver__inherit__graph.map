@@ -1,0 +1,6 @@
+<map id="roc::netio::Transceiver" name="roc::netio::Transceiver">
+<area shape="rect" id="node1" title="Network sender/receiver." alt="" coords="105,169,270,196"/>
+<area shape="rect" id="node2" href="$classroc_1_1netio_1_1ICloseHandler.html" title="Close handler interface." alt="" coords="5,95,188,121"/>
+<area shape="rect" id="node3" href="$classroc_1_1core_1_1Thread.html" title="Base class for thread objects." alt="" coords="213,95,343,121"/>
+<area shape="rect" id="node4" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="191,5,365,47"/>
+</map>

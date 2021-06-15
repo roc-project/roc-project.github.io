@@ -1,0 +1,16 @@
+<map id="roc_core/rate_limiter.h" name="roc_core/rate_limiter.h">
+<area shape="rect" id="node1" title="Rate limiter." alt="" coords="337,5,505,32"/>
+<area shape="rect" id="node2" href="$depacketizer_8h.html" title="Depacketizer." alt="" coords="175,87,357,114"/>
+<area shape="rect" id="node3" href="$latency__monitor_8h.html" title="Latency monitor." alt="" coords="228,177,435,203"/>
+<area shape="rect" id="node13" href="$profiling__writer_8h.html" title="Profiling writer." alt="" coords="475,169,617,211"/>
+<area shape="rect" id="node14" href="$pulseaudio__sink_8h.html" title="PulseAudio sink." alt="" coords="484,80,693,121"/>
+<area shape="rect" id="node8" href="$receiver__session_8h.html" title="Receiver session pipeline." alt="" coords="5,341,164,382"/>
+<area shape="rect" id="node4" href="$roc__pipeline_2config_8h.html" title="Pipeline config." alt="" coords="359,259,515,285"/>
+<area shape="rect" id="node5" href="$converter_8h.html" title="Converter pipeline." alt="" coords="983,348,1162,375"/>
+<area shape="rect" id="node6" href="$receiver_8h.html" title="Receiver pipeline." alt="" coords="117,437,287,464"/>
+<area shape="rect" id="node7" href="$receiver__port_8h.html" title="Receiver port pipeline." alt="" coords="240,341,399,382"/>
+<area shape="rect" id="node9" href="$sender_8h.html" title="Sender pipeline." alt="" coords="581,437,741,464"/>
+<area shape="rect" id="node10" href="$sender__port_8h.html" title="Sender port pipeline." alt="" coords="810,341,959,382"/>
+<area shape="rect" id="node11" href="$parse__port_8h.html" title="Parse port from string." alt="" coords="474,333,618,389"/>
+<area shape="rect" id="node12" href="$port__to__str_8h.html" title="Port to string." alt="" coords="642,333,786,389"/>
+</map>

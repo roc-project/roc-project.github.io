@@ -1,0 +1,4 @@
+<map id="roc_address/io_uri.h" name="roc_address/io_uri.h">
+<area shape="rect" id="node1" title="Audio file or device URI." alt="" coords="5,5,157,32"/>
+<area shape="rect" id="node2" href="$io__uri__to__str_8h.html" title="Format IoURI to string." alt="" coords="11,80,151,121"/>
+</map>

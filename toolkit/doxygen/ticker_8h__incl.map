@@ -1,0 +1,20 @@
+<map id="roc_core/ticker.h" name="roc_core/ticker.h">
+<area shape="rect" id="node1" title="Ticker." alt="" coords="287,5,415,32"/>
+<area shape="rect" id="node2" href="$noncopyable_8h.html" title="Non&#45;copyable object." alt="" coords="87,80,263,107"/>
+<area shape="rect" id="node3" href="$panic_8h.html" title="Panic function." alt="" coords="287,80,415,107"/>
+<area shape="rect" id="node6" href="$time_8h.html" title="Time definitions." alt="" coords="447,80,569,107"/>
+<area shape="rect" id="node4" href="$attributes_8h.html" title="GCC attributes." alt="" coords="99,155,255,181"/>
+<area shape="rect" id="node5" href="$helpers_8h.html" title="Compile time helpers." alt="" coords="280,155,421,181"/>
+<area shape="rect" id="node7" href="$stddefs_8h.html" title="Commonly used types and functions." alt="" coords="445,155,587,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="5,229,91,256"/>
+<area shape="rect" id="node9" title=" " alt="" coords="115,229,178,256"/>
+<area shape="rect" id="node10" title=" " alt="" coords="202,229,251,256"/>
+<area shape="rect" id="node11" title=" " alt="" coords="275,229,346,256"/>
+<area shape="rect" id="node12" title=" " alt="" coords="370,229,457,256"/>
+<area shape="rect" id="node13" title=" " alt="" coords="481,229,551,256"/>
+<area shape="rect" id="node14" title=" " alt="" coords="576,229,651,256"/>
+<area shape="rect" id="node15" title=" " alt="" coords="675,229,746,256"/>
+<area shape="rect" id="node16" title=" " alt="" coords="770,229,841,256"/>
+<area shape="rect" id="node17" title=" " alt="" coords="865,229,935,256"/>
+<area shape="rect" id="node18" title=" " alt="" coords="960,229,1056,256"/>
+</map>

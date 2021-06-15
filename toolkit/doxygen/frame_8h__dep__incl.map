@@ -1,0 +1,37 @@
+<map id="roc_audio/frame.h" name="roc_audio/frame.h">
+<area shape="rect" id="node1" title="Audio frame." alt="" coords="1119,5,1259,32"/>
+<area shape="rect" id="node2" href="$roc__audio_2ireader_8h.html" title="Audio reader interface." alt="" coords="676,80,823,107"/>
+<area shape="rect" id="node14" href="$resampler__reader_8h.html" title="Resampler." alt="" coords="349,229,504,271"/>
+<area shape="rect" id="node15" href="$resampler_8h.html" title="Resampler." alt="" coords="1015,155,1182,181"/>
+<area shape="rect" id="node17" href="$resampler__writer_8h.html" title="Resampler." alt="" coords="1028,393,1183,435"/>
+<area shape="rect" id="node19" href="$poison__reader_8h.html" title="Poison reader." alt="" coords="5,155,197,181"/>
+<area shape="rect" id="node21" href="$roc__audio_2iwriter_8h.html" title="Audio writer interface." alt="" coords="1387,319,1530,345"/>
+<area shape="rect" id="node24" href="$poison__writer_8h.html" title="Poison writer." alt="" coords="1758,401,1946,427"/>
+<area shape="rect" id="node34" href="$isource_8h.html" title="Source interface." alt="" coords="2185,401,2332,427"/>
+<area shape="rect" id="node3" href="$depacketizer_8h.html" title="Depacketizer." alt="" coords="529,237,711,263"/>
+<area shape="rect" id="node7" href="$receiver_8h.html" title="Receiver pipeline." alt="" coords="625,594,794,621"/>
+<area shape="rect" id="node9" href="$receiver__session_8h.html" title="Receiver session pipeline." alt="" coords="59,490,218,531"/>
+<area shape="rect" id="node18" href="$mixer_8h.html" title="Mixer." alt="" coords="854,155,991,181"/>
+<area shape="rect" id="node20" href="$watchdog_8h.html" title="Watchdog." alt="" coords="637,319,801,345"/>
+<area shape="rect" id="node4" href="$latency__monitor_8h.html" title="Latency monitor." alt="" coords="323,319,530,345"/>
+<area shape="rect" id="node5" href="$roc__pipeline_2config_8h.html" title="Pipeline config." alt="" coords="649,401,805,427"/>
+<area shape="rect" id="node6" href="$converter_8h.html" title="Converter pipeline." alt="" coords="1189,497,1368,524"/>
+<area shape="rect" id="node8" href="$receiver__port_8h.html" title="Receiver port pipeline." alt="" coords="630,490,789,531"/>
+<area shape="rect" id="node10" href="$sender_8h.html" title="Sender pipeline." alt="" coords="1199,594,1359,621"/>
+<area shape="rect" id="node11" href="$sender__port_8h.html" title="Sender port pipeline." alt="" coords="813,490,963,531"/>
+<area shape="rect" id="node12" href="$parse__port_8h.html" title="Parse port from string." alt="" coords="293,483,437,539"/>
+<area shape="rect" id="node13" href="$port__to__str_8h.html" title="Port to string." alt="" coords="461,483,605,539"/>
+<area shape="rect" id="node16" href="$resampler__profile_8h.html" title="Resampler profile." alt="" coords="977,229,1132,271"/>
+<area shape="rect" id="node22" href="$null__writer_8h.html" title="Null writer." alt="" coords="1374,401,1543,427"/>
+<area shape="rect" id="node23" href="$packetizer_8h.html" title="Packetizer." alt="" coords="1567,401,1734,427"/>
+<area shape="rect" id="node25" href="$profiling__writer_8h.html" title="Profiling writer." alt="" coords="1207,393,1350,435"/>
+<area shape="rect" id="node26" href="$isink_8h.html" title="Sink interface." alt="" coords="1971,401,2101,427"/>
+<area shape="rect" id="node27" href="$ibackend_8h.html" title="Backend interface." alt="" coords="2015,497,2174,524"/>
+<area shape="rect" id="node28" href="$backend__dispatcher_8h.html" title="Backend dispatcher." alt="" coords="2237,594,2465,621"/>
+<area shape="rect" id="node31" href="$pump_8h.html" title="Pump." alt="" coords="2250,497,2387,524"/>
+<area shape="rect" id="node32" href="$pulseaudio__sink_8h.html" title="PulseAudio sink." alt="" coords="1494,490,1703,531"/>
+<area shape="rect" id="node33" href="$sox__sink_8h.html" title="SoX sink." alt="" coords="1727,490,1889,531"/>
+<area shape="rect" id="node29" href="$pulseaudio__backend_8h.html" title="Pulseaudio backend." alt="" coords="1977,587,2213,628"/>
+<area shape="rect" id="node30" href="$sox__backend_8h.html" title="SoX backend." alt="" coords="1765,587,1953,628"/>
+<area shape="rect" id="node35" href="$sox__source_8h.html" title="SoX source." alt="" coords="2463,490,2641,531"/>
+</map>

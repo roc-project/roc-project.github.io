@@ -1,0 +1,10 @@
+<map id="roc_sndio/isource.h" name="roc_sndio/isource.h">
+<area shape="rect" id="node1" title="Source interface." alt="" coords="257,5,403,32"/>
+<area shape="rect" id="node2" href="$receiver_8h.html" title="Receiver pipeline." alt="" coords="5,87,175,114"/>
+<area shape="rect" id="node3" href="$ibackend_8h.html" title="Backend interface." alt="" coords="251,87,409,114"/>
+<area shape="rect" id="node4" href="$backend__dispatcher_8h.html" title="Backend dispatcher." alt="" coords="29,177,257,203"/>
+<area shape="rect" id="node7" href="$pump_8h.html" title="Pump." alt="" coords="433,87,571,114"/>
+<area shape="rect" id="node8" href="$sox__source_8h.html" title="SoX source." alt="" coords="595,80,772,121"/>
+<area shape="rect" id="node5" href="$pulseaudio__backend_8h.html" title="Pulseaudio backend." alt="" coords="281,169,517,211"/>
+<area shape="rect" id="node6" href="$sox__backend_8h.html" title="SoX backend." alt="" coords="541,169,729,211"/>
+</map>

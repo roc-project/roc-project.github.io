@@ -1,0 +1,510 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>User cookbook &#8212; Roc Toolkit 0.1.5</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roc.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="/analytics.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Developer cookbook" href="developer_cookbook.html" />
+    <link rel="prev" title="SCons options" href="scons_options.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="developer_cookbook.html" title="Developer cookbook"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="scons_options.html" title="SCons options"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../building.html" accesskey="U">Building</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="user-cookbook">
+<h1>User cookbook<a class="headerlink" href="#user-cookbook" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of contents:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#linux-native" id="id1">Linux (native)</a><ul>
+<li><a class="reference internal" href="#ubuntu-16-04-and-later" id="id2">Ubuntu 16.04 and later</a></li>
+<li><a class="reference internal" href="#ubuntu-14-04-and-later-debian-jessie-and-later" id="id3">Ubuntu 14.04 and later, Debian Jessie and later</a></li>
+<li><a class="reference internal" href="#fedora-22-and-later" id="id4">Fedora 22 and later</a></li>
+<li><a class="reference internal" href="#centos-7-and-later" id="id5">Centos 7 and later</a></li>
+<li><a class="reference internal" href="#opensuse-leap-and-later" id="id6">openSUSE Leap and later</a></li>
+<li><a class="reference internal" href="#arch-linux" id="id7">Arch Linux</a></li>
+<li><a class="reference internal" href="#alpine-linux" id="id8">Alpine Linux</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#linux-cross-compile" id="id9">Linux (cross-compile)</a><ul>
+<li><a class="reference internal" href="#raspberry-pi-2-and-3" id="id10">Raspberry Pi 2 and 3</a></li>
+<li><a class="reference internal" href="#raspberry-pi-1-and-zero" id="id11">Raspberry Pi 1 and Zero</a></li>
+<li><a class="reference internal" href="#orange-pi-64-bit-models" id="id12">Orange Pi 64-bit models</a></li>
+<li><a class="reference internal" href="#orange-pi-32-bit-models" id="id13">Orange Pi 32-bit models</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#macos" id="id14">macOS</a><ul>
+<li><a class="reference internal" href="#macos-10-12-and-later" id="id15">macOS 10.12 and later</a></li>
+<li><a class="reference internal" href="#macos-10-11-and-later" id="id16">macOS 10.11 and later</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#android" id="id17">Android</a><ul>
+<li><a class="reference internal" href="#termux-packages" id="id18">Termux packages</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="linux-native">
+<h2><a class="toc-backref" href="#id1">Linux (native)</a><a class="headerlink" href="#linux-native" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ubuntu-16-04-and-later">
+<h3><a class="toc-backref" href="#id2">Ubuntu 16.04 and later</a><a class="headerlink" href="#ubuntu-16-04-and-later" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span># for Roc
+$ sudo apt-get install g++ pkg-config scons ragel gengetopt \
+    libuv1-dev libunwind-dev libpulse-dev libsox-dev libcpputest-dev
+
+# for 3rd-parties
+$ sudo apt-get install libtool intltool autoconf automake make cmake
+
+# clone repo
+$ git clone https://github.com/roc-streaming/roc-toolkit.git
+$ cd roc-toolkit
+
+# build libraries and tools
+$ scons -Q --build-3rdparty=openfec
+
+# install libraries and tools
+$ sudo scons -Q --build-3rdparty=openfec install
+
+# build libraries, tools, and PulseAudio modules
+$ scons -Q --enable-pulseaudio-modules --build-3rdparty=openfec,pulseaudio
+
+# install libraries, tools, and PulseAudio modules
+$ sudo scons -Q --enable-pulseaudio-modules --build-3rdparty=openfec,pulseaudio install
+</pre></div>
+</div>
+</div>
+<div class="section" id="ubuntu-14-04-and-later-debian-jessie-and-later">
+<h3><a class="toc-backref" href="#id3">Ubuntu 14.04 and later, Debian Jessie and later</a><a class="headerlink" href="#ubuntu-14-04-and-later-debian-jessie-and-later" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span># for Roc
+$ sudo apt-get install g++ pkg-config scons ragel gengetopt libunwind8-dev libpulse-dev libsox-dev
+
+# for 3rd-parties
+$ sudo apt-get install libtool intltool autoconf automake make cmake
+
+# clone repo
+$ git clone https://github.com/roc-streaming/roc-toolkit.git
+$ cd roc-toolkit
+
+# build libraries and tools
+$ scons -Q --build-3rdparty=libuv,openfec,cpputest
+
+# install libraries and tools
+$ sudo scons -Q --build-3rdparty=libuv,openfec,cpputest install
+
+# build libraries, tools, and PulseAudio modules
+$ scons -Q --enable-pulseaudio-modules --build-3rdparty=libuv,openfec,pulseaudio,cpputest
+
+# install libraries, tools, and PulseAudio modules
+$ sudo scons -Q --enable-pulseaudio-modules --build-3rdparty=libuv,openfec,pulseaudio,cpputest install
+</pre></div>
+</div>
+</div>
+<div class="section" id="fedora-22-and-later">
+<h3><a class="toc-backref" href="#id4">Fedora 22 and later</a><a class="headerlink" href="#fedora-22-and-later" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span># for Roc
+$ sudo dnf install gcc-c++ pkgconfig scons ragel gengetopt \
+    libuv-devel libunwind-devel pulseaudio-libs-devel sox-devel
+
+# for 3rd-parties
+$ sudo dnf install libtool intltool autoconf automake make cmake
+
+# clone repo
+$ git clone https://github.com/roc-streaming/roc-toolkit.git
+$ cd roc-toolkit
+
+# build libraries and tools
+$ scons -Q --build-3rdparty=openfec,cpputest
+
+# install libraries and tools
+$ sudo scons -Q --build-3rdparty=openfec,cpputest install
+
+# build libraries, tools, and PulseAudio modules
+$ scons -Q --enable-pulseaudio-modules --build-3rdparty=openfec,pulseaudio,cpputest
+
+# install libraries, tools, and PulseAudio modules
+$ sudo scons -Q --enable-pulseaudio-modules --build-3rdparty=openfec,pulseaudio,cpputest install
+</pre></div>
+</div>
+</div>
+<div class="section" id="centos-7-and-later">
+<h3><a class="toc-backref" href="#id5">Centos 7 and later</a><a class="headerlink" href="#centos-7-and-later" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span># for developer packages
+$ sudo yum install epel-release
+
+# for Roc
+$ sudo yum install gcc-c++ pkgconfig scons ragel gengetopt libunwind-devel pulseaudio-libs-devel sox-devel
+
+# for 3rd-parties
+$ sudo yum install libtool intltool autoconf automake make cmake
+
+# clone repo
+$ git clone https://github.com/roc-streaming/roc-toolkit.git
+$ cd roc-toolkit
+
+# build libraries and tools
+$ scons -Q --build-3rdparty=libuv,openfec,cpputest
+
+# install libraries and tools
+$ sudo scons -Q --build-3rdparty=libuv,openfec,cpputest install
+
+# build libraries, tools, and PulseAudio modules
+$ scons -Q --enable-pulseaudio-modules --build-3rdparty=libuv,openfec,pulseaudio,cpputest
+
+# install libraries, tools, and PulseAudio modules
+$ sudo scons -Q --enable-pulseaudio-modules --build-3rdparty=libuv,openfec,pulseaudio,cpputest install
+</pre></div>
+</div>
+</div>
+<div class="section" id="opensuse-leap-and-later">
+<h3><a class="toc-backref" href="#id6">openSUSE Leap and later</a><a class="headerlink" href="#opensuse-leap-and-later" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span># for Roc
+$ sudo zypper install gcc-c++ scons ragel gengetopt doxygen graphviz \
+     libuv-devel libunwind-devel libpulse-devel libunwind-devel sox-devel
+
+# for 3rd-parties
+$ sudo zypper install pkg-config intltool libtool autoconf automake make cmake
+
+# clone repo
+$ git clone https://github.com/roc-streaming/roc-toolkit.git
+$ cd roc-toolkit
+
+# build libraries and tools
+$ scons -Q --build-3rdparty=openfec,cpputest
+
+# install libraries and tools
+$ sudo scons -Q --build-3rdparty=openfec,cpputest install
+
+# build libraries, tools, and PulseAudio modules
+$ scons -Q --enable-pulseaudio-modules --build-3rdparty=openfec,pulseaudio,cpputest
+
+# install libraries, tools, and PulseAudio modules
+$ sudo scons -Q --enable-pulseaudio-modules --build-3rdparty=openfec,pulseaudio,cpputest install
+</pre></div>
+</div>
+</div>
+<div class="section" id="arch-linux">
+<h3><a class="toc-backref" href="#id7">Arch Linux</a><a class="headerlink" href="#arch-linux" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span># for Roc
+$ sudo pacman -S gcc pkgconf scons ragel gengetopt libuv libunwind libpulse sox
+
+# for 3rd-parties
+$ sudo pacman -S grep gawk libtool intltool autoconf automake make cmake
+
+# clone repo
+$ git clone https://github.com/roc-streaming/roc-toolkit.git
+$ cd roc-toolkit
+
+# build libraries and tools
+$ scons -Q --build-3rdparty=openfec,cpputest
+
+# install libraries and tools
+$ sudo scons -Q --build-3rdparty=openfec,cpputest install
+
+# build libraries, tools, and PulseAudio modules
+$ scons -Q --enable-pulseaudio-modules --build-3rdparty=openfec,pulseaudio,cpputest
+
+# install libraries, tools, and PulseAudio modules
+$ sudo scons -Q --enable-pulseaudio-modules --build-3rdparty=openfec,pulseaudio,cpputest install
+</pre></div>
+</div>
+</div>
+<div class="section" id="alpine-linux">
+<h3><a class="toc-backref" href="#id8">Alpine Linux</a><a class="headerlink" href="#alpine-linux" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span># for Roc
+$ sudo apk add g++ pkgconf scons ragel gengetopt libuv-dev libunwind-dev pulseaudio-dev sox-dev cpputest
+
+# for 3rd-parties
+$ sudo apk add libtool autoconf automake make cmake
+
+# clone repo
+$ git clone https://github.com/roc-streaming/roc-toolkit.git
+$ cd roc-toolkit
+
+# build libraries and tools
+$ scons -Q --build-3rdparty=openfec
+
+# install libraries and tools
+$ sudo scons -Q --build-3rdparty=openfec install
+
+# build libraries, tools, and PulseAudio modules
+$ scons -Q --enable-pulseaudio-modules --build-3rdparty=openfec,pulseaudio
+
+# install libraries, tools, and PulseAudio modules
+$ sudo scons -Q --enable-pulseaudio-modules --build-3rdparty=openfec,pulseaudio install
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="linux-cross-compile">
+<h2><a class="toc-backref" href="#id9">Linux (cross-compile)</a><a class="headerlink" href="#linux-cross-compile" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="../portability/cross_compiling.html"><span class="doc">Cross-compiling</span></a></li>
+<li><a class="reference internal" href="../portability/tested_boards.html"><span class="doc">Tested boards</span></a></li>
+</ul>
+</div>
+<div class="section" id="raspberry-pi-2-and-3">
+<h3><a class="toc-backref" href="#id10">Raspberry Pi 2 and 3</a><a class="headerlink" href="#raspberry-pi-2-and-3" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span># clone repo
+$ git clone https://github.com/roc-streaming/roc-toolkit.git
+$ cd roc-toolkit
+
+# build libraries, tools, and PulseAudio modules
+$ docker run -t --rm -u &quot;${UID}&quot; -v &quot;${PWD}:${PWD}&quot; -w &quot;${PWD}&quot; \
+    rocproject/cross-arm-linux-gnueabihf \
+      scons -Q \
+        --enable-pulseaudio-modules \
+        --host=arm-linux-gnueabihf \
+        --build-3rdparty=libuv,libunwind,openfec,alsa,pulseaudio:12.2,sox,cpputest
+
+# install Roc binaries
+$ scp ./bin/arm-linux-gnueabihf/roc-{recv,send,conv} &lt;address&gt;:/usr/bin
+$ scp ./bin/arm-linux-gnueabihf/libroc.so.*.* &lt;address&gt;:/usr/lib
+$ scp ./bin/arm-linux-gnueabihf/module-roc-{sink,sink-input} &lt;address&gt;:/usr/lib/pulse-12.2/modules
+
+# install Roc dependencies
+$ ssh &lt;address&gt; apt-get install libasound2 libpulse0 libltdl7
+</pre></div>
+</div>
+</div>
+<div class="section" id="raspberry-pi-1-and-zero">
+<h3><a class="toc-backref" href="#id11">Raspberry Pi 1 and Zero</a><a class="headerlink" href="#raspberry-pi-1-and-zero" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span># clone repo
+$ git clone https://github.com/roc-streaming/roc-toolkit.git
+$ cd roc-toolkit
+
+# build libraries, tools, and PulseAudio modules
+$ docker run -t --rm -u &quot;${UID}&quot; -v &quot;${PWD}:${PWD}&quot; -w &quot;${PWD}&quot; \
+    rocproject/cross-arm-bcm2708hardfp-linux-gnueabi \
+      scons -Q \
+        --enable-pulseaudio-modules \
+        --host=arm-bcm2708hardfp-linux-gnueabi \
+        --build-3rdparty=libuv,libunwind,openfec,alsa,pulseaudio:5.0,sox,cpputest
+
+# install Roc binaries
+$ scp ./bin/arm-bcm2708hardfp-linux-gnueabi/roc-{recv,send,conv} &lt;address&gt;:/usr/bin
+$ scp ./bin/arm-bcm2708hardfp-linux-gnueabi/libroc.so.*.* &lt;address&gt;:/usr/lib
+$ scp ./bin/arm-bcm2708hardfp-linux-gnueabi/module-roc-{sink,sink-input} \
+    &lt;address&gt;:/usr/lib/pulse-5.0/modules
+
+# install Roc dependencies
+$ ssh &lt;address&gt; apt-get install libasound2 libpulse0 libltdl7
+</pre></div>
+</div>
+</div>
+<div class="section" id="orange-pi-64-bit-models">
+<h3><a class="toc-backref" href="#id12">Orange Pi 64-bit models</a><a class="headerlink" href="#orange-pi-64-bit-models" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span># clone repo
+$ git clone https://github.com/roc-streaming/roc-toolkit.git
+$ cd roc-toolkit
+
+# build libraries, tools, and PulseAudio modules
+$ docker run -t --rm -u &quot;${UID}&quot; -v &quot;${PWD}:${PWD}&quot; -w &quot;${PWD}&quot; \
+    rocproject/cross-aarch64-linux-gnu \
+      scons -Q \
+        --enable-pulseaudio-modules \
+        --host=aarch64-linux-gnu \
+        --build-3rdparty=libuv,libunwind,openfec,alsa,pulseaudio:8.0,sox,cpputest
+
+# install Roc binaries
+$ scp ./bin/aarch64-linux-gnu/roc-{recv,send,conv} &lt;address&gt;:/usr/bin
+$ scp ./bin/aarch64-linux-gnu/libroc.so.*.* &lt;address&gt;:/usr/lib
+$ scp ./bin/aarch64-linux-gnu/module-roc-{sink,sink-input} &lt;address&gt;:/usr/lib/pulse-8.0/modules
+
+# install Roc dependencies
+$ ssh &lt;address&gt; apt-get install libasound2 libpulse0 libltdl7
+</pre></div>
+</div>
+</div>
+<div class="section" id="orange-pi-32-bit-models">
+<h3><a class="toc-backref" href="#id13">Orange Pi 32-bit models</a><a class="headerlink" href="#orange-pi-32-bit-models" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span># clone repo
+$ git clone https://github.com/roc-streaming/roc-toolkit.git
+$ cd roc-toolkit
+
+# build libraries, tools, and PulseAudio modules
+$ docker run -t --rm -u &quot;${UID}&quot; -v &quot;${PWD}:${PWD}&quot; -w &quot;${PWD}&quot; \
+    rocproject/cross-arm-linux-gnueabihf \
+      scons -Q \
+        --enable-pulseaudio-modules \
+        --host=arm-linux-gnueabihf \
+        --build-3rdparty=libuv,libunwind,openfec,alsa,pulseaudio:8.0,sox,cpputest
+
+# install Roc binaries
+$ scp ./bin/arm-linux-gnueabihf/roc-{recv,send,conv} &lt;address&gt;:/usr/bin
+$ scp ./bin/arm-linux-gnueabihf/libroc.so.*.* &lt;address&gt;:/usr/lib
+$ scp ./bin/arm-linux-gnueabihf/module-roc-{sink,sink-input} &lt;address&gt;:/usr/lib/pulse-8.0/modules
+
+# install Roc dependencies
+$ ssh &lt;address&gt; apt-get install libasound2 libpulse0 libltdl7
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="macos">
+<h2><a class="toc-backref" href="#id14">macOS</a><a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="macos-10-12-and-later">
+<h3><a class="toc-backref" href="#id15">macOS 10.12 and later</a><a class="headerlink" href="#macos-10-12-and-later" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span># for Roc
+$ brew install scons ragel gengetopt sox libuv cpputest
+
+# for 3rd-parties
+$ brew install libtool autoconf automake make cmake
+
+# clone repo
+$ git clone https://github.com/roc-streaming/roc-toolkit.git
+$ cd roc-toolkit
+
+# build libraries and tools
+$ scons -Q --build-3rdparty=openfec
+
+# install libraries and tools
+$ sudo scons -Q --build-3rdparty=openfec install
+</pre></div>
+</div>
+</div>
+<div class="section" id="macos-10-11-and-later">
+<h3><a class="toc-backref" href="#id16">macOS 10.11 and later</a><a class="headerlink" href="#macos-10-11-and-later" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span># for Roc
+$ brew install scons ragel gengetopt cpputest
+
+# for 3rd-parties
+$ brew install libtool autoconf automake make cmake
+
+# clone repo
+$ git clone https://github.com/roc-streaming/roc-toolkit.git
+$ cd roc-toolkit
+
+# build libraries and tools
+$ scons -Q --build-3rdparty=libuv,openfec,sox
+
+# install libraries and tools
+$ sudo scons -Q --build-3rdparty=libuv,openfec,sox install
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="android">
+<h2><a class="toc-backref" href="#id17">Android</a><a class="headerlink" href="#android" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Android support is still work in progress and was not properly tested yet.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="../portability/cross_compiling.html"><span class="doc">Cross-compiling</span></a></li>
+</ul>
+</div>
+<div class="section" id="termux-packages">
+<h3><a class="toc-backref" href="#id18">Termux packages</a><a class="headerlink" href="#termux-packages" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Termux package for Roc may be outdated.</p>
+</div>
+<p>Install <a class="reference external" href="https://termux.com/">Termux</a> on your device and enter these commands:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>$ pkg install unstable-repo
+$ pkg install roc
+$ pkg install pulseaudio
+</pre></div>
+</div>
+<p>This will install binary packages for PulseAudio daemon and Roc PulseAudio modules on your device. Then you can configure PulseAudio to run Roc as described in <a class="reference internal" href="../running/pulseaudio_modules.html"><span class="doc">PulseAudio modules</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo80.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../building.html">Building</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scons_options.html">SCons options</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">User cookbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_cookbook.html">Developer cookbook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../running.html">Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manuals.html">Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../portability.html">Portability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals.html">Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="developer_cookbook.html" title="Developer cookbook"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="scons_options.html" title="SCons options"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../building.html" >Building</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Roc authors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>

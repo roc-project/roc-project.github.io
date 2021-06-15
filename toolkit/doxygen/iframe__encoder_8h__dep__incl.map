@@ -1,0 +1,12 @@
+<map id="roc_audio/iframe_encoder.h" name="roc_audio/iframe_encoder.h">
+<area shape="rect" id="node1" title="Audio frame encoder interface." alt="" coords="174,5,377,32"/>
+<area shape="rect" id="node2" href="$packetizer_8h.html" title="Packetizer." alt="" coords="5,155,172,181"/>
+<area shape="rect" id="node3" href="$sender_8h.html" title="Sender pipeline." alt="" coords="130,229,290,256"/>
+<area shape="rect" id="node4" href="$pcm__encoder_8h.html" title="PCM encoder." alt="" coords="247,80,434,107"/>
+<area shape="rect" id="node5" href="$format_8h.html" title="RTP payload format." alt="" coords="459,80,585,107"/>
+<area shape="rect" id="node6" href="$format__map_8h.html" title="RTP payload format map." alt="" coords="417,155,579,181"/>
+<area shape="rect" id="node7" href="$receiver__port_8h.html" title="Receiver port pipeline." alt="" coords="571,304,729,345"/>
+<area shape="rect" id="node8" href="$receiver_8h.html" title="Receiver pipeline." alt="" coords="383,393,552,420"/>
+<area shape="rect" id="node9" href="$roc__rtp_2parser_8h.html" title="RTP packet parser." alt="" coords="490,229,613,256"/>
+<area shape="rect" id="node10" href="$receiver__session_8h.html" title="Receiver session pipeline." alt="" coords="388,304,547,345"/>
+</map>

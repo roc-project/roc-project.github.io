@@ -1,0 +1,8 @@
+<map id="roc_audio" name="roc_audio">
+<area shape="rect" id="node1" href="dir_0e3e23087e2fde78e6bc891311050c8d.html" title="roc_audio" alt="" coords="5,5,91,53"/>
+<area shape="rect" id="node2" href="dir_81514f0298c591d52dbd7703a8f5dc05.html" title="roc_core" alt="" coords="9,197,87,245"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000001_000003.html" title="44" alt="" coords="37,170,54,185"/>
+<area shape="rect" id="node3" href="dir_b37d48860184c0982dafa43dbf3bf002.html" title="roc_packet" alt="" coords="45,101,137,149"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000001_000002.html" title="18" alt="" coords="72,74,89,89"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000002_000003.html" title="35" alt="" coords="65,177,82,192"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="roc::pipeline::Converter" name="roc::pipeline::Converter">
+<area shape="rect" id="node1" title="Converter pipeline." alt="" coords="79,155,254,181"/>
+<area shape="rect" id="node2" href="$classroc_1_1sndio_1_1ISink.html" title="Sink interface." alt="" coords="12,80,137,107"/>
+<area shape="rect" id="node3" href="$classroc_1_1audio_1_1IWriter.html" title="Audio writer interface." alt="" coords="5,5,144,32"/>
+<area shape="rect" id="node4" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="161,80,356,107"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="roc_fec/codec_map.h" name="roc_fec/codec_map.h">
+<area shape="rect" id="node1" title="FEC codec map." alt="" coords="69,5,228,32"/>
+<area shape="rect" id="node2" href="$receiver_8h.html" title="Receiver pipeline." alt="" coords="5,169,175,196"/>
+<area shape="rect" id="node3" href="$receiver__session_8h.html" title="Receiver session pipeline." alt="" coords="69,80,228,121"/>
+<area shape="rect" id="node4" href="$sender_8h.html" title="Sender pipeline." alt="" coords="253,87,413,114"/>
+</map>

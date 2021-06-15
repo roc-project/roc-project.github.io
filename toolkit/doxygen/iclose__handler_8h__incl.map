@@ -1,0 +1,27 @@
+<map id="roc_netio/target_libuv/roc_netio/iclose_handler.h" name="roc_netio/target_libuv/roc_netio/iclose_handler.h">
+<area shape="rect" id="node1" title="Close handler." alt="" coords="813,5,1007,47"/>
+<area shape="rect" id="node2" href="$basic__port_8h.html" title="Basic network port." alt="" coords="827,95,993,121"/>
+<area shape="rect" id="node3" href="$iallocator_8h.html" title="Memory allocator interface." alt="" coords="561,169,715,196"/>
+<area shape="rect" id="node19" href="$list__node_8h.html" title="Linked list node." alt="" coords="751,169,903,196"/>
+<area shape="rect" id="node21" href="$refcnt_8h.html" title="Base class for reference countable objects." alt="" coords="927,169,1058,196"/>
+<area shape="rect" id="node23" href="$address_8h.html" title="Network address." alt="" coords="1121,169,1280,196"/>
+<area shape="rect" id="node4" href="$attributes_8h.html" title="GCC attributes." alt="" coords="5,319,161,345"/>
+<area shape="rect" id="node5" href="$panic_8h.html" title="Panic function." alt="" coords="561,244,689,271"/>
+<area shape="rect" id="node7" href="$stddefs_8h.html" title="Commonly used types and functions." alt="" coords="763,244,905,271"/>
+<area shape="rect" id="node6" href="$helpers_8h.html" title="Compile time helpers." alt="" coords="186,319,327,345"/>
+<area shape="rect" id="node8" title=" " alt="" coords="1157,319,1242,345"/>
+<area shape="rect" id="node9" title=" " alt="" coords="1267,319,1329,345"/>
+<area shape="rect" id="node10" title=" " alt="" coords="1353,319,1403,345"/>
+<area shape="rect" id="node11" title=" " alt="" coords="352,319,423,345"/>
+<area shape="rect" id="node12" title=" " alt="" coords="447,319,533,345"/>
+<area shape="rect" id="node13" title=" " alt="" coords="557,319,628,345"/>
+<area shape="rect" id="node14" title=" " alt="" coords="653,319,727,345"/>
+<area shape="rect" id="node15" title=" " alt="" coords="752,319,823,345"/>
+<area shape="rect" id="node16" title=" " alt="" coords="847,319,917,345"/>
+<area shape="rect" id="node17" title=" " alt="" coords="941,319,1012,345"/>
+<area shape="rect" id="node18" title=" " alt="" coords="1037,319,1133,345"/>
+<area shape="rect" id="node20" href="$noncopyable_8h.html" title="Non&#45;copyable object." alt="" coords="1427,319,1603,345"/>
+<area shape="rect" id="node22" href="$atomic_8h.html" title="Atomic integer." alt="" coords="1030,244,1169,271"/>
+<area shape="rect" id="node24" title=" " alt="" coords="1193,244,1289,271"/>
+<area shape="rect" id="node25" title=" " alt="" coords="1313,244,1416,271"/>
+</map>

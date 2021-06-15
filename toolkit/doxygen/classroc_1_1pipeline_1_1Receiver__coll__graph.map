@@ -1,0 +1,6 @@
+<map id="roc::pipeline::Receiver" name="roc::pipeline::Receiver">
+<area shape="rect" id="node1" title="Receiver pipeline." alt="" coords="161,80,327,107"/>
+<area shape="rect" id="node2" href="$classroc_1_1sndio_1_1ISource.html" title="Source interface." alt="" coords="5,5,147,32"/>
+<area shape="rect" id="node3" href="$classroc_1_1packet_1_1IWriter.html" title="Packet writer interface." alt="" coords="171,5,317,32"/>
+<area shape="rect" id="node4" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="341,5,536,32"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="roc::pipeline::ConverterConfig" name="roc::pipeline::ConverterConfig">
+<area shape="rect" id="node1" title="Converter parameters." alt="" coords="21,95,195,136"/>
+<area shape="rect" id="node2" href="$structroc_1_1audio_1_1ResamplerConfig.html" title="Resampler parameters." alt="" coords="5,5,211,32"/>
+</map>

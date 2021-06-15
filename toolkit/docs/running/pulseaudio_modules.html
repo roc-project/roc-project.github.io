@@ -1,0 +1,353 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>PulseAudio modules &#8212; Roc Toolkit 0.1.5</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roc.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="/analytics.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API" href="../api.html" />
+    <link rel="prev" title="Command-line tools" href="command_line_tools.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../api.html" title="API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="command_line_tools.html" title="Command-line tools"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../running.html" accesskey="U">Running</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pulseaudio-modules">
+<h1>PulseAudio modules<a class="headerlink" href="#pulseaudio-modules" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of contents:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#overview" id="id1">Overview</a></li>
+<li><a class="reference internal" href="#building" id="id2">Building</a></li>
+<li><a class="reference internal" href="#installing" id="id3">Installing</a></li>
+<li><a class="reference internal" href="#running-receiver" id="id4">Running receiver</a></li>
+<li><a class="reference internal" href="#running-sender" id="id5">Running sender</a></li>
+<li><a class="reference internal" href="#naming" id="id6">Naming</a></li>
+<li><a class="reference internal" href="#interoperability" id="id7">Interoperability</a></li>
+<li><a class="reference internal" href="#troubleshooting" id="id8">Troubleshooting</a></li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id1">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Roc provides a set of <a class="reference external" href="https://www.freedesktop.org/wiki/Software/PulseAudio/">PulseAudio</a> modules allowing PulseAudio to use Roc as a transport and improve its service quality over an unreliable network such as Wi-Fi.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Work in progress! The implementation is in the proof-of-concept stage. Not all features are implemented, and implemented features are not fully tested yet. Most notably, there is no service discovery, so that the user have to register a pair of sink and sink-input manually. It's planned to be implemented in upcoming releases.</p>
+</div>
+<p>Advantages over Roc command-line tools:</p>
+<ul class="simple">
+<li>Seamless integration into the PulseAudio workflow. The user can connect a local audio stream to a remote audio device using common PulseAudio tools like pavucontrol.</li>
+<li>A bit lower latency. Since Roc is integrated into the PulseAudio server, there is no additional communication step between Roc and PulseAudio server.</li>
+</ul>
+<p>Advantages over PulseAudio &quot;native&quot; protocol:</p>
+<ul class="simple">
+<li>Better service quaility when the latency is low and the network is unreliable. PulseAudio &quot;native&quot; protocol uses TCP, while Roc uses RTP, which is better suited for real-time communication than TCP-based protocols.</li>
+<li>Compatibility with standard protocols. PulseAudio &quot;native&quot; protocol is PulseAudio-specific, while Roc implements a set of standardized RTP-based protocols.</li>
+</ul>
+<p>Advantages over PulseAudio built-in RTP support:</p>
+<ul class="simple">
+<li>Better service quaility when the latency is low and the network is unreliable. PulseAudio uses bare RTP, while Roc also employs Forward Erasure Correction extensions.</li>
+</ul>
+</div>
+<div class="section" id="building">
+<h2><a class="toc-backref" href="#id2">Building</a><a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h2>
+<p>You need to build PulseAudio itself from sources (either automatically or manually) and enable building Roc PulseAudio modules using <code class="docutils literal notranslate"><span class="pre">--enable-pulseaudio-modules</span></code> SCons option.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">You should build exactly the same PulseAudio version as you're running since PulseAudio does not provide an ABI and API compatibility for internal modules.</p>
+</div>
+<p>To download and build PulseAudio automatically, use <code class="docutils literal notranslate"><span class="pre">--build-3rdparty</span></code> SCons option:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>$ scons --enable-pulseaudio-modules --build-3rdparty=pulseaudio ...       # auto-detect PulseAudio version
+$ scons --enable-pulseaudio-modules --build-3rdparty=pulseaudio:10.0 ...  # use specified PulseAudio version
+</pre></div>
+</div>
+<p>Alternatively, you can <a class="reference external" href="https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/Developer/PulseAudioFromGit/">build PulseAudio manually</a> and use <code class="docutils literal notranslate"><span class="pre">--with-pulseaudio</span></code> option to specify a directory where PulseAudio sources are located:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>$ scons --enable-pulseaudio-modules --with-pulseaudio=/path/to/pulseaudio ...
+</pre></div>
+</div>
+<p>See our <a class="reference internal" href="../building.html"><span class="doc">Building</span></a> page for details. In particular, the <a class="reference internal" href="../building/user_cookbook.html"><span class="doc">User cookbook</span></a> page provides examples for popular distros.</p>
+</div>
+<div class="section" id="installing">
+<h2><a class="toc-backref" href="#id3">Installing</a><a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
+<p>You need to install Roc library and PulseAudio modules into the system.</p>
+<p>You can do it by adding &quot;sudo&quot; and &quot;install&quot; to your SCons command:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo scons --enable-pulseaudio-modules --build-3rdparty=pulseaudio:10.0 ... install
+</pre></div>
+</div>
+<p>Alternatively, you can copy or symlink the files manually, e.g.:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp ./bin/x86_64-pc-linux-gnu/module-roc-sink.so /usr/lib/pulse-10.0/modules/
+$ cp ./bin/x86_64-pc-linux-gnu/module-roc-sink-input.so /usr/lib/pulse-10.0/modules/
+$ cp ./bin/x86_64-pc-linux-gnu/libroc.so /usr/lib/
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-receiver">
+<h2><a class="toc-backref" href="#id4">Running receiver</a><a class="headerlink" href="#running-receiver" title="Permalink to this headline">¶</a></h2>
+<p>For the receiving side, Roc provides <code class="docutils literal notranslate"><span class="pre">module-roc-sink-input</span></code> PulseAudio module. It creates a PulseAudio sink input that receives samples from Roc sender and passes them to the sink it is connected to. You can then connect it to any audio device.</p>
+<p>Roc sink input supports several options:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="8%" />
+<col width="14%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">option</th>
+<th class="head">required</th>
+<th class="head">default</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>sink</td>
+<td>no</td>
+<td>&lt;default sink&gt;</td>
+<td>the name of the sink to connect the new sink input to</td>
+</tr>
+<tr class="row-odd"><td>sink_input_properties</td>
+<td>no</td>
+<td>empty</td>
+<td>additional sink input properties</td>
+</tr>
+<tr class="row-even"><td>resampler_profile</td>
+<td>no</td>
+<td>medium</td>
+<td>resampler mode, supported values: disable, high, medium, low</td>
+</tr>
+<tr class="row-odd"><td>sess_latency_msec</td>
+<td>no</td>
+<td>200</td>
+<td>target session latency in milliseconds</td>
+</tr>
+<tr class="row-even"><td>io_latency_msec</td>
+<td>no</td>
+<td>40</td>
+<td>target playback latency in milliseconds</td>
+</tr>
+<tr class="row-odd"><td>local_ip</td>
+<td>no</td>
+<td>0.0.0.0</td>
+<td>local address to bind to</td>
+</tr>
+<tr class="row-even"><td>local_source_port</td>
+<td>no</td>
+<td>10001</td>
+<td>local port for source (audio) packets</td>
+</tr>
+<tr class="row-odd"><td>local_repair_port</td>
+<td>no</td>
+<td>10002</td>
+<td>local port for repair (FEC) packets</td>
+</tr>
+</tbody>
+</table>
+<p>Here is how you can create a Roc sink input from command line:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>$ pactl load-module module-roc-sink-input
+</pre></div>
+</div>
+<p>Alternatively, you can add this line to <code class="docutils literal notranslate"><span class="pre">/etc/pulse/default.pa</span></code> to create a Roc sink input automatically at PulseAudio start:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">load</span><span class="o">-</span><span class="n">module</span> <span class="n">module</span><span class="o">-</span><span class="n">roc</span><span class="o">-</span><span class="n">sink</span><span class="o">-</span><span class="nb">input</span>
+</pre></div>
+</div>
+<p>You can then connect the Roc sink input to an audio device (i.e. a sink) via command line:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span># determine Roc sink-input number
+$ pactl list sink-inputs
+
+# connect Roc sink-input to a sink
+$ pactl move-sink-input &lt;roc_sink_input_number&gt; &lt;sink&gt;
+</pre></div>
+</div>
+<p>Or via the <code class="docutils literal notranslate"><span class="pre">pavucontrol</span></code> graphical tool:</p>
+<a class="reference internal image-reference" href="../_images/roc_pulse_receiver.png"><img alt="../_images/roc_pulse_receiver.png" src="../_images/roc_pulse_receiver.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="running-sender">
+<h2><a class="toc-backref" href="#id5">Running sender</a><a class="headerlink" href="#running-sender" title="Permalink to this headline">¶</a></h2>
+<p>For the sending side, Roc provides <code class="docutils literal notranslate"><span class="pre">module-roc-sink</span></code> PulseAudio module. It creates a PulseAudio sink that sends samples written to it to a preconfigured receiver address. You can then connect an audio stream of any running application to that sink, or make it the default sink.</p>
+<p>Roc sink supports several options:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="9%" />
+<col width="16%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">option</th>
+<th class="head">required</th>
+<th class="head">default</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>sink_name</td>
+<td>no</td>
+<td>roc_sender</td>
+<td>the name of the new sink</td>
+</tr>
+<tr class="row-odd"><td>sink_properties</td>
+<td>no</td>
+<td>empty</td>
+<td>additional sink properties</td>
+</tr>
+<tr class="row-even"><td>local_ip</td>
+<td>no</td>
+<td>0.0.0.0</td>
+<td>local sender address to bind to</td>
+</tr>
+<tr class="row-odd"><td>remote_ip</td>
+<td>yes</td>
+<td>no</td>
+<td>remote receiver address</td>
+</tr>
+<tr class="row-even"><td>remote_source_port</td>
+<td>no</td>
+<td>10001</td>
+<td>remote receiver port for source (audio) packets</td>
+</tr>
+<tr class="row-odd"><td>remote_repair_port</td>
+<td>no</td>
+<td>10002</td>
+<td>remote receiver port for repair (FEC) packets</td>
+</tr>
+</tbody>
+</table>
+<p>Here is how you can create a Roc sink from command line:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>$ pactl load-module module-roc-sink remote_ip=&lt;receiver_ip&gt;
+</pre></div>
+</div>
+<p>Alternatively, you can add this line to <code class="docutils literal notranslate"><span class="pre">/etc/pulse/default.pa</span></code> to create a Roc sink automatically at PulseAudio start:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">load</span><span class="o">-</span><span class="n">module</span> <span class="n">module</span><span class="o">-</span><span class="n">roc</span><span class="o">-</span><span class="n">sink</span> <span class="n">remote_ip</span><span class="o">=&lt;</span><span class="n">receiver_ip</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>You can then connect an audio stream (i.e. a sink input) to the Roc sink via command line:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>$ pactl move-sink-input &lt;sink_input_number&gt; roc_sender
+</pre></div>
+</div>
+<p>Or via the <code class="docutils literal notranslate"><span class="pre">pavucontrol</span></code> graphical tool:</p>
+<a class="reference internal image-reference" href="../_images/roc_pulse_sender.png"><img alt="../_images/roc_pulse_sender.png" src="../_images/roc_pulse_sender.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="naming">
+<h2><a class="toc-backref" href="#id6">Naming</a><a class="headerlink" href="#naming" title="Permalink to this headline">¶</a></h2>
+<p>PulseAudio sinks and sink inputs have name and description. Name is usually used when the sink or sink input is referenced from command-line tools or configuration files, and description is shown in the GUI.</p>
+<p>Sink name and description can be configured via <code class="docutils literal notranslate"><span class="pre">sink_name</span></code> module argument and <code class="docutils literal notranslate"><span class="pre">device.description</span></code> sink property set by <code class="docutils literal notranslate"><span class="pre">sink_properties</span></code> module argument:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>$ pactl load-module module-roc-sink remote_ip=192.168.1.38 \
+    sink_name=my_name sink_properties=device.description=My-Description
+</pre></div>
+</div>
+<p>Sink input name and description can be configured via <code class="docutils literal notranslate"><span class="pre">sink_input_name</span></code> module argument and <code class="docutils literal notranslate"><span class="pre">media.name</span></code> sink input property set by <code class="docutils literal notranslate"><span class="pre">sink_input_properties</span></code> module argument:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>$ pactl load-module module-roc-sink-input \
+    sink_input_name=my_name sink_input_properties=media.name=My-Description
+</pre></div>
+</div>
+</div>
+<div class="section" id="interoperability">
+<h2><a class="toc-backref" href="#id7">Interoperability</a><a class="headerlink" href="#interoperability" title="Permalink to this headline">¶</a></h2>
+<p>Roc PulseAudio modules are interoperable with Roc library command line tools, i.e.:</p>
+<ul class="simple">
+<li>as a sender, you can use either <code class="docutils literal notranslate"><span class="pre">roc_sender</span></code> from the C library, <code class="docutils literal notranslate"><span class="pre">roc-send</span></code> command line tool, or <code class="docutils literal notranslate"><span class="pre">module-roc-sink</span></code></li>
+<li>as a receiver, you can use either <code class="docutils literal notranslate"><span class="pre">roc_receiver</span></code> from the C library, <code class="docutils literal notranslate"><span class="pre">roc-recv</span></code> command line tool, or <code class="docutils literal notranslate"><span class="pre">module-roc-sink-input</span></code></li>
+</ul>
+</div>
+<div class="section" id="troubleshooting">
+<h2><a class="toc-backref" href="#id8">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>First, run PulseAudio server in verbose mode, both on sending and receiving sides:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>$ pulseaudio -vvv
+</pre></div>
+</div>
+<p>Among other things, you should find some messages from Roc sink and sink-input there, which may give some idea about what's going wrong.</p>
+<p>Second, you can try to replace sender, receiver, or both with Roc command line tools to determine whether the issue is specific to PulseAudio modules or not.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo80.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building.html">Building</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../running.html">Running</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="command_line_tools.html">Command-line tools</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PulseAudio modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manuals.html">Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../portability.html">Portability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals.html">Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../api.html" title="API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="command_line_tools.html" title="Command-line tools"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../running.html" >Running</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Roc authors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>

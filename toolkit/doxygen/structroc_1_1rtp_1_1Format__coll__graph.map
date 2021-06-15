@@ -1,0 +1,5 @@
+<map id="roc::rtp::Format" name="roc::rtp::Format">
+<area shape="rect" id="node1" title="RTP payload format." alt="" coords="149,95,271,121"/>
+<area shape="rect" id="node2" href="$classroc_1_1audio_1_1IFrameDecoder.html" title="Audio frame decoder interface." alt="" coords="5,5,199,32"/>
+<area shape="rect" id="node3" href="$classroc_1_1audio_1_1IFrameEncoder.html" title="Audio frame encoder interface." alt="" coords="223,5,413,32"/>
+</map>

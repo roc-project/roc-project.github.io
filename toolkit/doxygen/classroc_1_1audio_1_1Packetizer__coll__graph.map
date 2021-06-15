@@ -1,0 +1,5 @@
+<map id="roc::audio::Packetizer" name="roc::audio::Packetizer">
+<area shape="rect" id="node1" title="Packetizer." alt="" coords="89,80,249,107"/>
+<area shape="rect" id="node2" href="$classroc_1_1audio_1_1IWriter.html" title="Audio writer interface." alt="" coords="5,5,144,32"/>
+<area shape="rect" id="node3" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="168,5,363,32"/>
+</map>

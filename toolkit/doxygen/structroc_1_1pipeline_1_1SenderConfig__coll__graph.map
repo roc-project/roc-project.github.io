@@ -1,0 +1,6 @@
+<map id="roc::pipeline::SenderConfig" name="roc::pipeline::SenderConfig">
+<area shape="rect" id="node1" title="Sender parameters." alt="" coords="217,95,413,121"/>
+<area shape="rect" id="node2" href="$structroc_1_1audio_1_1ResamplerConfig.html" title="Resampler parameters." alt="" coords="5,5,211,32"/>
+<area shape="rect" id="node3" href="$structroc_1_1fec_1_1CodecConfig.html" title="FEC codec parameters." alt="" coords="235,5,394,32"/>
+<area shape="rect" id="node4" href="$structroc_1_1fec_1_1WriterConfig.html" title="FEC writer parameters." alt="" coords="418,5,577,32"/>
+</map>

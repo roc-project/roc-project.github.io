@@ -1,0 +1,10 @@
+<map id="roc_packet/target_stdio" name="roc_packet/target_stdio">
+<area shape="rect" id="node2" href="dir_7407c9f90d6ea3402c8b36279afcea19.html" title="roc_packet" alt="" coords="38,63,130,111"/>
+<area shape="rect" id="node3" href="dir_81514f0298c591d52dbd7703a8f5dc05.html" title="roc_core" alt="" coords="44,255,121,303"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000024_000003.html" title="1" alt="" coords="74,227,84,242"/>
+<area shape="rect" id="node4" href="dir_fe8f09ab324856960b2808f2778c3150.html" title="target_posix" alt="" coords="77,159,179,207"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000024_000021.html" title="1" alt="" coords="112,131,122,146"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000021_000003.html" title="1" alt="" coords="105,235,114,249"/>
+<area shape="rect" id="clust2" href="dir_d9f236a261421090ab6c941fb4c0ff3d.html" alt="" coords="27,52,264,121"/>
+<area shape="rect" id="clust1" href="dir_b37d48860184c0982dafa43dbf3bf002.html" title="roc_packet" alt="" coords="16,16,275,132"/>
+</map>

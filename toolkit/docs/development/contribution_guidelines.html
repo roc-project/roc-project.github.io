@@ -1,0 +1,186 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Contribution guidelines &#8212; Roc Toolkit 0.1.5</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roc.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="/analytics.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Coding guidelines" href="coding_guidelines.html" />
+    <link rel="prev" title="Roadmap" href="roadmap.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="coding_guidelines.html" title="Coding guidelines"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="roadmap.html" title="Roadmap"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../development.html" accesskey="U">Development</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="contribution-guidelines">
+<h1>Contribution guidelines<a class="headerlink" href="#contribution-guidelines" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of contents:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#how-you-can-help" id="id1">How you can help</a></li>
+<li><a class="reference internal" href="#choosing-a-task" id="id2">Choosing a task</a></li>
+<li><a class="reference internal" href="#working-on-a-patch" id="id3">Working on a patch</a></li>
+</ul>
+</div>
+<div class="section" id="how-you-can-help">
+<h2><a class="toc-backref" href="#id1">How you can help</a><a class="headerlink" href="#how-you-can-help" title="Permalink to this headline">¶</a></h2>
+<p>If you would like to help the project, you can:</p>
+<ul>
+<li><p class="first"><strong>help with testing</strong></p>
+<p>Try to use Roc command-line tools or PulseAudio modules and report bugs or suggest improvements.</p>
+</li>
+<li><p class="first"><strong>help with research</strong></p>
+<p>Discover how does Roc perform on different conditions and configurations and share the results. What latency and service quality does it provide in different cases, what parameter combinations are optimal, and so on.</p>
+</li>
+<li><p class="first"><strong>help with porting</strong></p>
+<p>We'd be happy to meet developers who can help with maintaining ports for non-Linux *nix systems, macOS, Android, Windows, and other platforms.</p>
+</li>
+<li><p class="first"><strong>contribute code</strong></p>
+<p>Roc has quite a long and pretty interesting roadmap and a backlog with issues of varying difficulty. Read the documentation, choose a task, and submit pull requests!</p>
+</li>
+</ul>
+</div>
+<div class="section" id="choosing-a-task">
+<h2><a class="toc-backref" href="#id2">Choosing a task</a><a class="headerlink" href="#choosing-a-task" title="Permalink to this headline">¶</a></h2>
+<p>Want to contribute code? Great! Here is how you can choose a task.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is highly recommended to leave a comment on GitHub or throw a mail to the mailing list before starting working on an issue to ensure that nobody is already working on it.</p>
+</div>
+<ul>
+<li><p class="first"><strong>&quot;help wanted&quot; tag</strong></p>
+<p>Look for issues marked with the <a class="reference external" href="https://github.com/roc-streaming/roc-toolkit/labels/help%20wanted">&quot;help wanted&quot;</a> tag. This tag means that this is an important and awaited task but we have no human resources for it yet, and it is still in the backlog.</p>
+</li>
+<li><p class="first"><strong>&quot;easy hacks&quot; tag</strong></p>
+<p>Look for issues that are additionally marked with the <a class="reference external" href="https://github.com/roc-streaming/roc-toolkit/labels/easy%20hacks">&quot;easy hacks&quot;</a> tag. This tag means that the solution is expected to be straightforward even if you are new to the project.</p>
+</li>
+<li><p class="first"><strong>backlog column</strong></p>
+<p>Look for issues in the &quot;Backlog&quot; column in the <a class="reference external" href="https://github.com/roc-streaming/roc-toolkit/projects/2">project board</a>. Issues that are <em>not</em> marked as &quot;help wanted&quot; are probably not very good for you if you're new to the project, but you can take your chances if you would like to.</p>
+</li>
+<li><p class="first"><strong>project roadmap</strong></p>
+<p>Look for unimplemented features in the long-term <a class="reference internal" href="roadmap.html"><span class="doc">project roadmap</span></a>. If there is no issue for a feature yet, it means that nobody had thought through it yet. You are suggested to open an issue for discussion in this case.</p>
+</li>
+<li><p class="first"><strong>suggest your own</strong></p>
+<p>Of course, you're also welcome to open an issue and suggest a feature that is not in our backlog and roadmap.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="working-on-a-patch">
+<h2><a class="toc-backref" href="#id3">Working on a patch</a><a class="headerlink" href="#working-on-a-patch" title="Permalink to this headline">¶</a></h2>
+<p>If you have chosen a task and are ready to work on it, the following documentation is your friend:</p>
+<ul>
+<li><p class="first"><strong>project internals</strong></p>
+<p>See <a class="reference internal" href="../internals.html"><span class="doc">Internals</span></a> section for a high-level overview.</p>
+<p>See also more low-level <a class="reference external" href="https://roc-streaming.org/toolkit/doxygen/">Doxygen-generated documentation</a>.</p>
+</li>
+<li><p class="first"><strong>coding guidelines</strong></p>
+<p>Please take a look at the <a class="reference internal" href="coding_guidelines.html"><span class="doc">Coding guidelines</span></a> page. The guidelines are not hard to follow but some of them a specific.</p>
+</li>
+<li><p class="first"><strong>version control</strong></p>
+<p>Please also take a look at the <a class="reference internal" href="version_control.html"><span class="doc">Version control</span></a> page for details on commits, branches, and pull requests.</p>
+</li>
+<li><p class="first"><strong>asking questions</strong></p>
+<p>Feel free to ask questions on our mailing list or IRC channel. See <a class="reference internal" href="../about_project/contacts.html"><span class="doc">Contacts</span></a> page for details.</p>
+</li>
+<li><p class="first"><strong>getting credits</strong></p>
+<p>Feel free to add yourself to the <a class="reference internal" href="../about_project/authors.html"><span class="doc">Authors</span></a> page when submitting a patch. It is updated from git log from time to time.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo80.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running.html">Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manuals.html">Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../portability.html">Portability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals.html">Internals</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../development.html">Development</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Contribution guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_guidelines.html">Coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="version_control.html">Version control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="continuous_integration.html">Continuous integration</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="coding_guidelines.html" title="Coding guidelines"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="roadmap.html" title="Roadmap"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../development.html" >Development</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Roc authors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>

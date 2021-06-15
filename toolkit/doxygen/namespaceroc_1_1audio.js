@@ -1,0 +1,27 @@
+var namespaceroc_1_1audio =
+[
+    [ "Depacketizer", "classroc_1_1audio_1_1Depacketizer.html", "classroc_1_1audio_1_1Depacketizer" ],
+    [ "Frame", "classroc_1_1audio_1_1Frame.html", "classroc_1_1audio_1_1Frame" ],
+    [ "FreqEstimator", "classroc_1_1audio_1_1FreqEstimator.html", "classroc_1_1audio_1_1FreqEstimator" ],
+    [ "IFrameDecoder", "classroc_1_1audio_1_1IFrameDecoder.html", "classroc_1_1audio_1_1IFrameDecoder" ],
+    [ "IFrameEncoder", "classroc_1_1audio_1_1IFrameEncoder.html", "classroc_1_1audio_1_1IFrameEncoder" ],
+    [ "IReader", "classroc_1_1audio_1_1IReader.html", "classroc_1_1audio_1_1IReader" ],
+    [ "IWriter", "classroc_1_1audio_1_1IWriter.html", "classroc_1_1audio_1_1IWriter" ],
+    [ "LatencyMonitor", "classroc_1_1audio_1_1LatencyMonitor.html", "classroc_1_1audio_1_1LatencyMonitor" ],
+    [ "LatencyMonitorConfig", "structroc_1_1audio_1_1LatencyMonitorConfig.html", "structroc_1_1audio_1_1LatencyMonitorConfig" ],
+    [ "Mixer", "classroc_1_1audio_1_1Mixer.html", "classroc_1_1audio_1_1Mixer" ],
+    [ "NullWriter", "classroc_1_1audio_1_1NullWriter.html", "classroc_1_1audio_1_1NullWriter" ],
+    [ "Packetizer", "classroc_1_1audio_1_1Packetizer.html", "classroc_1_1audio_1_1Packetizer" ],
+    [ "PCMDecoder", "classroc_1_1audio_1_1PCMDecoder.html", "classroc_1_1audio_1_1PCMDecoder" ],
+    [ "PCMEncoder", "classroc_1_1audio_1_1PCMEncoder.html", "classroc_1_1audio_1_1PCMEncoder" ],
+    [ "PCMFuncs", "structroc_1_1audio_1_1PCMFuncs.html", "structroc_1_1audio_1_1PCMFuncs" ],
+    [ "PoisonReader", "classroc_1_1audio_1_1PoisonReader.html", "classroc_1_1audio_1_1PoisonReader" ],
+    [ "PoisonWriter", "classroc_1_1audio_1_1PoisonWriter.html", "classroc_1_1audio_1_1PoisonWriter" ],
+    [ "ProfilingWriter", "classroc_1_1audio_1_1ProfilingWriter.html", "classroc_1_1audio_1_1ProfilingWriter" ],
+    [ "Resampler", "classroc_1_1audio_1_1Resampler.html", "classroc_1_1audio_1_1Resampler" ],
+    [ "ResamplerConfig", "structroc_1_1audio_1_1ResamplerConfig.html", "structroc_1_1audio_1_1ResamplerConfig" ],
+    [ "ResamplerReader", "classroc_1_1audio_1_1ResamplerReader.html", "classroc_1_1audio_1_1ResamplerReader" ],
+    [ "ResamplerWriter", "classroc_1_1audio_1_1ResamplerWriter.html", "classroc_1_1audio_1_1ResamplerWriter" ],
+    [ "Watchdog", "classroc_1_1audio_1_1Watchdog.html", "classroc_1_1audio_1_1Watchdog" ],
+    [ "WatchdogConfig", "structroc_1_1audio_1_1WatchdogConfig.html", "structroc_1_1audio_1_1WatchdogConfig" ]
+];

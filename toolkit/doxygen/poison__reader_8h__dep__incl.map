@@ -1,0 +1,5 @@
+<map id="roc_audio/poison_reader.h" name="roc_audio/poison_reader.h">
+<area shape="rect" id="node1" title="Poison reader." alt="" coords="5,5,197,32"/>
+<area shape="rect" id="node2" href="$receiver_8h.html" title="Receiver pipeline." alt="" coords="17,169,186,196"/>
+<area shape="rect" id="node3" href="$receiver__session_8h.html" title="Receiver session pipeline." alt="" coords="81,80,239,121"/>
+</map>

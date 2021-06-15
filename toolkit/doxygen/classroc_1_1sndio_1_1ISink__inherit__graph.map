@@ -1,0 +1,8 @@
+<map id="roc::sndio::ISink" name="roc::sndio::ISink">
+<area shape="rect" id="node1" title="Sink interface." alt="" coords="192,81,317,108"/>
+<area shape="rect" id="node3" href="$classroc_1_1pipeline_1_1Converter.html" title="Converter pipeline." alt="" coords="374,5,549,32"/>
+<area shape="rect" id="node4" href="$classroc_1_1pipeline_1_1Sender.html" title="Sender pipeline." alt="" coords="384,56,539,83"/>
+<area shape="rect" id="node5" href="$classroc_1_1sndio_1_1PulseaudioSink.html" title="PulseAudio sink,." alt="" coords="365,107,557,133"/>
+<area shape="rect" id="node6" href="$classroc_1_1sndio_1_1SoxSink.html" title="SoX sink." alt="" coords="389,157,534,184"/>
+<area shape="rect" id="node2" href="$classroc_1_1audio_1_1IWriter.html" title="Audio writer interface." alt="" coords="5,81,144,108"/>
+</map>

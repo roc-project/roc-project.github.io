@@ -1,0 +1,4 @@
+<map id="roc_audio/mixer.h" name="roc_audio/mixer.h">
+<area shape="rect" id="node1" title="Mixer." alt="" coords="21,5,159,32"/>
+<area shape="rect" id="node2" href="$receiver_8h.html" title="Receiver pipeline." alt="" coords="5,80,175,107"/>
+</map>

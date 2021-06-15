@@ -1,0 +1,22 @@
+<map id="roc_core/target_libuv/roc_core/singleton.h" name="roc_core/target_libuv/roc_core/singleton.h">
+<area shape="rect" id="node1" title="Singleton." alt="" coords="626,5,785,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="363,95,413,121"/>
+<area shape="rect" id="node3" href="$alignment_8h.html" title="Alignment." alt="" coords="437,95,595,121"/>
+<area shape="rect" id="node16" href="$errno__to__str_8h.html" title="Convert errno to string." alt="" coords="620,95,791,121"/>
+<area shape="rect" id="node17" href="$noncopyable_8h.html" title="Non&#45;copyable object." alt="" coords="625,169,801,196"/>
+<area shape="rect" id="node18" href="$panic_8h.html" title="Panic function." alt="" coords="865,95,993,121"/>
+<area shape="rect" id="node4" href="$stddefs_8h.html" title="Commonly used types and functions." alt="" coords="445,169,587,196"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,244,91,271"/>
+<area shape="rect" id="node6" title=" " alt="" coords="115,244,178,271"/>
+<area shape="rect" id="node7" title=" " alt="" coords="202,244,251,271"/>
+<area shape="rect" id="node8" title=" " alt="" coords="275,244,346,271"/>
+<area shape="rect" id="node9" title=" " alt="" coords="370,244,457,271"/>
+<area shape="rect" id="node10" title=" " alt="" coords="481,244,551,271"/>
+<area shape="rect" id="node11" title=" " alt="" coords="576,244,651,271"/>
+<area shape="rect" id="node12" title=" " alt="" coords="675,244,746,271"/>
+<area shape="rect" id="node13" title=" " alt="" coords="770,244,841,271"/>
+<area shape="rect" id="node14" title=" " alt="" coords="865,244,935,271"/>
+<area shape="rect" id="node15" title=" " alt="" coords="960,244,1056,271"/>
+<area shape="rect" id="node19" href="$attributes_8h.html" title="GCC attributes." alt="" coords="842,169,998,196"/>
+<area shape="rect" id="node20" href="$helpers_8h.html" title="Compile time helpers." alt="" coords="1023,169,1164,196"/>
+</map>

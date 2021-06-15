@@ -1,0 +1,9 @@
+<map id="roc_core/target_libuv/roc_core/mutex.h" name="roc_core/target_libuv/roc_core/mutex.h">
+<area shape="rect" id="node1" title="Mutex." alt="" coords="75,5,233,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,95,55,121"/>
+<area shape="rect" id="node3" href="$noncopyable_8h.html" title="Non&#45;copyable object." alt="" coords="58,169,234,196"/>
+<area shape="rect" id="node4" href="$panic_8h.html" title="Panic function." alt="" coords="327,95,455,121"/>
+<area shape="rect" id="node7" href="$scoped__lock_8h.html" title="RAII mutex lock." alt="" coords="130,95,303,121"/>
+<area shape="rect" id="node5" href="$attributes_8h.html" title="GCC attributes." alt="" coords="285,169,441,196"/>
+<area shape="rect" id="node6" href="$helpers_8h.html" title="Compile time helpers." alt="" coords="466,169,607,196"/>
+</map>

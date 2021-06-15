@@ -1,0 +1,17 @@
+<map id="roc_sndio/config.h" name="roc_sndio/config.h">
+<area shape="rect" id="node1" title="Sink and source config." alt="" coords="449,5,588,32"/>
+<area shape="rect" id="node2" href="$stddefs_8h.html" title="Commonly used types and functions." alt="" coords="445,229,587,256"/>
+<area shape="rect" id="node14" href="$roc__packet_2units_8h.html" title="Various units used in packets." alt="" coords="503,80,643,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,304,91,331"/>
+<area shape="rect" id="node4" title=" " alt="" coords="115,304,178,331"/>
+<area shape="rect" id="node5" title=" " alt="" coords="202,304,251,331"/>
+<area shape="rect" id="node6" title=" " alt="" coords="275,304,346,331"/>
+<area shape="rect" id="node7" title=" " alt="" coords="370,304,457,331"/>
+<area shape="rect" id="node8" title=" " alt="" coords="481,304,551,331"/>
+<area shape="rect" id="node9" title=" " alt="" coords="576,304,651,331"/>
+<area shape="rect" id="node10" title=" " alt="" coords="675,304,746,331"/>
+<area shape="rect" id="node11" title=" " alt="" coords="770,304,841,331"/>
+<area shape="rect" id="node12" title=" " alt="" coords="865,304,935,331"/>
+<area shape="rect" id="node13" title=" " alt="" coords="960,304,1056,331"/>
+<area shape="rect" id="node15" href="$time_8h.html" title="Time definitions." alt="" coords="553,155,676,181"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="roc_sndio/driver_info.h" name="roc_sndio/driver_info.h">
+<area shape="rect" id="node1" title="Driver info interface." alt="" coords="290,5,461,32"/>
+<area shape="rect" id="node2" href="$ibackend_8h.html" title="Backend interface." alt="" coords="296,80,455,107"/>
+<area shape="rect" id="node3" href="$backend__dispatcher_8h.html" title="Backend dispatcher." alt="" coords="5,162,233,189"/>
+<area shape="rect" id="node4" href="$pulseaudio__backend_8h.html" title="Pulseaudio backend." alt="" coords="257,155,493,196"/>
+<area shape="rect" id="node5" href="$sox__backend_8h.html" title="SoX backend." alt="" coords="517,155,705,196"/>
+</map>

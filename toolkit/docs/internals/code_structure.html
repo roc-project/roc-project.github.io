@@ -1,0 +1,280 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Code structure &#8212; Roc Toolkit 0.1.5</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roc.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="/analytics.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data flow" href="data_flow.html" />
+    <link rel="prev" title="Glossary" href="glossary.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="data_flow.html" title="Data flow"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="glossary.html" title="Glossary"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../internals.html" accesskey="U">Internals</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="code-structure">
+<h1>Code structure<a class="headerlink" href="#code-structure" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of contents:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#overview" id="id3">Overview</a></li>
+<li><a class="reference internal" href="#modules" id="id4">Modules</a></li>
+<li><a class="reference internal" href="#targets" id="id5">Targets</a></li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id3">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Roc consists of the following high-level components:</p>
+<ul>
+<li><p class="first"><strong>Modules</strong></p>
+<p>Internal C++ libraries. Other components are based on them. See <a class="reference external" href="https://roc-streaming.org/toolkit/doxygen/">Doxygen documentation</a> for details.</p>
+</li>
+<li><p class="first"><strong>Library</strong></p>
+<p>Public C API (libroc). A stable (not yet) interface for running Roc network sender and receiver. See <a class="reference internal" href="../api.html"><span class="doc">API</span></a> page.</p>
+</li>
+<li><p class="first"><strong>Tools</strong></p>
+<p>Command-line tools. A command-line interface for running Roc network sender and receiver, plus performing sound I/O, plus setting some debugging options. See <a class="reference internal" href="../running/command_line_tools.html"><span class="doc">Command-line tools</span></a> page.</p>
+</li>
+<li><p class="first"><strong>PulseAudio modules</strong></p>
+<p>PulseAudio integration. Implement Roc-based network connectivity for PulseAudio. See <a class="reference internal" href="../running/pulseaudio_modules.html"><span class="doc">PulseAudio modules</span></a> page.</p>
+</li>
+</ul>
+<img alt="High-level components" class="align-center" src="../_images/components.png" />
+</div>
+<div class="section" id="modules">
+<h2><a class="toc-backref" href="#id4">Modules</a><a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<p>Essentially, a module is just a C++ library providing a set of related classes. Every module has its own namespace, include path, and a set of unit tests. Modules may be built separately.</p>
+<p>See <a class="reference external" href="https://roc-streaming.org/toolkit/doxygen/">Doxygen documentation</a> for details.</p>
+<p>Modules can be grouped into several layers:</p>
+<ul class="simple">
+<li>network I/O layer (roc_netio)</li>
+<li>processing layer (roc_pipeline), with two sublayers:</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>packet processing sublayer (roc_packet, roc_rtp, roc_fec)</li>
+<li>stream processing sublayer (roc_audio)</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>sound I/O layer (roc_sndio)</li>
+</ul>
+<p>On the receiver, data is transferring from the network layer to the sound layer. Accordingly, on the sender, data is transferring from the sound layer to the network layer.</p>
+<p>See <a class="reference internal" href="data_flow.html"><span class="doc">Data flow</span></a> page for details.</p>
+<p>Here is the full list of available modules:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">module</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>roc_core</td>
+<td>General-purpose building blocks (containers, memory management, multithreading, etc)</td>
+</tr>
+<tr class="row-odd"><td>roc_packet</td>
+<td>Network packets and packet processing</td>
+</tr>
+<tr class="row-even"><td>roc_rtp</td>
+<td>RTP support</td>
+</tr>
+<tr class="row-odd"><td>roc_fec</td>
+<td>FEC support</td>
+</tr>
+<tr class="row-even"><td>roc_audio</td>
+<td>Audio frames and audio processing</td>
+</tr>
+<tr class="row-odd"><td>roc_pipeline</td>
+<td>High-level sender and receiver pipelines on top of other modules</td>
+</tr>
+<tr class="row-even"><td>roc_netio</td>
+<td>Network I/O</td>
+</tr>
+<tr class="row-odd"><td>roc_sndio</td>
+<td>Sound I/O</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="targets">
+<span id="id2"></span><h2><a class="toc-backref" href="#id5">Targets</a><a class="headerlink" href="#targets" title="Permalink to this headline">¶</a></h2>
+<p>Roc supports multiple platforms and compilers. The major part of the source code is platform-independent. However, there are also parts that depend on specific platform features or optional third-party libraries.</p>
+<p>The platform-dependent code is isolated inside &quot;target&quot; directories. Every target directory corresponds to a feature enabled at compile time. When SCons builds the project, it determines target directories to use, depending on the target platform, available third-party libraries, and command-line options.</p>
+<p>Every module can have its own target directories. Headers from enabled target directories are added to the include path, and source files from enabled target directories are added to the build.</p>
+<p>Currently supported targets are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">target</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>target_posix</td>
+<td>Enabled for a POSIX OS</td>
+</tr>
+<tr class="row-odd"><td>target_posixtime</td>
+<td>Enabled for a POSIX OS with time extensions</td>
+</tr>
+<tr class="row-even"><td>target_gcc</td>
+<td>Enabled for a GCC-compatible compiler</td>
+</tr>
+<tr class="row-odd"><td>target_glibc</td>
+<td>Enabled for the GNU standard C library</td>
+</tr>
+<tr class="row-even"><td>target_bionic</td>
+<td>Enabled for the Bionic standard C library</td>
+</tr>
+<tr class="row-odd"><td>target_darwin</td>
+<td>Enabled for macOS</td>
+</tr>
+<tr class="row-even"><td>target_stdio</td>
+<td>Enabled if stdio is available in the standard library</td>
+</tr>
+<tr class="row-odd"><td>target_libuv</td>
+<td>Enabled if libuv is available</td>
+</tr>
+<tr class="row-even"><td>target_libunwind</td>
+<td>Enabled if libunwind is available</td>
+</tr>
+<tr class="row-odd"><td>target_openfec</td>
+<td>Enabled if OpenFEC is available</td>
+</tr>
+<tr class="row-even"><td>target_sox</td>
+<td>Enabled if SoX is available</td>
+</tr>
+<tr class="row-odd"><td>target_nobacktrace</td>
+<td>Enabled if no backtrace API is available</td>
+</tr>
+<tr class="row-even"><td>target_nodemangle</td>
+<td>Enabled if no demangling API is available</td>
+</tr>
+</tbody>
+</table>
+<p>Example directory structure employing targets:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>roc_core
+├── target_posix
+│   └── roc_core
+│       ├── ...
+│       ├── random.cpp
+│       └── random.h
+├── target_posixtime
+│   └── roc_core
+│       ├── ...
+│       ├── time.cpp
+│       └── time.h
+├── target_darwin
+│   └── roc_core
+│       ├── ...
+│       ├── time.cpp
+│       └── time.h
+├── ...
+├── array.h
+└── list.h
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo80.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running.html">Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manuals.html">Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../portability.html">Portability</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../internals.html">Internals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Code structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_flow.html">Data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fec.html">Forward Erasure Correction codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fe_resampler.html">Frequency estimator and resampler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_protocols.html">Network protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="data_flow.html" title="Data flow"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="glossary.html" title="Glossary"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../internals.html" >Internals</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Roc authors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>

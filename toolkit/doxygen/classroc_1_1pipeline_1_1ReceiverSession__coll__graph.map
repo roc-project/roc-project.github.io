@@ -1,0 +1,7 @@
+<map id="roc::pipeline::ReceiverSession" name="roc::pipeline::ReceiverSession">
+<area shape="rect" id="node1" title="Receiver session pipeline." alt="" coords="483,46,700,73"/>
+<area shape="rect" id="node2" href="$classroc_1_1core_1_1RefCnt.html" title=" " alt="" coords="287,8,435,49"/>
+<area shape="rect" id="node3" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="5,5,239,47"/>
+<area shape="rect" id="node4" href="$classroc_1_1core_1_1ListNode.html" title="Base class for list element." alt="" coords="289,75,432,102"/>
+<area shape="rect" id="node5" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="35,71,209,112"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="roc::fec::IBlockEncoder" name="roc::fec::IBlockEncoder">
+<area shape="rect" id="node1" title="FEC block encoder interface." alt="" coords="5,5,176,32"/>
+<area shape="rect" id="node2" href="$classroc_1_1fec_1_1OFEncoder.html" title="Encoder implementation using OpenFEC library." alt="" coords="17,80,165,107"/>
+</map>

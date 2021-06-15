@@ -1,0 +1,1162 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Reference &#8212; Roc Toolkit 0.1.5</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roc.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="/analytics.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Example usage" href="example_usage.html" />
+    <link rel="prev" title="API" href="../api.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="example_usage.html" title="Example usage"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../api.html" title="API"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../api.html" accesskey="U">API</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="reference">
+<h1>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">There is no compatibility promise until 1.0.0 is released. Small breaking changes are possible.</p>
+</div>
+<div class="contents local topic" id="index">
+<p class="topic-title">Index:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#roc-context" id="id1">roc_context</a></li>
+<li><a class="reference internal" href="#roc-sender" id="id2">roc_sender</a></li>
+<li><a class="reference internal" href="#roc-receiver" id="id3">roc_receiver</a></li>
+<li><a class="reference internal" href="#roc-frame" id="id4">roc_frame</a></li>
+<li><a class="reference internal" href="#roc-address" id="id5">roc_address</a></li>
+<li><a class="reference internal" href="#roc-config" id="id6">roc_config</a></li>
+<li><a class="reference internal" href="#roc-log" id="id7">roc_log</a></li>
+</ul>
+</div>
+<div class="section" id="roc-context">
+<h2><a class="toc-backref" href="#id1">roc_context</a><a class="headerlink" href="#roc-context" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;roc/context.h&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+<dl class="typedef">
+<dt id="c.roc_context">
+<span class="target" id="context_8h_1a854f5a77756c8c473fef82d13b1e470f"></span><em class="property">typedef </em>struct <a class="reference internal" href="#c.roc_context" title="roc_context">roc_context</a> <code class="descname">roc_context</code><a class="headerlink" href="#c.roc_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Roc context. </p>
+<p>Context contains memory pools and network worker thread(s). Other objects that work with memory and network should be attached to a context. It is allowed both to create a separate context for every object, or to create a single context shared between multiple objects.</p>
+<p>A context is created using <a class="reference internal" href="#context_8h_1ae4569a271eee281b852640884e236973"><span class="std std-ref">roc_context_open()</span></a> and destroyed using <a class="reference internal" href="#context_8h_1a0463ad06b4887e968a1a65220300a00b"><span class="std std-ref">roc_context_close()</span></a>. Objects can be attached and detached to an opened context at any moment from any thread. However, the user should ensure that the context is not closed until there are no objects attached to the context.</p>
+<p><strong>Thread-safety</strong> <ul class="simple">
+<li>can be used concurrently</li>
+</ul>
+</p>
+<p><dl class="docutils">
+<dt><strong>See</strong></dt>
+<dd><a class="reference internal" href="#sender_8h_1ad2370a2cbe2174fd33a630b08acbc783"><span class="std std-ref">roc_sender</span></a>, <a class="reference internal" href="#receiver_8h_1ade93cec525bde9a255df34d85eb70280"><span class="std std-ref">roc_receiver</span></a> </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_context_open">
+<span class="target" id="context_8h_1ae4569a271eee281b852640884e236973"></span><a class="reference internal" href="#c.roc_context" title="roc_context">roc_context</a>* <code class="descname">roc_context_open</code><span class="sig-paren">(</span>const  <a class="reference internal" href="#c.roc_context_config" title="roc_context_config">roc_context_config</a>  *<em>&nbsp;config</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_context_open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a new context. </p>
+<p>Allocates and initializes a new context. May start some background threads.</p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">config</span></code> should point to an initialized config</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns a new context if it was successfully created</li>
+<li>returns NULL if the arguments are invalid</li>
+<li>returns NULL if there are not enough resources </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_context_close">
+<span class="target" id="context_8h_1a0463ad06b4887e968a1a65220300a00b"></span>int <code class="descname">roc_context_close</code><span class="sig-paren">(</span><a class="reference internal" href="#c.roc_context" title="roc_context">roc_context</a>  *<em>&nbsp;context</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_context_close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the context. </p>
+<p>Stops any started background threads, deinitializes and deallocates the context. The user should ensure that nobody uses the context during and after this call.</p>
+<p>If this function fails, the context is kept opened.</p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">context</span></code> should point to an opened context</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns zero if the context was successfully closed</li>
+<li>returns a negative value if the arguments are invalid</li>
+<li>returns a negative value if there are objects attached to the context </li>
+</ul>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="roc-sender">
+<h2><a class="toc-backref" href="#id2">roc_sender</a><a class="headerlink" href="#roc-sender" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;roc/sender.h&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+<dl class="typedef">
+<dt id="c.roc_sender">
+<span class="target" id="sender_8h_1ad2370a2cbe2174fd33a630b08acbc783"></span><em class="property">typedef </em>struct <a class="reference internal" href="#c.roc_sender" title="roc_sender">roc_sender</a> <code class="descname">roc_sender</code><a class="headerlink" href="#c.roc_sender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Roc sender. </p>
+<p>Sender gets an audio stream from the user, encodes it into network packets, and transmits them to a remote receiver.</p>
+<p><strong>Context</strong> </p>
+<p>Sender is automatically attached to a context when opened and detached from it when closed. The user should not close the context until the sender is not closed.</p>
+<p>Sender work consists of two parts: stream encoding and packet transmission. The encoding part is performed in the sender itself, and the transmission part is performed in the context network worker thread(s).</p>
+<p><strong>Lifecycle</strong> </p>
+<p>A sender is created using <a class="reference internal" href="#sender_8h_1aa6d7b104ace577fc5fe26a82182ecb43"><span class="std std-ref">roc_sender_open()</span></a>. Then it should be bound to a local port using <a class="reference internal" href="#sender_8h_1a1a9e5d7735cfd567044d4d4c5cbcecbf"><span class="std std-ref">roc_sender_bind()</span></a> and connected to a single or multiple remote receiver ports using <a class="reference internal" href="#sender_8h_1a270c7ee2c6516cae9ca8df41b5252f2b"><span class="std std-ref">roc_sender_connect()</span></a>. After that, the audio stream is iteratively written to the sender using <a class="reference internal" href="#sender_8h_1aac8af571b6c95be970d86887b7d36357"><span class="std std-ref">roc_sender_write()</span></a>. When the sender is not needed anymore, it is destroyed using <a class="reference internal" href="#sender_8h_1a4b0d784d2d2989ef84baa7b672782fdb"><span class="std std-ref">roc_sender_close()</span></a>.</p>
+<p><strong>Ports</strong> </p>
+<p>The user is responsible for connecting the sender to all necessary receiver ports and selecting the same port types and protocols as at the receiver side.</p>
+<p>Currently, two configurations are possible:</p>
+<p><ul class="simple">
+<li>If FEC is disabled, a single port of type <code class="docutils literal notranslate"><span class="pre">ROC_PORT_AUDIO_SOURCE</span></code> should be connected. The only supported protocol in this case is <code class="docutils literal notranslate"><span class="pre">ROC_PROTO_RTP</span></code>. This port will be used to send audio packets.</li>
+<li>If FEC is enabled, two ports of types <code class="docutils literal notranslate"><span class="pre">ROC_PORT_AUDIO_SOURCE</span></code> and <code class="docutils literal notranslate"><span class="pre">ROC_PORT_AUDIO_REPAIR</span></code> should be connected. These ports will be used to send audio packets and redundant data for audio packets, respectively. The supported protocols in this case depend on the selected FEC code. For example, if <code class="docutils literal notranslate"><span class="pre">ROC_FEC_RS8M</span></code> is used, the corresponding protocols would be <code class="docutils literal notranslate"><span class="pre">ROC_PROTO_RTP_RSM8_SOURCE</span></code> and <code class="docutils literal notranslate"><span class="pre">ROC_PROTO_RSM8_REPAIR</span></code>.</li>
+</ul>
+</p>
+<p><strong>Resampling</strong> </p>
+<p>If the sample rate of the user frames and the sample rate of the network packets are different, the sender employs resampler to convert one rate to another.</p>
+<p>Resampling is a quite time-consuming operation. The user can choose between completely disabling resampling (and so use the same rate for frames and packets) or several resampler profiles providing different compromises between CPU consumption and quality.</p>
+<p><strong>Timing</strong> </p>
+<p>Sender should encode samples at a constant rate that is configured when the sender is created. There are two ways to accomplish this:</p>
+<p><ul class="simple">
+<li>If the user enabled the automatic timing feature, the sender employs a CPU timer to block writes until it's time to encode the next bunch of samples according to the configured sample rate. This mode is useful when the user gets samples from a non-realtime source, e.g. from an audio file.</li>
+<li>Otherwise, the samples written to the sender are encoded immediately and the user is responsible to write samples in time. This mode is useful when the user gets samples from a realtime source with its own clock, e.g. from an audio device. Automatic clocking should not be used in this case because the audio device and the CPU might have slightly different clocks, and the difference will eventually lead to an underrun or an overrun.</li>
+</ul>
+</p>
+<p><strong>Thread-safety</strong> <ul class="simple">
+<li>can be used concurrently </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_sender_open">
+<span class="target" id="sender_8h_1aa6d7b104ace577fc5fe26a82182ecb43"></span><a class="reference internal" href="#c.roc_sender" title="roc_sender">roc_sender</a>* <code class="descname">roc_sender_open</code><span class="sig-paren">(</span><a class="reference internal" href="#c.roc_context" title="roc_context">roc_context</a>  *<em>&nbsp;context</em>, const  <a class="reference internal" href="#c.roc_sender_config" title="roc_sender_config">roc_sender_config</a>  *<em>&nbsp;config</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_sender_open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a new sender. </p>
+<p>Allocates and initializes a new sender, and attaches it to the context.</p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">context</span></code> should point to an opened context</li>
+<li><code class="docutils literal notranslate"><span class="pre">config</span></code> should point to an initialized config</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns a new sender if it was successfully created</li>
+<li>returns NULL if the arguments are invalid</li>
+<li>returns NULL if there are not enough resources </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_sender_bind">
+<span class="target" id="sender_8h_1a1a9e5d7735cfd567044d4d4c5cbcecbf"></span>int <code class="descname">roc_sender_bind</code><span class="sig-paren">(</span><a class="reference internal" href="#c.roc_sender" title="roc_sender">roc_sender</a>  *<em>&nbsp;sender</em>, <a class="reference internal" href="#c.roc_address" title="roc_address">roc_address</a>  *<em>&nbsp;address</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_sender_bind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bind the sender to a local port. </p>
+<p>Binds the sender to a local port. Should be called exactly once before calling <a class="reference internal" href="#sender_8h_1aac8af571b6c95be970d86887b7d36357"><span class="std std-ref">roc_sender_write()</span></a> first time.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">address</span></code> has zero port, the sender is bound to a randomly chosen ephemeral port. If the function succeeds, the actual port to which the sender was bound is written back to <code class="docutils literal notranslate"><span class="pre">address</span></code>.</p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">sender</span></code> should point to an opened sender</li>
+<li><code class="docutils literal notranslate"><span class="pre">address</span></code> should point to a properly initialized address</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns zero if the sender was successfully bound to a port</li>
+<li>returns a negative value if the arguments are invalid</li>
+<li>returns a negative value if the sender is already bound</li>
+<li>returns a negative value if the address can't be bound</li>
+<li>returns a negative value if there are not enough resources </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_sender_connect">
+<span class="target" id="sender_8h_1a270c7ee2c6516cae9ca8df41b5252f2b"></span>int <code class="descname">roc_sender_connect</code><span class="sig-paren">(</span><a class="reference internal" href="#c.roc_sender" title="roc_sender">roc_sender</a>  *<em>&nbsp;sender</em>, <a class="reference internal" href="#c.roc_port_type" title="roc_port_type">roc_port_type</a><em>&nbsp;type</em>, <a class="reference internal" href="#c.roc_protocol" title="roc_protocol">roc_protocol</a><em>&nbsp;proto</em>, const  <a class="reference internal" href="#c.roc_address" title="roc_address">roc_address</a>  *<em>&nbsp;address</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_sender_connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect the sender to a remote receiver port. </p>
+<p>Connects the sender to a receiver port. Should be called one or multiple times before calling <a class="reference internal" href="#sender_8h_1aac8af571b6c95be970d86887b7d36357"><span class="std std-ref">roc_sender_write()</span></a> first time. The <code class="docutils literal notranslate"><span class="pre">type</span></code> and <code class="docutils literal notranslate"><span class="pre">proto</span></code> should be the same as they are set at the receiver for this port.</p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">sender</span></code> should point to an opened sender</li>
+<li><code class="docutils literal notranslate"><span class="pre">type</span></code> specifies the receiver port type</li>
+<li><code class="docutils literal notranslate"><span class="pre">proto</span></code> specifies the receiver port protocol</li>
+<li><code class="docutils literal notranslate"><span class="pre">address</span></code> should point to a properly initialized address</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns zero if the sender was successfully connected to a port</li>
+<li>returns a negative value if the arguments are invalid</li>
+<li>returns a negative value if <a class="reference internal" href="#sender_8h_1aac8af571b6c95be970d86887b7d36357"><span class="std std-ref">roc_sender_write()</span></a> was already called </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_sender_write">
+<span class="target" id="sender_8h_1aac8af571b6c95be970d86887b7d36357"></span>int <code class="descname">roc_sender_write</code><span class="sig-paren">(</span><a class="reference internal" href="#c.roc_sender" title="roc_sender">roc_sender</a>  *<em>&nbsp;sender</em>, const  <a class="reference internal" href="#c.roc_frame" title="roc_frame">roc_frame</a>  *<em>&nbsp;frame</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_sender_write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode samples to packets and transmit them to the receiver. </p>
+<p>Encodes samples to packets and enqueues them for transmission by the context network worker thread. Should be called after <a class="reference internal" href="#sender_8h_1a1a9e5d7735cfd567044d4d4c5cbcecbf"><span class="std std-ref">roc_sender_bind()</span></a> and <a class="reference internal" href="#sender_8h_1a270c7ee2c6516cae9ca8df41b5252f2b"><span class="std std-ref">roc_sender_connect()</span></a>.</p>
+<p>If the automatic timing is enabled, the function blocks until it's time to encode the samples according to the configured sample rate. The function returns after encoding and enqueuing the packets, without waiting when the packets are actually transmitted.</p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">sender</span></code> should point to an opened, bound, and connected sender</li>
+<li><code class="docutils literal notranslate"><span class="pre">frame</span></code> should point to a valid frame with an array of samples to send</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns zero if all samples were successfully encoded and enqueued</li>
+<li>returns a negative value if the arguments are invalid</li>
+<li>returns a negative value if the sender is not bound or connected</li>
+<li>returns a negative value if there are not enough resources </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_sender_close">
+<span class="target" id="sender_8h_1a4b0d784d2d2989ef84baa7b672782fdb"></span>int <code class="descname">roc_sender_close</code><span class="sig-paren">(</span><a class="reference internal" href="#c.roc_sender" title="roc_sender">roc_sender</a>  *<em>&nbsp;sender</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_sender_close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the sender. </p>
+<p>Deinitializes and deallocates the sender, and detaches it from the context. The user should ensure that nobody uses the sender during and after this call. If this function fails, the sender is kept opened and attached to the context.</p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">sender</span></code> should point to an opened sender</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns zero if the sender was successfully closed</li>
+<li>returns a negative value if the arguments are invalid </li>
+</ul>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="roc-receiver">
+<h2><a class="toc-backref" href="#id3">roc_receiver</a><a class="headerlink" href="#roc-receiver" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;roc/receiver.h&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+<dl class="typedef">
+<dt id="c.roc_receiver">
+<span class="target" id="receiver_8h_1ade93cec525bde9a255df34d85eb70280"></span><em class="property">typedef </em>struct <a class="reference internal" href="#c.roc_receiver" title="roc_receiver">roc_receiver</a> <code class="descname">roc_receiver</code><a class="headerlink" href="#c.roc_receiver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Roc receiver. </p>
+<p>Receiver receives the network packets from multiple senders, decodes audio streams from them, mixes multiple streams into a single stream, and returns it to the user.</p>
+<p><strong>Context</strong> </p>
+<p>Receiver is automatically attached to a context when opened and detached from it when closed. The user should not close the context until the receiver is not closed.</p>
+<p>Receiver work consists of two parts: packet reception and stream decoding. The decoding part is performed in the receiver itself, and the reception part is performed in the context network worker thread(s).</p>
+<p><strong>Lifecycle</strong> </p>
+<p>A receiver is created using <a class="reference internal" href="#receiver_8h_1adadbfd606c47b4bab5ec9eb39495e414"><span class="std std-ref">roc_receiver_open()</span></a>. Then it should be bound to a single or multiple local ports using <a class="reference internal" href="#receiver_8h_1af841e1c8693ab5c0cde2f6e0477f8333"><span class="std std-ref">roc_receiver_bind()</span></a>. After that, the audio stream is iteratively read from the receiver using <a class="reference internal" href="#receiver_8h_1a704c14cc2755d0864fe25d0fb9b58c2b"><span class="std std-ref">roc_receiver_read()</span></a>. When the receiver is not needed anymore, it is destroyed using <a class="reference internal" href="#receiver_8h_1a0ef487dc6079e23b000b2da906f2fb77"><span class="std std-ref">roc_receiver_close()</span></a>.</p>
+<p><strong>Ports</strong> </p>
+<p>Receiver can be bound to multiple network ports of several types. Every port handles packets of the specific protocol selected when the port is bound. It is allowed to bind multiple ports of the same type, typically handling different protocols.</p>
+<p>Senders can then be connected to some or all receiver ports to transmit one or several packet streams. If a sender employs FEC, it needs to be connected to a pair of <code class="docutils literal notranslate"><span class="pre">ROC_PORT_AUDIO_SOURCE</span></code> and <code class="docutils literal notranslate"><span class="pre">ROC_PORT_AUDIO_REPAIR</span></code> ports which protocols correspond to the employed FEC code. Otherwise, the sender needs to be connected to a single <code class="docutils literal notranslate"><span class="pre">ROC_PORT_AUDIO_SOURCE</span></code> port.</p>
+<p><strong>Sessions</strong> </p>
+<p>Receiver creates a session object for every sender connected to it. Sessions can appear and disappear at any time. Multiple sessions can be active at the same time.</p>
+<p>A session is identified by the sender address. A session may contain multiple packet streams sent to different receiver ports. If the sender employs FEC, the session will contain source and repair packet streams. Otherwise, the session will contain a single source packet stream.</p>
+<p>A session is created automatically on the reception of the first packet from a new address and destroyed when there are no packets during a timeout. A session is also destroyed on other events like a large latency underrun or overrun or broken playback, but if the sender continues to send packets, it will be created again shortly.</p>
+<p><strong>Mixing</strong> </p>
+<p>Receiver mixes audio streams from all currently active sessions into a single output stream. The output stream continues no matter how much active sessions there are at the moment. In particular, if there are no sessions, the receiver produces a stream with all zeros. Sessions can be added and removed from the output stream at any time, probably in the middle of a frame.</p>
+<p><strong>Resampling</strong> </p>
+<p>Every session may have a different sample rate. And even if nominally all of them are of the same rate, device frequencies usually differ by a few tens of Hertz.</p>
+<p>Receiver compensates these differences by adjusting the rate of every session stream to the rate of the receiver output stream using a per-session resampler. The frequencies factor between the sender and the receiver clocks is calculated dynamically for every session based on the session incoming packet queue size.</p>
+<p>Resampling is a quite time-consuming operation. The user can choose between completely disabling resampling (at the cost of occasional underruns or overruns) or several resampler profiles providing different compromises between CPU consumption and quality.</p>
+<p><strong>Timing</strong> </p>
+<p>Receiver should decode samples at a constant rate that is configured when the receiver is created. There are two ways to accomplish this:</p>
+<p><ul class="simple">
+<li>If the user enabled the automatic timing feature, the receiver employs a CPU timer to block reads until it's time to decode the next bunch of samples according to the configured sample rate. This mode is useful when the user passes samples to a non-realtime destination, e.g. to an audio file.</li>
+<li>Otherwise, the samples read from the receiver are decoded immediately and the user is responsible to read samples in time. This mode is useful when the user passes samples to a realtime destination with its own clock, e.g. to an audio device. Automatic clocking should not be used in this case because the audio device and the CPU might have slightly different clocks, and the difference will eventually lead to an underrun or an overrun.</li>
+</ul>
+</p>
+<p><strong>Thread-safety</strong> <ul class="simple">
+<li>can be used concurrently </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_receiver_open">
+<span class="target" id="receiver_8h_1adadbfd606c47b4bab5ec9eb39495e414"></span><a class="reference internal" href="#c.roc_receiver" title="roc_receiver">roc_receiver</a>* <code class="descname">roc_receiver_open</code><span class="sig-paren">(</span><a class="reference internal" href="#c.roc_context" title="roc_context">roc_context</a>  *<em>&nbsp;context</em>, const  <a class="reference internal" href="#c.roc_receiver_config" title="roc_receiver_config">roc_receiver_config</a>  *<em>&nbsp;config</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_receiver_open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a new receiver. </p>
+<p>Allocates and initializes a new receiver, and attaches it to the context.</p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">context</span></code> should point to an opened context</li>
+<li><code class="docutils literal notranslate"><span class="pre">config</span></code> should point to an initialized config</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns a new receiver if it was successfully created</li>
+<li>returns NULL if the arguments are invalid</li>
+<li>returns NULL if there are not enough resources </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_receiver_bind">
+<span class="target" id="receiver_8h_1af841e1c8693ab5c0cde2f6e0477f8333"></span>int <code class="descname">roc_receiver_bind</code><span class="sig-paren">(</span><a class="reference internal" href="#c.roc_receiver" title="roc_receiver">roc_receiver</a>  *<em>&nbsp;receiver</em>, <a class="reference internal" href="#c.roc_port_type" title="roc_port_type">roc_port_type</a><em>&nbsp;type</em>, <a class="reference internal" href="#c.roc_protocol" title="roc_protocol">roc_protocol</a><em>&nbsp;proto</em>, <a class="reference internal" href="#c.roc_address" title="roc_address">roc_address</a>  *<em>&nbsp;address</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_receiver_bind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bind the receiver to a local port. </p>
+<p>Binds the receiver to a local port. May be called multiple times to bind multiple port. May be called at any time.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">address</span></code> has zero port, the receiver is bound to a randomly chosen ephemeral port. If the function succeeds, the actual port to which the receiver was bound is written back to <code class="docutils literal notranslate"><span class="pre">address</span></code>.</p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">receiver</span></code> should point to an opened receiver</li>
+<li><code class="docutils literal notranslate"><span class="pre">type</span></code> specifies the port type</li>
+<li><code class="docutils literal notranslate"><span class="pre">proto</span></code> specifies the port protocol</li>
+<li><code class="docutils literal notranslate"><span class="pre">address</span></code> should point to a properly initialized address</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns zero if the receiver was successfully bound to a port</li>
+<li>returns a negative value if the arguments are invalid</li>
+<li>returns a negative value if the address can't be bound</li>
+<li>returns a negative value if there are not enough resources </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_receiver_read">
+<span class="target" id="receiver_8h_1a704c14cc2755d0864fe25d0fb9b58c2b"></span>int <code class="descname">roc_receiver_read</code><span class="sig-paren">(</span><a class="reference internal" href="#c.roc_receiver" title="roc_receiver">roc_receiver</a>  *<em>&nbsp;receiver</em>, <a class="reference internal" href="#c.roc_frame" title="roc_frame">roc_frame</a>  *<em>&nbsp;frame</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_receiver_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read samples from the receiver. </p>
+<p>Reads network packets received on bound ports, routes packets to sessions, repairs lost packets, decodes samples, resamples and mixes them, and finally stores samples into the provided frame.</p>
+<p>If the automatic timing is enabled, the function blocks until it's time to decode the samples according to the configured sample rate.</p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">receiver</span></code> should point to an opened receiver</li>
+<li><code class="docutils literal notranslate"><span class="pre">frame</span></code> should point to an initialized frame which will be filled with samples; the number of samples is defined by the frame size</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns zero if all samples were successfully decoded</li>
+<li>returns a negative value if the arguments are invalid</li>
+<li>returns a negative value if there are not enough resources </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_receiver_close">
+<span class="target" id="receiver_8h_1a0ef487dc6079e23b000b2da906f2fb77"></span>int <code class="descname">roc_receiver_close</code><span class="sig-paren">(</span><a class="reference internal" href="#c.roc_receiver" title="roc_receiver">roc_receiver</a>  *<em>&nbsp;receiver</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_receiver_close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the receiver. </p>
+<p>Deinitializes and deallocates the receiver, and detaches it from the context. The user should ensure that nobody uses the receiver during and after this call. If this function fails, the receiver is kept opened and attached to the context.</p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">receiver</span></code> should point to an opened receiver</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns zero if the receiver was successfully closed</li>
+<li>returns a negative value if the arguments are invalid </li>
+</ul>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="roc-frame">
+<h2><a class="toc-backref" href="#id4">roc_frame</a><a class="headerlink" href="#roc-frame" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;roc/frame.h&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+<dl class="typedef">
+<dt id="c.roc_frame">
+<span class="target" id="frame_8h_1a77e8134b0f6271e662f6c7d998de7ce4"></span><em class="property">typedef </em>struct <a class="reference internal" href="#c.roc_frame" title="roc_frame">roc_frame</a> <code class="descname">roc_frame</code><a class="headerlink" href="#c.roc_frame" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="struct">
+<dt>
+<span class="target" id="structroc__frame"></span><em class="property">struct </em><code class="descname">roc_frame</code></dt>
+<dd><p>Audio frame. </p>
+<p>Represents a multichannel sequence of audio samples. The user is responsible for allocating and deallocating the frame and the data it is pointing to.</p>
+<p><strong>Thread-safety</strong> <ul class="simple">
+<li>should not be used concurrently </li>
+</ul>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="variable">
+<dt id="c.roc_frame::samples">
+<span class="target" id="structroc__frame_1a21dcd52504c141419b9ba6ba261f9671"></span>void* <code class="descname">samples</code><a class="headerlink" href="#c.roc_frame::samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Audio samples. </p>
+<p>Sample rate, channel set, and encoding are defined by the sender or receiver parameters. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_frame::samples_size">
+<span class="target" id="structroc__frame_1a595b256fa3f6e5127831c9e24f65b337"></span>size_t <code class="descname">samples_size</code><a class="headerlink" href="#c.roc_frame::samples_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sample buffer size. </p>
+<p>Defines the size of samples buffer in bytes. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="roc-address">
+<h2><a class="toc-backref" href="#id5">roc_address</a><a class="headerlink" href="#roc-address" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;roc/address.h&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+<dl class="typedef">
+<dt id="c.roc_family">
+<span class="target" id="address_8h_1ac734e4546aaa3cc908d69d36f416e0d8"></span><em class="property">typedef </em>enum <a class="reference internal" href="#c.roc_family" title="roc_family">roc_family</a> <code class="descname">roc_family</code><a class="headerlink" href="#c.roc_family" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="enum">
+<dt>
+<span class="target" id="address_8h_1ab794c3d579909b1731787d4bd5640e41"></span><code class="descname">roc_family</code></dt>
+<dd><p>Network address family. </p>
+<p><em>Values:</em></p>
+<dl class="enumvalue">
+<dt id="c.1">
+<span class="target" id="address_8h_1ab794c3d579909b1731787d4bd5640e41ad979a487612fc514bd4a459e6afa4838"></span><code class="descname">1</code><a class="headerlink" href="#c.1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invalid address. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.0">
+<span class="target" id="address_8h_1ab794c3d579909b1731787d4bd5640e41a1a28e9b4f3d267584e18f2562ecd9037"></span><code class="descname">0</code><a class="headerlink" href="#c.0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically detect address family from string format. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="address_8h_1ab794c3d579909b1731787d4bd5640e41a0cbc8d9d5d9d64241663dde25b3bddc7"></span><code class="descname">1</code></dt>
+<dd><p>IPv4 address. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.2">
+<span class="target" id="address_8h_1ab794c3d579909b1731787d4bd5640e41a080fe8b6e948c19a0c7f321bf959f1da"></span><code class="descname">2</code><a class="headerlink" href="#c.2" title="Permalink to this definition">¶</a></dt>
+<dd><p>IPv6 address. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="typedef">
+<dt id="c.roc_address">
+<span class="target" id="address_8h_1a62469cd871c48381bf49ce5250f1bd2e"></span><em class="property">typedef </em>struct <a class="reference internal" href="#c.roc_address" title="roc_address">roc_address</a> <code class="descname">roc_address</code><a class="headerlink" href="#c.roc_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="struct">
+<dt>
+<span class="target" id="structroc__address"></span><em class="property">struct </em><code class="descname">roc_address</code></dt>
+<dd><p>Network address. </p>
+<p>Represents an Internet address, i.e. and IP address plus UDP or TCP port. Similar to struct sockaddr.</p>
+<p><strong>Thread-safety</strong> <ul class="simple">
+<li>should not be used concurrently </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_address_init">
+<span class="target" id="address_8h_1a58762d233cb879bf3583d2407176f029"></span>int <code class="descname">roc_address_init</code><span class="sig-paren">(</span><a class="reference internal" href="#c.roc_address" title="roc_address">roc_address</a>  *<em>&nbsp;address</em>, <a class="reference internal" href="#c.roc_family" title="roc_family">roc_family</a><em>&nbsp;family</em>, const char *<em>&nbsp;ip</em>, int<em>&nbsp;port</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_address_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize address. </p>
+<p>Parses an IP address from a string representation and initializes <code class="docutils literal notranslate"><span class="pre">address</span></code>. If <code class="docutils literal notranslate"><span class="pre">family</span></code> is <code class="docutils literal notranslate"><span class="pre">ROC_AF_AUTO</span></code>, the address family is auto-detected from the <code class="docutils literal notranslate"><span class="pre">ip</span></code> format. Otherwise, the <code class="docutils literal notranslate"><span class="pre">ip</span></code> format should correspond to the <code class="docutils literal notranslate"><span class="pre">family</span></code> specified.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">address</span></code> is used to bind a sender or receiver port, the &quot;0.0.0.0&quot; <code class="docutils literal notranslate"><span class="pre">ip</span></code> may be used to bind the port to all network interfaces, and the zero <code class="docutils literal notranslate"><span class="pre">port</span></code> may be used to bind the port to a randomly chosen ephemeral port.</p>
+<p>The user is responsible for allocating and deallocating <code class="docutils literal notranslate"><span class="pre">address</span></code>. An address doesn't contain any dynamically allocated data, so no special deinitialization is required.</p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span></code> should point to a probably uninitialized struct allocated by user</li>
+<li><code class="docutils literal notranslate"><span class="pre">family</span></code> should be <code class="docutils literal notranslate"><span class="pre">ROC_AF_AUTO</span></code>, <code class="docutils literal notranslate"><span class="pre">ROC_AF_IPv4</span></code>, or <code class="docutils literal notranslate"><span class="pre">ROC_AF_IPv6</span></code> </li>
+<li><code class="docutils literal notranslate"><span class="pre">ip</span></code> should point to a zero-terminated string with a valid IPv4 or IPv6 address</li>
+<li><code class="docutils literal notranslate"><span class="pre">port</span></code> should be a port number in range [0; 65536)</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns zero if <code class="docutils literal notranslate"><span class="pre">address</span></code> was successfully initialized</li>
+<li>returns a negative value if the arguments are invalid </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_address_family">
+<span class="target" id="address_8h_1a8dbc2880f1cf5e64d559e845f14645fd"></span><a class="reference internal" href="#c.roc_family" title="roc_family">roc_family</a> <code class="descname">roc_address_family</code><span class="sig-paren">(</span>const  <a class="reference internal" href="#c.roc_address" title="roc_address">roc_address</a>  *<em>&nbsp;address</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_address_family" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get address family. </p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span></code> should point to a properly initialized address struct</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns the address family if no error occurred</li>
+<li>returns <code class="docutils literal notranslate"><span class="pre">ROC_AF_INVALID</span></code> if the arguments are invalid </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_address_ip">
+<span class="target" id="address_8h_1af38875721d4ef5478bad6e416b959ba1"></span>const char* <code class="descname">roc_address_ip</code><span class="sig-paren">(</span>const  <a class="reference internal" href="#c.roc_address" title="roc_address">roc_address</a>  *<em>&nbsp;address</em>, char *<em>&nbsp;buf</em>, size_t<em>&nbsp;bufsz</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_address_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get IP address. </p>
+<p>Formats the zero-terminated string representation of the IP address to the given buffer. The function fails if the buffer is not large enough to store the string plus the terminating zero.</p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span></code> should point to a properly initialized address struct</li>
+<li><code class="docutils literal notranslate"><span class="pre">buf</span></code> should point to a probably uninitialized buffer allocated by user at least of the <code class="docutils literal notranslate"><span class="pre">bufsz</span></code> size</li>
+<li><code class="docutils literal notranslate"><span class="pre">bufsz</span></code> defines the <code class="docutils literal notranslate"><span class="pre">buf</span></code> size</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns <code class="docutils literal notranslate"><span class="pre">buf</span></code> if the IP address was successfully stored into the <code class="docutils literal notranslate"><span class="pre">buf</span></code> </li>
+<li>returns NULL if the buffer is too small to store the formatted IP address</li>
+<li>returns NULL if the arguments are invalid </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_address_port">
+<span class="target" id="address_8h_1a9b1a4e5851fac544363d983d81984641"></span>int <code class="descname">roc_address_port</code><span class="sig-paren">(</span>const  <a class="reference internal" href="#c.roc_address" title="roc_address">roc_address</a>  *<em>&nbsp;address</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_address_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get address port. </p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span></code> should point to a properly initialized address struct</li>
+</ul>
+</p>
+<p><strong>Returns</strong> <ul class="simple">
+<li>returns a non-negative port number if no error occurred</li>
+<li>returns a negative value if the arguments are invalid </li>
+</ul>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="roc-config">
+<h2><a class="toc-backref" href="#id6">roc_config</a><a class="headerlink" href="#roc-config" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;roc/config.h&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+<dl class="typedef">
+<dt id="c.roc_port_type">
+<span class="target" id="config_8h_1a56f544b1f80df78b1521fe079e8680a7"></span><em class="property">typedef </em>enum <a class="reference internal" href="#c.roc_port_type" title="roc_port_type">roc_port_type</a> <code class="descname">roc_port_type</code><a class="headerlink" href="#c.roc_port_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="enum">
+<dt>
+<span class="target" id="config_8h_1a6ad62f30a6e27a4768c5bf0cfc86baa4"></span><code class="descname">roc_port_type</code></dt>
+<dd><p>Network port type. </p>
+<p><em>Values:</em></p>
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1a6ad62f30a6e27a4768c5bf0cfc86baa4a6032cc697cad4620887ad188502141a8"></span><code class="descname">1</code></dt>
+<dd><p>Network port for audio source packets. </p>
+<p>If FEC is not used, this type of port is used to send or receive audio packets. If FEC is used, this type of port is used to send or receive FEC source packets containing audio data plus some FEC headers. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1a6ad62f30a6e27a4768c5bf0cfc86baa4a7a24ac0f83633938b1e02fad8c6c047f"></span><code class="descname">2</code></dt>
+<dd><p>Network port for audio repair packets. </p>
+<p>If FEC is used, this type of port is used to send or receive FEC repair packets containing redundant data for audio plus some FEC headers. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="typedef">
+<dt id="c.roc_protocol">
+<span class="target" id="config_8h_1a422e5e1e6c68a0b1c4f72d0555e4d35b"></span><em class="property">typedef </em>enum <a class="reference internal" href="#c.roc_protocol" title="roc_protocol">roc_protocol</a> <code class="descname">roc_protocol</code><a class="headerlink" href="#c.roc_protocol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="enum">
+<dt>
+<span class="target" id="config_8h_1a89697f253e0644d6f738fecca34a2516"></span><code class="descname">roc_protocol</code></dt>
+<dd><p>Network protocol. </p>
+<p><em>Values:</em></p>
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1a89697f253e0644d6f738fecca34a2516ada758c721fa39b567b0f89e38fa29edb"></span><code class="descname">1</code></dt>
+<dd><p>Bare RTP (RFC 3550). </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1a89697f253e0644d6f738fecca34a2516a15335419340ecc17b7391770c1d5a4e1"></span><code class="descname">2</code></dt>
+<dd><p>RTP source packet (RFC 3550) + FECFRAME Reed-Solomon footer (RFC 6865) with m=8. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.3">
+<span class="target" id="config_8h_1a89697f253e0644d6f738fecca34a2516a633ff1a3684f0aac55f9d9026986d182"></span><code class="descname">3</code><a class="headerlink" href="#c.3" title="Permalink to this definition">¶</a></dt>
+<dd><p>FEC repair packet + FECFRAME Reed-Solomon header (RFC 6865) with m=8. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.4">
+<span class="target" id="config_8h_1a89697f253e0644d6f738fecca34a2516a7bee9e5bd2d93c4c5247903173e03ad2"></span><code class="descname">4</code><a class="headerlink" href="#c.4" title="Permalink to this definition">¶</a></dt>
+<dd><p>RTP source packet (RFC 3550) + FECFRAME LDPC-Staircase footer (RFC 6816). </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt id="c.5">
+<span class="target" id="config_8h_1a89697f253e0644d6f738fecca34a2516a6fbfad98e2c22513cdb30a0935d7afe7"></span><code class="descname">5</code><a class="headerlink" href="#c.5" title="Permalink to this definition">¶</a></dt>
+<dd><p>FEC repair packet + FECFRAME LDPC-Staircase header (RFC 6816). </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="typedef">
+<dt id="c.roc_fec_code">
+<span class="target" id="config_8h_1a4b106924cacdd584705a392155bc51bd"></span><em class="property">typedef </em>enum <a class="reference internal" href="#c.roc_fec_code" title="roc_fec_code">roc_fec_code</a> <code class="descname">roc_fec_code</code><a class="headerlink" href="#c.roc_fec_code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="enum">
+<dt>
+<span class="target" id="config_8h_1a3b2aedd96372aa0aa28306c7090c0e57"></span><code class="descname">roc_fec_code</code></dt>
+<dd><p>Forward Error Correction code. </p>
+<p><em>Values:</em></p>
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1a3b2aedd96372aa0aa28306c7090c0e57aba4b94569592bda9a55f657119d8e80e"></span><code class="descname">1</code></dt>
+<dd><p>No FEC code. </p>
+<p>Compatible with <code class="docutils literal notranslate"><span class="pre">ROC_PROTO_RTP</span></code> protocol. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1a3b2aedd96372aa0aa28306c7090c0e57a54b63b4b8876488501678eb2b71050bc"></span><code class="descname">0</code></dt>
+<dd><p>Default FEC code. </p>
+<p>Current default is <code class="docutils literal notranslate"><span class="pre">ROC_FEC_RS8M</span></code>. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1a3b2aedd96372aa0aa28306c7090c0e57ada6c0aac2550ff1ab715637cabac1675"></span><code class="descname">1</code></dt>
+<dd><p>Reed-Solomon FEC code (RFC 6865) with m=8. </p>
+<p>Good for small block sizes (below 256 packets). Compatible with <code class="docutils literal notranslate"><span class="pre">ROC_PROTO_RTP_RS8M_SOURCE</span></code> and <code class="docutils literal notranslate"><span class="pre">ROC_PROTO_RS8M_REPAIR</span></code> protocols for source and repair ports. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1a3b2aedd96372aa0aa28306c7090c0e57a0e2b95e501ed16ad6aac6fae46ab689d"></span><code class="descname">2</code></dt>
+<dd><p>LDPC-Staircase FEC code (RFC 6816). </p>
+<p>Good for large block sizes (above 1024 packets). Compatible with <code class="docutils literal notranslate"><span class="pre">ROC_PROTO_RTP_LDPC_SOURCE</span></code> and <code class="docutils literal notranslate"><span class="pre">ROC_PROTO_LDPC_REPAIR</span></code> protocols for source and repair ports. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="typedef">
+<dt id="c.roc_packet_encoding">
+<span class="target" id="config_8h_1a9a14021dfa4dda0c94b98b976dfa2585"></span><em class="property">typedef </em>enum <a class="reference internal" href="#c.roc_packet_encoding" title="roc_packet_encoding">roc_packet_encoding</a> <code class="descname">roc_packet_encoding</code><a class="headerlink" href="#c.roc_packet_encoding" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="enum">
+<dt>
+<span class="target" id="config_8h_1a950f4fed330b3c6d85f2b4cf12134043"></span><code class="descname">roc_packet_encoding</code></dt>
+<dd><p>Packet encoding. </p>
+<p><em>Values:</em></p>
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1a950f4fed330b3c6d85f2b4cf12134043a4e8958477d69eefbaaa2728938235f66"></span><code class="descname">2</code></dt>
+<dd><p>PCM signed 16-bit. </p>
+<p>&quot;L16&quot; encoding from RTP A/V Profile (RFC 3551). Uncompressed samples coded as interleaved 16-bit signed big-endian integers in two's complement notation. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="typedef">
+<dt id="c.roc_frame_encoding">
+<span class="target" id="config_8h_1a49c1fa0ebfbc8f2991729988dc888d89"></span><em class="property">typedef </em>enum <a class="reference internal" href="#c.roc_frame_encoding" title="roc_frame_encoding">roc_frame_encoding</a> <code class="descname">roc_frame_encoding</code><a class="headerlink" href="#c.roc_frame_encoding" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="enum">
+<dt>
+<span class="target" id="config_8h_1ad701a11fe9b208c62f135f5ce6578e52"></span><code class="descname">roc_frame_encoding</code></dt>
+<dd><p>Frame encoding. </p>
+<p><em>Values:</em></p>
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1ad701a11fe9b208c62f135f5ce6578e52ac6a6d243167191fa934a93342fcd152f"></span><code class="descname">1</code></dt>
+<dd><p>PCM floats. </p>
+<p>Uncompressed samples coded as floats in range [-1; 1]. Channels are interleaved, e.g. two channels are encoded as &quot;L R L R ...&quot;. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="typedef">
+<dt id="c.roc_channel_set">
+<span class="target" id="config_8h_1aff78e4d915f7955b49f0cb22247851cf"></span><em class="property">typedef </em>enum <a class="reference internal" href="#c.roc_channel_set" title="roc_channel_set">roc_channel_set</a> <code class="descname">roc_channel_set</code><a class="headerlink" href="#c.roc_channel_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="enum">
+<dt>
+<span class="target" id="config_8h_1a9dbed1165c5aba480319d73eae9add63"></span><code class="descname">roc_channel_set</code></dt>
+<dd><p>Channel set. </p>
+<p><em>Values:</em></p>
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1a9dbed1165c5aba480319d73eae9add63ae054af2c1b79a02977419e53f6c09c07"></span><code class="descname">2</code></dt>
+<dd><p>Stereo. </p>
+<p>Two channels: left and right. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="typedef">
+<dt id="c.roc_resampler_profile">
+<span class="target" id="config_8h_1a4e2efc2f218f972e77404fff3c04137e"></span><em class="property">typedef </em>enum <a class="reference internal" href="#c.roc_resampler_profile" title="roc_resampler_profile">roc_resampler_profile</a> <code class="descname">roc_resampler_profile</code><a class="headerlink" href="#c.roc_resampler_profile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="enum">
+<dt>
+<span class="target" id="config_8h_1aaadff6355a4e2b6214c3c33ce939c26b"></span><code class="descname">roc_resampler_profile</code></dt>
+<dd><p>Resampler profile. </p>
+<p><em>Values:</em></p>
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1aaadff6355a4e2b6214c3c33ce939c26ba69122f376f691a687dfd718bcb8bdc95"></span><code class="descname">1</code></dt>
+<dd><p>No resampling. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1aaadff6355a4e2b6214c3c33ce939c26baf41d346380ec6d47816aa8b18845c10f"></span><code class="descname">0</code></dt>
+<dd><p>Default profile. </p>
+<p>Current default is <code class="docutils literal notranslate"><span class="pre">ROC_RESAMPLER_MEDIUM</span></code>. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1aaadff6355a4e2b6214c3c33ce939c26ba8ced2d5e13aa1ab02235ed6d0c66959e"></span><code class="descname">1</code></dt>
+<dd><p>High quality, low speed. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1aaadff6355a4e2b6214c3c33ce939c26ba80dbef040493fca45b381838d80fb96c"></span><code class="descname">2</code></dt>
+<dd><p>Medium quality, medium speed. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="config_8h_1aaadff6355a4e2b6214c3c33ce939c26bacdf8b2e77557211a0c7639c8038d5ef8"></span><code class="descname">3</code></dt>
+<dd><p>Low quality, high speed. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="typedef">
+<dt id="c.roc_context_config">
+<span class="target" id="config_8h_1a41cd70959e011eb5a124acb19b8ab2c5"></span><em class="property">typedef </em>struct <a class="reference internal" href="#c.roc_context_config" title="roc_context_config">roc_context_config</a> <code class="descname">roc_context_config</code><a class="headerlink" href="#c.roc_context_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="struct">
+<dt>
+<span class="target" id="structroc__context__config"></span><em class="property">struct </em><code class="descname">roc_context_config</code></dt>
+<dd><p>Context configuration. </p>
+<p><dl class="docutils">
+<dt><strong>See</strong></dt>
+<dd><a class="reference internal" href="#context_8h_1a854f5a77756c8c473fef82d13b1e470f"><span class="std std-ref">roc_context</span></a> </dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="variable">
+<dt id="c.roc_context_config::max_packet_size">
+<span class="target" id="structroc__context__config_1af4f8231811e2b8159bf1a66687d15658"></span>unsigned int <code class="descname">max_packet_size</code><a class="headerlink" href="#c.roc_context_config::max_packet_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum size in bytes of a network packet. </p>
+<p>Defines the amount of bytes allocated per network packet. Sender and receiver won't handle packets larger than this. If zero, default value is used. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_context_config::max_frame_size">
+<span class="target" id="structroc__context__config_1ab837945349c0ae288863a8c865a52f80"></span>unsigned int <code class="descname">max_frame_size</code><a class="headerlink" href="#c.roc_context_config::max_frame_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum size in bytes of an audio frame. </p>
+<p>Defines the amount of bytes allocated per intermediate internal frame in the pipeline. Does not limit the size of the frames provided by user. If zero, default value is used. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="typedef">
+<dt id="c.roc_sender_config">
+<span class="target" id="config_8h_1a2fb29e9e35556b64347fce65d40dd885"></span><em class="property">typedef </em>struct <a class="reference internal" href="#c.roc_sender_config" title="roc_sender_config">roc_sender_config</a> <code class="descname">roc_sender_config</code><a class="headerlink" href="#c.roc_sender_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="struct">
+<dt>
+<span class="target" id="structroc__sender__config"></span><em class="property">struct </em><code class="descname">roc_sender_config</code></dt>
+<dd><p>Sender configuration. </p>
+<p><dl class="docutils">
+<dt><strong>See</strong></dt>
+<dd><a class="reference internal" href="#sender_8h_1ad2370a2cbe2174fd33a630b08acbc783"><span class="std std-ref">roc_sender</span></a> </dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="variable">
+<dt id="c.roc_sender_config::frame_sample_rate">
+<span class="target" id="structroc__sender__config_1a7364e05ca12e1facb27cb6f6bbc5321f"></span>unsigned int <code class="descname">frame_sample_rate</code><a class="headerlink" href="#c.roc_sender_config::frame_sample_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The rate of the samples in the frames passed to sender. </p>
+<p>Number of samples per channel per second. If <code class="docutils literal notranslate"><span class="pre">frame_sample_rate</span></code> and <code class="docutils literal notranslate"><span class="pre">packet_sample_rate</span></code> are different, resampler should be enabled. Should be set. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_sender_config::frame_channels">
+<span class="target" id="structroc__sender__config_1abab5ffccfd870d1cad8bd2829ea60ced"></span><a class="reference internal" href="#c.roc_channel_set" title="roc_channel_set">roc_channel_set</a> <code class="descname">frame_channels</code><a class="headerlink" href="#c.roc_sender_config::frame_channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>The channel set in the frames passed to sender. </p>
+<p>Should be set. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_sender_config::frame_encoding">
+<span class="target" id="structroc__sender__config_1afc5dd0c83d0e914fdc9491ed97eeaaed"></span><a class="reference internal" href="#c.roc_frame_encoding" title="roc_frame_encoding">roc_frame_encoding</a> <code class="descname">frame_encoding</code><a class="headerlink" href="#c.roc_sender_config::frame_encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sample encoding in the frames passed to sender. </p>
+<p>Should be set. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_sender_config::packet_sample_rate">
+<span class="target" id="structroc__sender__config_1ad16cd70e6e1bd0febe5a9bc21b6d678e"></span>unsigned int <code class="descname">packet_sample_rate</code><a class="headerlink" href="#c.roc_sender_config::packet_sample_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The rate of the samples in the packets generated by sender. </p>
+<p>Number of samples per channel per second. If zero, default value is used. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_sender_config::packet_channels">
+<span class="target" id="structroc__sender__config_1a6ac935f79fd053664b65f88eb723770e"></span><a class="reference internal" href="#c.roc_channel_set" title="roc_channel_set">roc_channel_set</a> <code class="descname">packet_channels</code><a class="headerlink" href="#c.roc_sender_config::packet_channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>The channel set in the packets generated by sender. </p>
+<p>If zero, default value is used. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_sender_config::packet_encoding">
+<span class="target" id="structroc__sender__config_1ab46d41c4d6f80f2bb6addbc4b0249e21"></span><a class="reference internal" href="#c.roc_packet_encoding" title="roc_packet_encoding">roc_packet_encoding</a> <code class="descname">packet_encoding</code><a class="headerlink" href="#c.roc_sender_config::packet_encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sample encoding in the packets generated by sender. </p>
+<p>If zero, default value is used. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_sender_config::packet_length">
+<span class="target" id="structroc__sender__config_1a4b096f5c8d71aa0aba023c387c77eae4"></span>unsigned long long <code class="descname">packet_length</code><a class="headerlink" href="#c.roc_sender_config::packet_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>The length of the packets produced by sender, in nanoseconds. </p>
+<p>Number of nanoseconds encoded per packet. The samples written to the sender are buffered until the full packet is accumulated or the sender is flushed or closed. Larger number reduces packet overhead but also increases latency. If zero, default value is used. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_sender_config::packet_interleaving">
+<span class="target" id="structroc__sender__config_1a3cf4d1ccd6c32b023b1db28dac41dc58"></span>unsigned int <code class="descname">packet_interleaving</code><a class="headerlink" href="#c.roc_sender_config::packet_interleaving" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable packet interleaving. </p>
+<p>If non-zero, the sender shuffles packets before sending them. This may increase robustness but also increases latency. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_sender_config::automatic_timing">
+<span class="target" id="structroc__sender__config_1a5c87f21ec234966e22a0a41b57e9da95"></span>unsigned int <code class="descname">automatic_timing</code><a class="headerlink" href="#c.roc_sender_config::automatic_timing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable automatic timing. </p>
+<p>If non-zero, the sender write operation restricts the write rate according to the frame_sample_rate parameter. If zero, no restrictions are applied. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_sender_config::resampler_profile">
+<span class="target" id="structroc__sender__config_1a58026dab2037cf92ed8a3d25326b62ff"></span><a class="reference internal" href="#c.roc_resampler_profile" title="roc_resampler_profile">roc_resampler_profile</a> <code class="descname">resampler_profile</code><a class="headerlink" href="#c.roc_sender_config::resampler_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resampler profile to use. </p>
+<p>If non-zero, the sender employs resampler if the frame sample rate differs from the packet sample rate. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_sender_config::fec_code">
+<span class="target" id="structroc__sender__config_1a15d70492d44aa21f411e925e47805920"></span><a class="reference internal" href="#c.roc_fec_code" title="roc_fec_code">roc_fec_code</a> <code class="descname">fec_code</code><a class="headerlink" href="#c.roc_sender_config::fec_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>FEC code to use. </p>
+<p>If non-zero, the sender employs a FEC codec to generate redundant packets which may be used on receiver to restore lost packets. This requires both sender and receiver to use two separate source and repair ports. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_sender_config::fec_block_source_packets">
+<span class="target" id="structroc__sender__config_1a3289e005e4bfbb3948e55cfd19e707a5"></span>unsigned int <code class="descname">fec_block_source_packets</code><a class="headerlink" href="#c.roc_sender_config::fec_block_source_packets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of source packets per FEC block. </p>
+<p>Used if some FEC code is selected. Larger number increases robustness but also increases latency. If zero, default value is used. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_sender_config::fec_block_repair_packets">
+<span class="target" id="structroc__sender__config_1a1b0acc0afb370f055a239bf9ea9a763b"></span>unsigned int <code class="descname">fec_block_repair_packets</code><a class="headerlink" href="#c.roc_sender_config::fec_block_repair_packets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of repair packets per FEC block. </p>
+<p>Used if some FEC code is selected. Larger number increases robustness but also increases traffic. If zero, default value is used. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="typedef">
+<dt id="c.roc_receiver_config">
+<span class="target" id="config_8h_1aac3ddcf4cec5bdb5c1e84f3d4256e248"></span><em class="property">typedef </em>struct <a class="reference internal" href="#c.roc_receiver_config" title="roc_receiver_config">roc_receiver_config</a> <code class="descname">roc_receiver_config</code><a class="headerlink" href="#c.roc_receiver_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="struct">
+<dt>
+<span class="target" id="structroc__receiver__config"></span><em class="property">struct </em><code class="descname">roc_receiver_config</code></dt>
+<dd><p>Receiver configuration. </p>
+<p><dl class="docutils">
+<dt><strong>See</strong></dt>
+<dd><a class="reference internal" href="#receiver_8h_1ade93cec525bde9a255df34d85eb70280"><span class="std std-ref">roc_receiver</span></a> </dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="variable">
+<dt id="c.roc_receiver_config::frame_sample_rate">
+<span class="target" id="structroc__receiver__config_1a5d4b1371653a8ea325d7b3c50e0ee82f"></span>unsigned int <code class="descname">frame_sample_rate</code><a class="headerlink" href="#c.roc_receiver_config::frame_sample_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The rate of the samples in the frames returned to the user. </p>
+<p>Number of samples per channel per second. Should be set. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_receiver_config::frame_channels">
+<span class="target" id="structroc__receiver__config_1a28078d9b9fd3f65e6cfacd85d482ef41"></span><a class="reference internal" href="#c.roc_channel_set" title="roc_channel_set">roc_channel_set</a> <code class="descname">frame_channels</code><a class="headerlink" href="#c.roc_receiver_config::frame_channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>The channel set in the frames returned to the user. </p>
+<p>Should be set. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_receiver_config::frame_encoding">
+<span class="target" id="structroc__receiver__config_1adaa55cf341cb05ad2fc8d19e2a68a37f"></span><a class="reference internal" href="#c.roc_frame_encoding" title="roc_frame_encoding">roc_frame_encoding</a> <code class="descname">frame_encoding</code><a class="headerlink" href="#c.roc_receiver_config::frame_encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sample encoding in the frames returned to the user. </p>
+<p>Should be set. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_receiver_config::automatic_timing">
+<span class="target" id="structroc__receiver__config_1aaa49695e929e2043bb5f34e17234a4aa"></span>unsigned int <code class="descname">automatic_timing</code><a class="headerlink" href="#c.roc_receiver_config::automatic_timing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable automatic timing. </p>
+<p>If non-zero, the receiver read operation restricts the read rate according to the <code class="docutils literal notranslate"><span class="pre">frame_sample_rate</span></code> parameter. If zero, no restrictions are applied. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_receiver_config::resampler_profile">
+<span class="target" id="structroc__receiver__config_1a38d6e3de9ae936fd2b6b437db3384bc9"></span><a class="reference internal" href="#c.roc_resampler_profile" title="roc_resampler_profile">roc_resampler_profile</a> <code class="descname">resampler_profile</code><a class="headerlink" href="#c.roc_receiver_config::resampler_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resampler profile to use. </p>
+<p>If non-zero, the receiver employs resampler for two purposes:<ul class="simple">
+<li>adjust the sender clock to the receiver clock, which may differ a bit</li>
+<li>convert the packet sample rate to the frame sample rate if they are different </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_receiver_config::target_latency">
+<span class="target" id="structroc__receiver__config_1af7e450a7a5e282bcb4de2f527027afbe"></span>unsigned long long <code class="descname">target_latency</code><a class="headerlink" href="#c.roc_receiver_config::target_latency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Target latency, in nanoseconds. </p>
+<p>The session will not start playing until it accumulates the requested latency. Then, if resampler is enabled, the session will adjust its clock to keep actual latency as close as close as possible to the target latency. If zero, default value is used. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_receiver_config::max_latency_overrun">
+<span class="target" id="structroc__receiver__config_1a81dd2972db13a42b238d69fa54283828"></span>unsigned long long <code class="descname">max_latency_overrun</code><a class="headerlink" href="#c.roc_receiver_config::max_latency_overrun" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum delta between current and target latency, in nanoseconds. </p>
+<p>If current latency becomes larger than the target latency plus this value, the session is terminated. If zero, default value is used. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_receiver_config::max_latency_underrun">
+<span class="target" id="structroc__receiver__config_1afb68889e333509c772af08ea972baa8a"></span>unsigned long long <code class="descname">max_latency_underrun</code><a class="headerlink" href="#c.roc_receiver_config::max_latency_underrun" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum delta between target and current latency, in nanoseconds. </p>
+<p>If current latency becomes smaller than the target latency minus this value, the session is terminated. May be larger than the target latency because current latency may be negative, which means that the playback run ahead of the last packet received from network. If zero, default value is used. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_receiver_config::no_playback_timeout">
+<span class="target" id="structroc__receiver__config_1a63901e448e3a54e95ccdce9b9a49e7e2"></span>long long <code class="descname">no_playback_timeout</code><a class="headerlink" href="#c.roc_receiver_config::no_playback_timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timeout for the lack of playback, in nanoseconds. </p>
+<p>If there is no playback during this period, the session is terminated. This mechanism allows to detect dead, hanging, or broken clients generating invalid packets. If zero, default value is used. If negative, the timeout is disabled. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_receiver_config::broken_playback_timeout">
+<span class="target" id="structroc__receiver__config_1a725411ccd1d87fbbb95b5035faa8d9e9"></span>long long <code class="descname">broken_playback_timeout</code><a class="headerlink" href="#c.roc_receiver_config::broken_playback_timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timeout for broken playback, in nanoseconds. </p>
+<p>If there the playback is considered broken during this period, the session is terminated. The playback is broken if there is a breakage detected at every <code class="docutils literal notranslate"><span class="pre">breakage_detection_window</span></code> during <code class="docutils literal notranslate"><span class="pre">broken_playback_timeout</span></code>. This mechanism allows to detect vicious circles like when all client packets are a bit late and receiver constantly drops them producing unpleasant noise. If zero, default value is used. If negative, the timeout is disabled. </p>
+</dd></dl>
+
+<dl class="variable">
+<dt id="c.roc_receiver_config::breakage_detection_window">
+<span class="target" id="structroc__receiver__config_1a84fc9cf5c9bff73f470a99d6ee24209b"></span>unsigned long long <code class="descname">breakage_detection_window</code><a class="headerlink" href="#c.roc_receiver_config::breakage_detection_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Breakage detection window, in nanoseconds. </p>
+<p>If zero, default value is used. <dl class="docutils">
+<dt><strong>See</strong></dt>
+<dd><a class="reference internal" href="#structroc__receiver__config_1a725411ccd1d87fbbb95b5035faa8d9e9"><span class="std std-ref">broken_playback_timeout</span></a>. </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="roc-log">
+<h2><a class="toc-backref" href="#id7">roc_log</a><a class="headerlink" href="#roc-log" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;roc/log.h&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+<dl class="typedef">
+<dt id="c.roc_log_level">
+<span class="target" id="log_8h_1a62b674b539f5e44d93ec9999b2c51245"></span><em class="property">typedef </em>enum <a class="reference internal" href="#c.roc_log_level" title="roc_log_level">roc_log_level</a> <code class="descname">roc_log_level</code><a class="headerlink" href="#c.roc_log_level" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="enum">
+<dt>
+<span class="target" id="log_8h_1ab2fb2cdf9c3f531d537537cbd7323616"></span><code class="descname">roc_log_level</code></dt>
+<dd><p>Log level. </p>
+<p><dl class="docutils">
+<dt><strong>See</strong></dt>
+<dd><a class="reference internal" href="#log_8h_1abee413e54d258026cd1e534e855f866d"><span class="std std-ref">roc_log_set_level</span></a> </dd>
+</dl>
+</p>
+<p><em>Values:</em></p>
+<dl class="enumvalue">
+<dt>
+<span class="target" id="log_8h_1ab2fb2cdf9c3f531d537537cbd7323616a84812ee2083bf4949216d0ce6a492a57"></span><code class="descname">0</code></dt>
+<dd><p>No messages. </p>
+<p>Setting this level disables logging completely. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="log_8h_1ab2fb2cdf9c3f531d537537cbd7323616ab79f5a13b5cff90f5e1b259d2e1ab484"></span><code class="descname">1</code></dt>
+<dd><p>Error messages. </p>
+<p>Setting this level enables logging only when something goes wrong, e.g. a user operation can't be completed, or there is not enough memory for a new session. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="log_8h_1ab2fb2cdf9c3f531d537537cbd7323616ab6caaa36c65c4eb2e3da3e709251c4bb"></span><code class="descname">2</code></dt>
+<dd><p>Informational messages. </p>
+<p>Setting this level enables logging of important high-level events, like binding a new port or creating a new session. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="log_8h_1ab2fb2cdf9c3f531d537537cbd7323616afd124195c6a7601a1799bc33e5427c95"></span><code class="descname">3</code></dt>
+<dd><p>Debug messages. </p>
+<p>Setting this level enables logging of debug messages. Doesn't affect performance. </p>
+</dd></dl>
+
+<dl class="enumvalue">
+<dt>
+<span class="target" id="log_8h_1ab2fb2cdf9c3f531d537537cbd7323616a10d2fd875d510db6369f70313ff93846"></span><code class="descname">4</code></dt>
+<dd><p>Debug messages (extra verbosity). </p>
+<p>Setting this level enables verbose tracing. May cause significant slow down. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="typedef">
+<dt id="c.roc_log_handler">
+<span class="target" id="log_8h_1aa9317e63b9cca6551861c1a9662e921d"></span><em class="property">typedef </em>void<code class="descname">(* roc_log_handler)</code><span class="sig-paren">(</span><a class="reference internal" href="#c.roc_log_level" title="roc_log_level">roc_log_level</a><em>&nbsp;level</em>, const char<em>&nbsp;*component</em>, const char<em>&nbsp;*message</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_log_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log handler. </p>
+<p><strong>Parameters</strong> <ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">level</span></code> defines the message level</li>
+<li><code class="docutils literal notranslate"><span class="pre">component</span></code> defines the component that produces the message</li>
+<li><code class="docutils literal notranslate"><span class="pre">message</span></code> defines the message text</li>
+</ul>
+</p>
+<p><dl class="docutils">
+<dt><strong>See</strong></dt>
+<dd><a class="reference internal" href="#log_8h_1a69f929f79c0971adee0ac7d11429010d"><span class="std std-ref">roc_log_set_handler</span></a> </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_log_set_level">
+<span class="target" id="log_8h_1abee413e54d258026cd1e534e855f866d"></span>void <code class="descname">roc_log_set_level</code><span class="sig-paren">(</span><a class="reference internal" href="#c.roc_log_level" title="roc_log_level">roc_log_level</a><em>&nbsp;level</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_log_set_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set maximum log level. </p>
+<p>Messages with log levels higher than <code class="docutils literal notranslate"><span class="pre">level</span></code> will be dropped. By default the log level is set to <code class="docutils literal notranslate"><span class="pre">ROC_LOG_ERROR</span></code>.</p>
+<p><strong>Thread-safety</strong> <ul class="simple">
+<li>can be used concurrently </li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.roc_log_set_handler">
+<span class="target" id="log_8h_1a69f929f79c0971adee0ac7d11429010d"></span>void <code class="descname">roc_log_set_handler</code><span class="sig-paren">(</span><a class="reference internal" href="#c.roc_log_handler" title="roc_log_handler">roc_log_handler</a><em>&nbsp;handler</em><span class="sig-paren">)</span><a class="headerlink" href="#c.roc_log_set_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set log handler. </p>
+<p>If <code class="docutils literal notranslate"><span class="pre">handler</span></code> is not NULL, messages are passed to the handler. Otherwise, messages are printed to stderr. By default the log handler is set to NULL.</p>
+<p>It's guaranteed that the previously set handler, if any, will not be used after this function returns.</p>
+<p><strong>Thread-safety</strong> <ul class="simple">
+<li>can be used concurrently</li>
+<li>handler calls are serialized, so the handler itself doesn't need to be thread-safe </li>
+</ul>
+</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo80.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_project.html">About project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../building.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../running.html">Running</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_usage.html">Example usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../manuals.html">Manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../portability.html">Portability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../internals.html">Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="example_usage.html" title="Example usage"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../api.html" title="API"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Roc Toolkit 0.1.5</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../api.html" >API</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Roc authors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>

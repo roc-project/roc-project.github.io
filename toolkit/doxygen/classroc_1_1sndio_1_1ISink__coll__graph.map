@@ -1,0 +1,4 @@
+<map id="roc::sndio::ISink" name="roc::sndio::ISink">
+<area shape="rect" id="node1" title="Sink interface." alt="" coords="12,80,137,107"/>
+<area shape="rect" id="node2" href="$classroc_1_1audio_1_1IWriter.html" title="Audio writer interface." alt="" coords="5,5,144,32"/>
+</map>

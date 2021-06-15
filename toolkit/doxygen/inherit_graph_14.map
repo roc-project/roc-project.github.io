@@ -1,0 +1,151 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classroc_1_1core_1_1IAllocator.html" title="Memory allocator interface." alt="" coords="537,107,685,133"/>
+<area shape="rect" id="node2" href="$classroc_1_1core_1_1HeapAllocator.html" title="Heap allocator implementation." alt="" coords="799,107,977,133"/>
+<area shape="rect" id="node3" href="$classroc_1_1sndio_1_1IBackend.html" title="Backend interface." alt="" coords="535,183,687,209"/>
+<area shape="rect" id="node4" href="$classroc_1_1sndio_1_1PulseaudioBackend.html" title="Pulseaudio backend." alt="" coords="779,208,997,235"/>
+<area shape="rect" id="node5" href="$classroc_1_1sndio_1_1SoxBackend.html" title="SoX backend." alt="" coords="802,157,974,184"/>
+<area shape="rect" id="node6" href="$classroc_1_1fec_1_1IBlockDecoder.html" title="FEC block decoder interface." alt="" coords="525,259,697,285"/>
+<area shape="rect" id="node7" href="$classroc_1_1fec_1_1OFDecoder.html" title="Decoder implementation using OpenFEC library." alt="" coords="813,259,963,285"/>
+<area shape="rect" id="node8" href="$classroc_1_1fec_1_1IBlockEncoder.html" title="FEC block encoder interface." alt="" coords="526,309,697,336"/>
+<area shape="rect" id="node9" href="$classroc_1_1fec_1_1OFEncoder.html" title="Encoder implementation using OpenFEC library." alt="" coords="814,309,962,336"/>
+<area shape="rect" id="node10" href="$classroc_1_1packet_1_1IComposer.html" title="Packet composer interface." alt="" coords="526,389,697,416"/>
+<area shape="rect" id="node11" href="$classroc_1_1fec_1_1Composer.html" title="FECFRAME packet composer." alt="" coords="795,411,981,453"/>
+<area shape="rect" id="node12" href="$classroc_1_1rtp_1_1Composer.html" title="RTP packet composer." alt="" coords="817,360,959,387"/>
+<area shape="rect" id="node13" href="$classroc_1_1audio_1_1IFrameDecoder.html" title="Audio frame decoder interface." alt="" coords="515,477,708,504"/>
+<area shape="rect" id="node14" href="$classroc_1_1audio_1_1PCMDecoder.html" title="PCM decoder." alt="" coords="799,477,977,504"/>
+<area shape="rect" id="node15" href="$classroc_1_1audio_1_1IFrameEncoder.html" title="Audio frame encoder interface." alt="" coords="516,528,707,555"/>
+<area shape="rect" id="node16" href="$classroc_1_1audio_1_1PCMEncoder.html" title="PCM encoder." alt="" coords="801,528,975,555"/>
+<area shape="rect" id="node17" href="$classroc_1_1packet_1_1IParser.html" title="Packet parser interface." alt="" coords="539,912,684,939"/>
+<area shape="rect" id="node18" href="$classroc_1_1fec_1_1Parser.html" title="FECFRAME packet parser." alt="" coords="796,934,980,975"/>
+<area shape="rect" id="node19" href="$classroc_1_1rtp_1_1Parser.html" title="RTP packet parser." alt="" coords="830,883,946,909"/>
+<area shape="rect" id="node20" href="$classroc_1_1packet_1_1IReader.html" title="Packet reader interface." alt="" coords="536,705,687,732"/>
+<area shape="rect" id="node21" href="$classroc_1_1fec_1_1Reader.html" title="FEC reader." alt="" coords="826,629,950,656"/>
+<area shape="rect" id="node22" href="$classroc_1_1packet_1_1ConcurrentQueue.html" title="Concurrent blocking packet queue." alt="" coords="781,579,995,605"/>
+<area shape="rect" id="node23" href="$classroc_1_1packet_1_1DelayedReader.html" title="Delayed reader." alt="" coords="787,680,989,707"/>
+<area shape="rect" id="node24" href="$classroc_1_1packet_1_1Queue.html" title="Packet queue." alt="" coords="817,781,959,808"/>
+<area shape="rect" id="node25" href="$classroc_1_1packet_1_1SortedQueue.html" title="Sorted packet queue." alt="" coords="795,832,981,859"/>
+<area shape="rect" id="node26" href="$classroc_1_1rtp_1_1Validator.html" title="RTP validator." alt="" coords="821,731,955,757"/>
+<area shape="rect" id="node27" href="$classroc_1_1sndio_1_1ISource.html" title="Source interface." alt="" coords="541,1228,682,1255"/>
+<area shape="rect" id="node28" href="$classroc_1_1pipeline_1_1Receiver.html" title="Receiver pipeline." alt="" coords="805,1203,971,1229"/>
+<area shape="rect" id="node29" href="$classroc_1_1sndio_1_1SoxSource.html" title="SoX source." alt="" coords="807,1253,969,1280"/>
+<area shape="rect" id="node30" href="$classroc_1_1audio_1_1IWriter.html" title="Audio writer interface." alt="" coords="542,6485,681,6512"/>
+<area shape="rect" id="node31" href="$classroc_1_1audio_1_1NullWriter.html" title="Null writer." alt="" coords="808,6511,968,6537"/>
+<area shape="rect" id="node32" href="$classroc_1_1audio_1_1Packetizer.html" title="Packetizer." alt="" coords="808,6561,968,6588"/>
+<area shape="rect" id="node33" href="$classroc_1_1audio_1_1PoisonWriter.html" title="Poisons audio frames after writing them." alt="" coords="799,6359,977,6385"/>
+<area shape="rect" id="node34" href="$classroc_1_1audio_1_1ProfilingWriter.html" title="Profiling writer." alt="" coords="795,6409,981,6436"/>
+<area shape="rect" id="node35" href="$classroc_1_1audio_1_1ResamplerWriter.html" title="Resamples audio stream with non&#45;integer dynamically changing factor." alt="" coords="786,6460,990,6487"/>
+<area shape="rect" id="node36" href="$classroc_1_1sndio_1_1ISink.html" title="Sink interface." alt="" coords="825,6612,951,6639"/>
+<area shape="rect" id="node37" href="$classroc_1_1pipeline_1_1Converter.html" title="Converter pipeline." alt="" coords="1065,6333,1239,6360"/>
+<area shape="rect" id="node38" href="$classroc_1_1pipeline_1_1Sender.html" title="Sender pipeline." alt="" coords="1075,4189,1229,4216"/>
+<area shape="rect" id="node39" href="$classroc_1_1sndio_1_1PulseaudioSink.html" title="PulseAudio sink,." alt="" coords="1056,4880,1248,4907"/>
+<area shape="rect" id="node40" href="$classroc_1_1sndio_1_1SoxSink.html" title="SoX sink." alt="" coords="1079,5909,1225,5936"/>
+<area shape="rect" id="node41" href="$classroc_1_1packet_1_1IWriter.html" title="Packet writer interface." alt="" coords="539,1000,684,1027"/>
+<area shape="rect" id="node42" href="$classroc_1_1fec_1_1Writer.html" title="FEC writer." alt="" coords="829,1101,947,1128"/>
+<area shape="rect" id="node43" href="$classroc_1_1netio_1_1UDPSenderPort.html" title="UDP sender." alt="" coords="793,56,983,83"/>
+<area shape="rect" id="node44" href="$classroc_1_1packet_1_1Interleaver.html" title="Interleaves packets to transmit them in pseudo random order." alt="" coords="802,1152,974,1179"/>
+<area shape="rect" id="node45" href="$classroc_1_1packet_1_1Router.html" title="Route packets to writers." alt="" coords="816,1000,960,1027"/>
+<area shape="rect" id="node46" href="$classroc_1_1pipeline_1_1SenderPort.html" title="Sender port pipeline." alt="" coords="797,1051,979,1077"/>
+<area shape="rect" id="node47" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="35,6134,209,6175"/>
+<area shape="rect" id="node48" href="$classroc_1_1core_1_1ListNode.html" title="Base class for list element." alt="" coords="299,6145,442,6172"/>
+<area shape="rect" id="node49" href="$classroc_1_1audio_1_1IReader.html" title="Audio reader interface." alt="" coords="539,6156,683,6183"/>
+<area shape="rect" id="node55" href="$classroc_1_1netio_1_1BasicPort.html" title="Basic port interface." alt="" coords="535,56,687,83"/>
+<area shape="rect" id="node57" href="$classroc_1_1packet_1_1Packet.html" title="Packet." alt="" coords="540,3408,683,3435"/>
+<area shape="rect" id="node58" href="$classroc_1_1pipeline_1_1ReceiverPort.html" title="Receiver port pipeline." alt="" coords="515,6207,708,6233"/>
+<area shape="rect" id="node59" href="$classroc_1_1pipeline_1_1ReceiverSession.html" title="Receiver session pipeline." alt="" coords="503,6264,720,6291"/>
+<area shape="rect" id="node50" href="$classroc_1_1audio_1_1Depacketizer.html" title="Depacketizer." alt="" coords="799,6156,977,6183"/>
+<area shape="rect" id="node51" href="$classroc_1_1audio_1_1Mixer.html" title="Mixer. Mixes multiple input streams into one output stream." alt="" coords="823,6207,953,6233"/>
+<area shape="rect" id="node52" href="$classroc_1_1audio_1_1PoisonReader.html" title="Poisons audio frames before reading them." alt="" coords="797,6257,979,6284"/>
+<area shape="rect" id="node53" href="$classroc_1_1audio_1_1ResamplerReader.html" title="Resamples audio stream with non&#45;integer dynamically changing factor." alt="" coords="783,6308,993,6335"/>
+<area shape="rect" id="node54" href="$classroc_1_1audio_1_1Watchdog.html" title="Watchdog." alt="" coords="809,6105,967,6132"/>
+<area shape="rect" id="node56" href="$classroc_1_1netio_1_1UDPReceiverPort.html" title="UDP receiver." alt="" coords="787,5,989,32"/>
+<area shape="rect" id="node60" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="29,49,215,90"/>
+<area shape="rect" id="node61" href="$classroc_1_1core_1_1RefCnt.html" title=" " alt="" coords="300,49,441,90"/>
+<area shape="rect" id="node62" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="17,6199,227,6241"/>
+<area shape="rect" id="node63" href="$classroc_1_1core_1_1RefCnt.html" title=" " alt="" coords="300,6199,441,6241"/>
+<area shape="rect" id="node64" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="5,6265,239,6306"/>
+<area shape="rect" id="node65" href="$classroc_1_1core_1_1RefCnt.html" title=" " alt="" coords="297,6265,445,6306"/>
+<area shape="rect" id="node66" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="35,3401,209,3442"/>
+<area shape="rect" id="node67" href="$classroc_1_1core_1_1RefCnt.html" title="Base class for reference countable objects." alt="" coords="287,3408,455,3435"/>
+<area shape="rect" id="node68" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="514,3459,709,3485"/>
+<area shape="rect" id="node69" href="$classroc_1_1core_1_1Array.html" title=" " alt="" coords="799,3251,977,3277"/>
+<area shape="rect" id="node70" href="$classroc_1_1core_1_1Array.html" title=" " alt="" coords="799,3301,977,3328"/>
+<area shape="rect" id="node71" href="$classroc_1_1core_1_1Array.html" title=" " alt="" coords="810,3353,966,3394"/>
+<area shape="rect" id="node72" href="$classroc_1_1core_1_1Array.html" title=" " alt="" coords="795,3418,981,3459"/>
+<area shape="rect" id="node73" href="$classroc_1_1core_1_1Array.html" title=" " alt="" coords="793,3600,983,3627"/>
+<area shape="rect" id="node74" href="$classroc_1_1core_1_1Array.html" title=" " alt="" coords="783,3651,993,3677"/>
+<area shape="rect" id="node75" href="$classroc_1_1core_1_1Array.html" title=" " alt="" coords="793,3701,983,3728"/>
+<area shape="rect" id="node76" href="$classroc_1_1core_1_1Array.html" title=" " alt="" coords="793,3752,983,3779"/>
+<area shape="rect" id="node77" href="$classroc_1_1core_1_1List.html" title=" " alt="" coords="792,3803,984,3845"/>
+<area shape="rect" id="node78" href="$classroc_1_1core_1_1List.html" title=" " alt="" coords="792,3869,984,3910"/>
+<area shape="rect" id="node79" href="$classroc_1_1core_1_1List.html" title=" " alt="" coords="804,3935,972,3991"/>
+<area shape="rect" id="node80" href="$classroc_1_1core_1_1List.html" title=" " alt="" coords="815,4015,961,4057"/>
+<area shape="rect" id="node81" href="$classroc_1_1core_1_1List.html" title=" " alt="" coords="816,4081,960,4122"/>
+<area shape="rect" id="node82" href="$classroc_1_1core_1_1List.html" title=" " alt="" coords="794,4146,982,4187"/>
+<area shape="rect" id="node83" href="$classroc_1_1core_1_1List.html" title=" " alt="" coords="782,4211,994,4253"/>
+<area shape="rect" id="node84" href="$classroc_1_1core_1_1List.html" title=" " alt="" coords="792,4277,984,4318"/>
+<area shape="rect" id="node85" href="$classroc_1_1core_1_1Pool.html" title=" " alt="" coords="803,3483,973,3525"/>
+<area shape="rect" id="node87" href="$classroc_1_1core_1_1Pool.html" title=" " alt="" coords="804,5470,972,5511"/>
+<area shape="rect" id="node89" href="$classroc_1_1core_1_1Pool.html" title=" " alt="" coords="804,3069,972,3110"/>
+<area shape="rect" id="node91" href="$classroc_1_1core_1_1Pool.html" title=" " alt="" coords="804,3134,972,3175"/>
+<area shape="rect" id="node93" href="$classroc_1_1core_1_1Pool.html" title=" " alt="" coords="795,3200,981,3227"/>
+<area shape="rect" id="node95" href="$classroc_1_1address_1_1io__uri__to__str.html" title="Convert IoURI to string." alt="" coords="815,4445,961,4486"/>
+<area shape="rect" id="node96" href="$classroc_1_1audio_1_1Frame.html" title="Audio frame." alt="" coords="821,4511,955,4537"/>
+<area shape="rect" id="node97" href="$classroc_1_1audio_1_1FreqEstimator.html" title="Evaluates sender&#39;s frequency to receivers&#39;s frequency ratio." alt="" coords="795,4561,981,4588"/>
+<area shape="rect" id="node98" href="$classroc_1_1audio_1_1LatencyMonitor.html" title="Session latency monitor." alt="" coords="791,4612,985,4639"/>
+<area shape="rect" id="node99" href="$classroc_1_1audio_1_1Resampler.html" title="Resamples audio stream with non&#45;integer dynamically changing factor." alt="" coords="806,4663,970,4689"/>
+<area shape="rect" id="node100" href="$classroc_1_1core_1_1Array.html" title="Dynamic array." alt="" coords="809,4713,967,4740"/>
+<area shape="rect" id="node101" href="$classroc_1_1core_1_1Atomic.html" title="Atomic integer." alt="" coords="822,4764,954,4791"/>
+<area shape="rect" id="node102" href="$classroc_1_1core_1_1Cond.html" title="Condition variable." alt="" coords="829,4815,947,4841"/>
+<area shape="rect" id="node103" href="$classroc_1_1core_1_1CrashHandler.html" title="Crash handler." alt="" coords="801,4865,975,4892"/>
+<area shape="rect" id="node104" href="$classroc_1_1core_1_1errno__to__str.html" title="Convert errno to string." alt="" coords="806,4916,970,4943"/>
+<area shape="rect" id="node105" href="$classroc_1_1core_1_1List.html" title="Intrusive doubly&#45;linked list." alt="" coords="820,4967,956,5009"/>
+<area shape="rect" id="node106" href="$classroc_1_1core_1_1Logger.html" title="Logger." alt="" coords="823,5033,953,5060"/>
+<area shape="rect" id="node107" href="$classroc_1_1core_1_1Mutex.html" title="Mutex." alt="" coords="825,5084,951,5111"/>
+<area shape="rect" id="node108" href="$classroc_1_1core_1_1Pool.html" title="Pool." alt="" coords="812,5135,964,5161"/>
+<area shape="rect" id="node109" href="$classroc_1_1core_1_1RateLimiter.html" title="Rate limiter." alt="" coords="807,5185,969,5212"/>
+<area shape="rect" id="node110" href="$classroc_1_1core_1_1ScopedDestructor.html" title="Destroys the object via custom deleter." alt="" coords="787,5237,989,5278"/>
+<area shape="rect" id="node111" href="$classroc_1_1core_1_1ScopedLock.html" title="RAII mutex lock." alt="" coords="807,5302,969,5343"/>
+<area shape="rect" id="node112" href="$classroc_1_1core_1_1Singleton.html" title="Singleton." alt="" coords="795,5368,981,5395"/>
+<area shape="rect" id="node113" href="$classroc_1_1core_1_1TempFile.html" title="Temporary file." alt="" coords="816,5419,960,5445"/>
+<area shape="rect" id="node114" href="$classroc_1_1core_1_1Ticker.html" title="Ticker." alt="" coords="825,5536,951,5563"/>
+<area shape="rect" id="node115" href="$classroc_1_1core_1_1UniquePtr.html" title="Unique ownrship pointer." alt="" coords="813,5587,963,5629"/>
+<area shape="rect" id="node116" href="$classroc_1_1fec_1_1CodecMap.html" title="FEC codec map." alt="" coords="815,5653,961,5680"/>
+<area shape="rect" id="node117" href="$classroc_1_1packet_1_1address__to__str.html" title="Convert network address to string." alt="" coords="812,5705,964,5746"/>
+<area shape="rect" id="node118" href="$classroc_1_1pipeline_1_1port__to__str.html" title="Convert pipeline port to string." alt="" coords="820,5770,956,5811"/>
+<area shape="rect" id="node119" href="$classroc_1_1rtp_1_1FormatMap.html" title="RTP payload format map." alt="" coords="813,5836,963,5863"/>
+<area shape="rect" id="node120" href="$classroc_1_1sndio_1_1BackendDispatcher.html" title="Backend dispatcher." alt="" coords="779,5887,997,5913"/>
+<area shape="rect" id="node121" href="$classroc_1_1sndio_1_1Pump.html" title="Audio pump." alt="" coords="823,5937,953,5964"/>
+<area shape="rect" id="node122" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="783,5989,993,6030"/>
+<area shape="rect" id="node123" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="777,1305,999,1346"/>
+<area shape="rect" id="node124" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="777,1370,999,1411"/>
+<area shape="rect" id="node125" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="775,1435,1001,1477"/>
+<area shape="rect" id="node126" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="808,1501,968,1542"/>
+<area shape="rect" id="node127" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="793,1566,983,1607"/>
+<area shape="rect" id="node128" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="781,1631,995,1673"/>
+<area shape="rect" id="node129" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="785,1697,991,1738"/>
+<area shape="rect" id="node130" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="779,1762,997,1803"/>
+<area shape="rect" id="node131" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="768,1827,1008,1869"/>
+<area shape="rect" id="node132" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="771,1893,1005,1934"/>
+<area shape="rect" id="node133" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="794,1958,982,1999"/>
+<area shape="rect" id="node134" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="811,2023,965,2065"/>
+<area shape="rect" id="node135" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="787,2089,989,2130"/>
+<area shape="rect" id="node136" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="788,2154,988,2195"/>
+<area shape="rect" id="node137" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="811,2219,965,2261"/>
+<area shape="rect" id="node138" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="813,2285,963,2326"/>
+<area shape="rect" id="node139" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="773,2350,1003,2391"/>
+<area shape="rect" id="node140" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="787,2415,989,2457"/>
+<area shape="rect" id="node141" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="787,2481,989,2522"/>
+<area shape="rect" id="node142" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="801,2546,975,2587"/>
+<area shape="rect" id="node143" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="801,2611,975,2653"/>
+<area shape="rect" id="node144" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="781,2677,995,2718"/>
+<area shape="rect" id="node145" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="783,2742,993,2783"/>
+<area shape="rect" id="node146" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="802,2807,974,2849"/>
+<area shape="rect" id="node147" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="813,2873,963,2914"/>
+<area shape="rect" id="node148" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="806,2938,970,2979"/>
+<area shape="rect" id="node149" href="$classroc_1_1core_1_1UniquePtr.html" title=" " alt="" coords="813,3003,963,3045"/>
+<area shape="rect" id="node86" href="$classroc_1_1core_1_1BufferPool.html" title=" " alt="" coords="1074,3483,1230,3525"/>
+<area shape="rect" id="node88" href="$classroc_1_1core_1_1BufferPool.html" title=" " alt="" coords="1075,5470,1229,5511"/>
+<area shape="rect" id="node90" href="$classroc_1_1core_1_1BufferPool.html" title="Buffer pool." alt="" coords="1057,3076,1247,3103"/>
+<area shape="rect" id="node92" href="$classroc_1_1core_1_1BufferPool.html" title=" " alt="" coords="1075,3134,1229,3175"/>
+<area shape="rect" id="node94" href="$classroc_1_1packet_1_1PacketPool.html" title="Packet pool." alt="" coords="1067,3200,1237,3227"/>
+</map>

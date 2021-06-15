@@ -1,0 +1,20 @@
+<map id="roc_audio/freq_estimator.h" name="roc_audio/freq_estimator.h">
+<area shape="rect" id="node1" title="Frequency estimator." alt="" coords="325,5,521,32"/>
+<area shape="rect" id="node2" href="$freq__estimator__decim_8h.html" title="Frequency estimator config." alt="" coords="227,80,413,121"/>
+<area shape="rect" id="node3" href="$roc__audio_2units_8h.html" title="Various units used in audio processing." alt="" coords="253,169,387,196"/>
+<area shape="rect" id="node16" href="$noncopyable_8h.html" title="Non&#45;copyable object." alt="" coords="437,87,613,114"/>
+<area shape="rect" id="node17" href="$roc__packet_2units_8h.html" title="Various units used in packets." alt="" coords="638,87,778,114"/>
+<area shape="rect" id="node4" href="$stddefs_8h.html" title="Commonly used types and functions." alt="" coords="445,244,587,271"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,319,91,345"/>
+<area shape="rect" id="node6" title=" " alt="" coords="115,319,178,345"/>
+<area shape="rect" id="node7" title=" " alt="" coords="202,319,251,345"/>
+<area shape="rect" id="node8" title=" " alt="" coords="275,319,346,345"/>
+<area shape="rect" id="node9" title=" " alt="" coords="370,319,457,345"/>
+<area shape="rect" id="node10" title=" " alt="" coords="481,319,551,345"/>
+<area shape="rect" id="node11" title=" " alt="" coords="576,319,651,345"/>
+<area shape="rect" id="node12" title=" " alt="" coords="675,319,746,345"/>
+<area shape="rect" id="node13" title=" " alt="" coords="770,319,841,345"/>
+<area shape="rect" id="node14" title=" " alt="" coords="865,319,935,345"/>
+<area shape="rect" id="node15" title=" " alt="" coords="960,319,1056,345"/>
+<area shape="rect" id="node18" href="$time_8h.html" title="Time definitions." alt="" coords="629,169,752,196"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="roc_core/unique_ptr.h" name="roc_core/unique_ptr.h">
+<area shape="rect" id="node1" title="Unique ownrship pointer." alt="" coords="499,5,661,32"/>
+<area shape="rect" id="node2" href="$converter_8h.html" title="Converter pipeline." alt="" coords="5,87,184,114"/>
+<area shape="rect" id="node3" href="$receiver_8h.html" title="Receiver pipeline." alt="" coords="254,169,423,196"/>
+<area shape="rect" id="node4" href="$receiver__port_8h.html" title="Receiver port pipeline." alt="" coords="259,80,418,121"/>
+<area shape="rect" id="node5" href="$receiver__session_8h.html" title="Receiver session pipeline." alt="" coords="442,80,601,121"/>
+<area shape="rect" id="node6" href="$sender_8h.html" title="Sender pipeline." alt="" coords="615,169,775,196"/>
+<area shape="rect" id="node7" href="$sender__port_8h.html" title="Sender port pipeline." alt="" coords="676,80,825,121"/>
+<area shape="rect" id="node8" href="$sox__sink_8h.html" title="SoX sink." alt="" coords="850,80,1011,121"/>
+<area shape="rect" id="node9" href="$sox__source_8h.html" title="SoX source." alt="" coords="1035,80,1213,121"/>
+</map>

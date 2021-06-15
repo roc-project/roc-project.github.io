@@ -1,0 +1,5 @@
+<map id="roc::audio::IReader" name="roc::audio::IReader">
+<area shape="rect" id="node1" title="Audio reader interface." alt="" coords="20,169,164,196"/>
+<area shape="rect" id="node2" href="$classroc_1_1core_1_1ListNode.html" title="Base class for list element." alt="" coords="21,95,163,121"/>
+<area shape="rect" id="node3" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="5,5,179,47"/>
+</map>

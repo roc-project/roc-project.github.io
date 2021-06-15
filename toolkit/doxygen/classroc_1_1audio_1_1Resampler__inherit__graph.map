@@ -1,0 +1,4 @@
+<map id="roc::audio::Resampler" name="roc::audio::Resampler">
+<area shape="rect" id="node1" title="Resamples audio stream with non&#45;integer dynamically changing factor." alt="" coords="21,80,185,107"/>
+<area shape="rect" id="node2" href="$classroc_1_1core_1_1NonCopyable.html" title=" " alt="" coords="5,5,200,32"/>
+</map>

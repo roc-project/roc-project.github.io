@@ -1,0 +1,8 @@
+<map id="roc_core/refcnt.h" name="roc_core/refcnt.h">
+<area shape="rect" id="node1" title="Base class for reference countable objects." alt="" coords="127,5,257,32"/>
+<area shape="rect" id="node2" href="$atomic_8h.html" title="Atomic integer." alt="" coords="16,80,155,107"/>
+<area shape="rect" id="node3" href="$noncopyable_8h.html" title="Non&#45;copyable object." alt="" coords="5,155,181,181"/>
+<area shape="rect" id="node4" href="$panic_8h.html" title="Panic function." alt="" coords="229,80,357,107"/>
+<area shape="rect" id="node5" href="$attributes_8h.html" title="GCC attributes." alt="" coords="210,155,366,181"/>
+<area shape="rect" id="node6" href="$helpers_8h.html" title="Compile time helpers." alt="" coords="391,155,532,181"/>
+</map>
